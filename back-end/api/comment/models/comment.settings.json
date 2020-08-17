@@ -1,0 +1,22 @@
+{
+  "kind": "collectionType",
+  "collectionName": "comments",
+  "info": {
+    "name": "Comment"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "Upload_date": {
+      "type": "date"
+    },
+    "Content": {
+      "type": "richtext"
+    },
+    "account": {
+      "model": "account"
+    }
+  }
+}

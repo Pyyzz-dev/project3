@@ -1,0 +1,32 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+div{
+    border: 1px solid black
+}
+
+.sub-Content{
+    min-height: 300px;
+    width: 100%;
+}
+
+.sub-Content .advertisement{
+    height: 300px;
+    width: 100%;
+}
+
+.sub-Content .advertisement .sub-advertisement{
+    height: 260px;
+    width: 100%;
+}
+
+.sub-Content .content{
+    min-height: 1000px;
+}
+
+.sub-Content .content .sub-content{
+    min-height: 1000px;
+}

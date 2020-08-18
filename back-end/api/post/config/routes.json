@@ -8,6 +8,22 @@
         "policies": []
       }
     },
+     {
+      "method": "GET",
+      "path": "/posts/top-post",
+      "handler": "post.Top5Post",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/posts/top-like",
+      "handler": "post.Top1Like",
+      "config": {
+        "policies": []
+      }
+    },
     {
       "method": "GET",
       "path": "/posts/count",
@@ -24,6 +40,7 @@
         "policies": []
       }
     },
+   
     {
       "method": "POST",
       "path": "/posts",

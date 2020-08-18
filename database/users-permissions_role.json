@@ -1,0 +1,71 @@
+[{
+  "_id": {
+    "$oid": "5f3a7e57080b362dd4393407"
+  },
+  "name": "Authenticated",
+  "description": "Default role given to authenticated user.",
+  "type": "authenticated",
+  "createdAt": {
+    "$date": "2020-08-17T12:55:51.010Z"
+  },
+  "updatedAt": {
+    "$date": "2020-08-17T12:55:51.010Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f3a7e58080b362dd439340e"
+  },
+  "name": "Public",
+  "description": "Default role given to unauthenticated user.",
+  "type": "public",
+  "createdAt": {
+    "$date": "2020-08-17T12:55:52.284Z"
+  },
+  "updatedAt": {
+    "$date": "2020-08-17T12:55:52.284Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f3a9b30c470162eb090fc5e"
+  },
+  "name": "Guest",
+  "description": "Just see the home page",
+  "type": "guest",
+  "createdAt": {
+    "$date": "2020-08-17T14:58:56.039Z"
+  },
+  "updatedAt": {
+    "$date": "2020-08-17T14:58:56.039Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f3a9b6bc470162eb090fcbe"
+  },
+  "name": "User",
+  "description": "After login, user can see the home page, fix their infomation, add their favorite post and comment post",
+  "type": "user",
+  "createdAt": {
+    "$date": "2020-08-17T14:59:55.078Z"
+  },
+  "updatedAt": {
+    "$date": "2020-08-17T14:59:55.078Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f3a9b8dc470162eb090fd1e"
+  },
+  "name": "Admin",
+  "description": "All role, manage the user, post and comment",
+  "type": "admin",
+  "createdAt": {
+    "$date": "2020-08-17T15:00:29.011Z"
+  },
+  "updatedAt": {
+    "$date": "2020-08-18T03:39:45.519Z"
+  },
+  "__v": 0
+}]

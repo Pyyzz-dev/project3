@@ -15,5 +15,12 @@ module.exports = {
       ok: true,
       data: data
     });
+  },
+  FindbyId: async ctx =>{
+      var data = await strapi.services.post.findbyId(id)
+      ctx.send({
+          ok:true,
+          data:data
+      });
   }
 }

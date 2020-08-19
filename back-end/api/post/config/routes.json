@@ -18,6 +18,14 @@
     },
     {
       "method": "GET",
+      "path": "/posts/findbyId",
+      "handler": "post.FindbyId",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
       "path": "/posts/top-like",
       "handler": "post.Top1Like",
       "config": {

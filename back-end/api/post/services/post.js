@@ -7,7 +7,12 @@ function getPosts() {
 function getPostsLike() {
   return strapi.query('post').findOne({ _sort: 'Like:desc' });
 }
+
+function findbyId(id){
+  return strapi.query("post").find({id: id});
+}
 module.exports = {
   getPosts,
-  getPostsLike 
+  getPostsLike,
+  findbyId
 };

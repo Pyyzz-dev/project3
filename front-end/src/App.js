@@ -1,11 +1,16 @@
 import React, {Component} from 'react';
-import Content from "./Component/Content/Content";
-import './App.css';
+import Login from "./Component/Authenticator/Login";
+import Register from "./Component/Authenticator/Registration";
+import './CSS/App.css';
 
 class App extends Component {
   render(){
     return(
-      <Content/>
+      <div>
+ <Login/>
+      <Register/>
+      </div>
+     
     )
   }
 }

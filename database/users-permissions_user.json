@@ -1,0 +1,93 @@
+[{
+  "_id": {
+    "$oid": "5f3aa1e52f3f512c58f65446"
+  },
+  "confirmed": false,
+  "blocked": false,
+  "posts": [
+    {
+      "$oid": "5f3aa1242f3f512c58f65444"
+    },
+    {
+      "$oid": "5f3b4b1e5b51981f80deb41a"
+    }
+  ],
+  "username": "Dương Phong",
+  "email": "ndphonghe130315@gmail.com",
+  "password": "$2a$10$0z3wmQzZcsul2vFZYFiwWetwyrr03ih38Kgya9XpaU/MV2VzAhsoq",
+  "provider": "local",
+  "createdAt": {
+    "$date": "2020-08-17T15:27:33.630Z"
+  },
+  "updatedAt": {
+    "$date": "2020-08-18T03:37:38.586Z"
+  },
+  "__v": 0,
+  "created_by": {
+    "$oid": "5f3a7ea9080b362dd43934d2"
+  },
+  "role": {
+    "$oid": "5f3a9b8dc470162eb090fd1e"
+  },
+  "updated_by": {
+    "$oid": "5f3a7ea9080b362dd43934d2"
+  }
+},{
+  "_id": {
+    "$oid": "5f3aa4fd3bdea514383f4455"
+  },
+  "confirmed": false,
+  "blocked": false,
+  "posts": [
+    {
+      "$oid": "5f3aa1242f3f512c58f65444"
+    }
+  ],
+  "username": "Quang Vinh",
+  "email": "quangvinh@gmail.com",
+  "password": "$2a$10$p1knRQyejwdNlbRHXYEB4OsgMUX3w5J15idsXc8d9FRQa.Isjc0ku",
+  "provider": "local",
+  "createdAt": {
+    "$date": "2020-08-17T15:40:45.839Z"
+  },
+  "updatedAt": {
+    "$date": "2020-08-17T15:40:45.852Z"
+  },
+  "__v": 0,
+  "created_by": {
+    "$oid": "5f3a7ea9080b362dd43934d2"
+  },
+  "role": {
+    "$oid": "5f3a9b6bc470162eb090fcbe"
+  },
+  "updated_by": {
+    "$oid": "5f3a7ea9080b362dd43934d2"
+  }
+},{
+  "_id": {
+    "$oid": "5f3aa52a3bdea514383f4456"
+  },
+  "confirmed": false,
+  "blocked": false,
+  "posts": [],
+  "username": "Bá Mạnh",
+  "email": "manhcaoisme@gmail.com",
+  "password": "$2a$10$DDp7SN4mK1wwM8LGjmnCQuaDitWghS722AxLTnF939wSqbX/qHvAm",
+  "provider": "local",
+  "createdAt": {
+    "$date": "2020-08-17T15:41:30.353Z"
+  },
+  "updatedAt": {
+    "$date": "2020-08-17T15:41:30.359Z"
+  },
+  "__v": 0,
+  "created_by": {
+    "$oid": "5f3a7ea9080b362dd43934d2"
+  },
+  "role": {
+    "$oid": "5f3a9b30c470162eb090fc5e"
+  },
+  "updated_by": {
+    "$oid": "5f3a7ea9080b362dd43934d2"
+  }
+}]

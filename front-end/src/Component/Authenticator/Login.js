@@ -6,7 +6,7 @@ export default class Login extends Component {
     super(props);
 
     this.state = {
-      email: "",
+      username: "",
       password: "",
       loginErrors: ""
     };
@@ -21,25 +21,22 @@ export default class Login extends Component {
     });
   }
 
-  handleSubmit(event) {
+   handleSubmit(event) {
     const { username, password } = this.state;
-    axios
-      .post(
-        "http://localhost:3000/login",
-        {
-          user: {
-            username: username,
-            password: password
-          }
-        },
-        { withCredentials: true }
-      )
-      .then(response => {
-        if (response.data.logged_in) {
-          this.props.handleSuccessfulAuth(response.data);
-        }
-      })
-      .catch(error => {
+    console.log("Submited");
+    console.log("Username:" + username);
+    console.log("Password:" + password);
+    axios.post(
+        "http://localhost:1337/auth/local", {
+        identifier: username,
+        password: password
+      }).then(response => {
+        console.log(response);
+        if (response.data.jwt) {
+         console.log("You are logined");
+         window.location.href="/content";
+        }else console.log("You are not logined");
+      }).catch(error => {
         console.log("login error", error);
       });
     event.preventDefault();
@@ -47,12 +44,12 @@ export default class Login extends Component {
 
   render() {
     return (
-      <div class="login_form">
-        <div class="logo"></div>
-        <form onSubmit={this.handleSubmit}>
+      <div className="login_form">
+        <div className="logo"></div>
+        <form onSubmit={this.handleSubmit} >
           <label>
-            Username: 
-          </label><br/>
+            Username:
+          </label><br />
           <input
             type="text"
             name="username"
@@ -63,8 +60,8 @@ export default class Login extends Component {
           />
           <br />
           <label>
-            Password: 
-          </label><br/>
+            Password:
+          </label><br />
           <input
             type="password"
             name="password"
@@ -74,8 +71,8 @@ export default class Login extends Component {
             required
           />
           <br />
-          <button type="submit" class="btnLogin">Login</button>
-          <span class="register_text">Don't have account?</span><a href="https://google.com/">Register</a>
+          <button type="submit" className="btnLogin">Login</button>
+          <span className="register_text">Don't have account?</span><a href="/register">Register</a>
         </form>
       </div>
     );

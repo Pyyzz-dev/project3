@@ -1,8 +1,26 @@
-'use strict';
 
-/**
- * Read the documentation (https://strapi.io/documentation/v3.x/concepts/controllers.html#core-controllers)
- * to customize this controller
- */
+const { sanitizeEntity } = require('strapi-utils');
 
-module.exports = {};
+module.exports = {
+  Top5Post: async ctx => { 
+    var data = await strapi.services.post.getPosts()
+    ctx.send({
+      ok: true,
+      data: data
+    });
+  },
+  Top1Like: async ctx => {
+    var data = await strapi.services.post.getPostsLike()
+    ctx.send({
+      ok: true,
+      data: data
+    });
+  },
+  FindbyId: async ctx =>{
+      var data = await strapi.services.post.findbyId(id)
+      ctx.send({
+          ok:true,
+          data:data
+      });
+  }
+}

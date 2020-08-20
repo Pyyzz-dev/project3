@@ -1,0 +1,1268 @@
+[{
+  "_id": {
+    "$oid": "5f3a7e5a080b362dd43934a2"
+  },
+  "action": "plugins::upload.assets.create",
+  "subject": null,
+  "conditions": [],
+  "fields": null,
+  "createdAt": {
+    "$date": "2020-08-17T12:55:54.705Z"
+  },
+  "updatedAt": {
+    "$date": "2020-08-17T12:55:54.726Z"
+  },
+  "__v": 0,
+  "role": {
+    "$oid": "5f3a7e5a080b362dd439349f"
+  }
+},{
+  "_id": {
+    "$oid": "5f3a7e5a080b362dd43934a1"
+  },
+  "action": "plugins::upload.read",
+  "conditions": [],
+  "subject": null,
+  "fields": null,
+  "createdAt": {
+    "$date": "2020-08-17T12:55:54.704Z"
+  },
+  "updatedAt": {
+    "$date": "2020-08-17T12:55:54.717Z"
+  },
+  "__v": 0,
+  "role": {
+    "$oid": "5f3a7e5a080b362dd439349f"
+  }
+},{
+  "_id": {
+    "$oid": "5f3a7e5a080b362dd43934a3"
+  },
+  "action": "plugins::upload.assets.update",
+  "conditions": [],
+  "subject": null,
+  "fields": null,
+  "createdAt": {
+    "$date": "2020-08-17T12:55:54.705Z"
+  },
+  "updatedAt": {
+    "$date": "2020-08-17T12:55:54.719Z"
+  },
+  "__v": 0,
+  "role": {
+    "$oid": "5f3a7e5a080b362dd439349f"
+  }
+},{
+  "_id": {
+    "$oid": "5f3a7e5a080b362dd43934a4"
+  },
+  "action": "plugins::upload.assets.download",
+  "subject": null,
+  "conditions": [],
+  "fields": null,
+  "createdAt": {
+    "$date": "2020-08-17T12:55:54.705Z"
+  },
+  "updatedAt": {
+    "$date": "2020-08-17T12:55:54.722Z"
+  },
+  "__v": 0,
+  "role": {
+    "$oid": "5f3a7e5a080b362dd439349f"
+  }
+},{
+  "_id": {
+    "$oid": "5f3a7e5a080b362dd43934a5"
+  },
+  "action": "plugins::upload.assets.copy-link",
+  "subject": null,
+  "conditions": [],
+  "fields": null,
+  "createdAt": {
+    "$date": "2020-08-17T12:55:54.705Z"
+  },
+  "updatedAt": {
+    "$date": "2020-08-17T12:55:54.724Z"
+  },
+  "__v": 0,
+  "role": {
+    "$oid": "5f3a7e5a080b362dd439349f"
+  }
+},{
+  "_id": {
+    "$oid": "5f3a7e5a080b362dd43934a6"
+  },
+  "action": "plugins::upload.read",
+  "conditions": [
+    "admin::is-creator"
+  ],
+  "subject": null,
+  "fields": null,
+  "createdAt": {
+    "$date": "2020-08-17T12:55:54.760Z"
+  },
+  "updatedAt": {
+    "$date": "2020-08-17T12:55:54.772Z"
+  },
+  "__v": 0,
+  "role": {
+    "$oid": "5f3a7e5a080b362dd43934a0"
+  }
+},{
+  "_id": {
+    "$oid": "5f3a7e5a080b362dd43934a7"
+  },
+  "action": "plugins::upload.assets.create",
+  "subject": null,
+  "conditions": [],
+  "fields": null,
+  "createdAt": {
+    "$date": "2020-08-17T12:55:54.760Z"
+  },
+  "updatedAt": {
+    "$date": "2020-08-17T12:55:54.774Z"
+  },
+  "__v": 0,
+  "role": {
+    "$oid": "5f3a7e5a080b362dd43934a0"
+  }
+},{
+  "_id": {
+    "$oid": "5f3a7e5a080b362dd43934a8"
+  },
+  "action": "plugins::upload.assets.update",
+  "conditions": [
+    "admin::is-creator"
+  ],
+  "subject": null,
+  "fields": null,
+  "createdAt": {
+    "$date": "2020-08-17T12:55:54.760Z"
+  },
+  "updatedAt": {
+    "$date": "2020-08-17T12:55:54.776Z"
+  },
+  "__v": 0,
+  "role": {
+    "$oid": "5f3a7e5a080b362dd43934a0"
+  }
+},{
+  "_id": {
+    "$oid": "5f3a7e5a080b362dd43934a9"
+  },
+  "action": "plugins::upload.assets.download",
+  "subject": null,
+  "conditions": [],
+  "fields": null,
+  "createdAt": {
+    "$date": "2020-08-17T12:55:54.760Z"
+  },
+  "updatedAt": {
+    "$date": "2020-08-17T12:55:54.778Z"
+  },
+  "__v": 0,
+  "role": {
+    "$oid": "5f3a7e5a080b362dd43934a0"
+  }
+},{
+  "_id": {
+    "$oid": "5f3a7e5a080b362dd43934aa"
+  },
+  "action": "plugins::upload.assets.copy-link",
+  "subject": null,
+  "conditions": [],
+  "fields": null,
+  "createdAt": {
+    "$date": "2020-08-17T12:55:54.760Z"
+  },
+  "updatedAt": {
+    "$date": "2020-08-17T12:55:54.779Z"
+  },
+  "__v": 0,
+  "role": {
+    "$oid": "5f3a7e5a080b362dd43934a0"
+  }
+},{
+  "_id": {
+    "$oid": "5f3a7e5a080b362dd43934ae"
+  },
+  "action": "plugins::content-manager.explorer.delete",
+  "subject": "plugins::users-permissions.user",
+  "fields": null,
+  "conditions": [],
+  "createdAt": {
+    "$date": "2020-08-17T12:55:54.907Z"
+  },
+  "updatedAt": {
+    "$date": "2020-08-17T12:55:55.074Z"
+  },
+  "__v": 0,
+  "role": {
+    "$oid": "5f3a7e5a080b362dd439349e"
+  }
+},{
+  "_id": {
+    "$oid": "5f3a7e5a080b362dd43934af"
+  },
+  "action": "plugins::content-type-builder.read",
+  "subject": null,
+  "conditions": [],
+  "fields": null,
+  "createdAt": {
+    "$date": "2020-08-17T12:55:54.907Z"
+  },
+  "updatedAt": {
+    "$date": "2020-08-17T12:55:55.157Z"
+  },
+  "__v": 0,
+  "role": {
+    "$oid": "5f3a7e5a080b362dd439349e"
+  }
+},{
+  "_id": {
+    "$oid": "5f3a7e5a080b362dd43934b0"
+  },
+  "action": "plugins::upload.read",
+  "subject": null,
+  "conditions": [],
+  "fields": null,
+  "createdAt": {
+    "$date": "2020-08-17T12:55:54.907Z"
+  },
+  "updatedAt": {
+    "$date": "2020-08-17T12:55:55.069Z"
+  },
+  "__v": 0,
+  "role": {
+    "$oid": "5f3a7e5a080b362dd439349e"
+  }
+},{
+  "_id": {
+    "$oid": "5f3a7e5a080b362dd43934b1"
+  },
+  "action": "plugins::upload.assets.create",
+  "subject": null,
+  "conditions": [],
+  "fields": null,
+  "createdAt": {
+    "$date": "2020-08-17T12:55:54.907Z"
+  },
+  "updatedAt": {
+    "$date": "2020-08-17T12:55:55.136Z"
+  },
+  "__v": 0,
+  "role": {
+    "$oid": "5f3a7e5a080b362dd439349e"
+  }
+},{
+  "_id": {
+    "$oid": "5f3a7e5a080b362dd43934b2"
+  },
+  "action": "plugins::upload.assets.update",
+  "subject": null,
+  "conditions": [],
+  "fields": null,
+  "createdAt": {
+    "$date": "2020-08-17T12:55:54.907Z"
+  },
+  "updatedAt": {
+    "$date": "2020-08-17T12:55:55.148Z"
+  },
+  "__v": 0,
+  "role": {
+    "$oid": "5f3a7e5a080b362dd439349e"
+  }
+},{
+  "_id": {
+    "$oid": "5f3a7e5a080b362dd43934b3"
+  },
+  "action": "plugins::upload.assets.download",
+  "subject": null,
+  "conditions": [],
+  "fields": null,
+  "createdAt": {
+    "$date": "2020-08-17T12:55:54.907Z"
+  },
+  "updatedAt": {
+    "$date": "2020-08-17T12:55:55.120Z"
+  },
+  "__v": 0,
+  "role": {
+    "$oid": "5f3a7e5a080b362dd439349e"
+  }
+},{
+  "_id": {
+    "$oid": "5f3a7e5a080b362dd43934b4"
+  },
+  "action": "plugins::upload.assets.copy-link",
+  "subject": null,
+  "conditions": [],
+  "fields": null,
+  "createdAt": {
+    "$date": "2020-08-17T12:55:54.908Z"
+  },
+  "updatedAt": {
+    "$date": "2020-08-17T12:55:55.058Z"
+  },
+  "__v": 0,
+  "role": {
+    "$oid": "5f3a7e5a080b362dd439349e"
+  }
+},{
+  "_id": {
+    "$oid": "5f3a7e5a080b362dd43934b5"
+  },
+  "action": "plugins::upload.settings.read",
+  "subject": null,
+  "conditions": [],
+  "fields": null,
+  "createdAt": {
+    "$date": "2020-08-17T12:55:54.908Z"
+  },
+  "updatedAt": {
+    "$date": "2020-08-17T12:55:55.062Z"
+  },
+  "__v": 0,
+  "role": {
+    "$oid": "5f3a7e5a080b362dd439349e"
+  }
+},{
+  "_id": {
+    "$oid": "5f3a7e5a080b362dd43934b6"
+  },
+  "action": "plugins::content-manager.single-types.configure-view",
+  "subject": null,
+  "conditions": [],
+  "fields": null,
+  "createdAt": {
+    "$date": "2020-08-17T12:55:54.908Z"
+  },
+  "updatedAt": {
+    "$date": "2020-08-17T12:55:55.111Z"
+  },
+  "__v": 0,
+  "role": {
+    "$oid": "5f3a7e5a080b362dd439349e"
+  }
+},{
+  "_id": {
+    "$oid": "5f3a7e5a080b362dd43934b7"
+  },
+  "action": "plugins::content-manager.collection-types.configure-view",
+  "subject": null,
+  "conditions": [],
+  "fields": null,
+  "createdAt": {
+    "$date": "2020-08-17T12:55:54.908Z"
+  },
+  "updatedAt": {
+    "$date": "2020-08-17T12:55:55.162Z"
+  },
+  "__v": 0,
+  "role": {
+    "$oid": "5f3a7e5a080b362dd439349e"
+  }
+},{
+  "_id": {
+    "$oid": "5f3a7e5a080b362dd43934b8"
+  },
+  "action": "plugins::content-manager.components.configure-layout",
+  "subject": null,
+  "conditions": [],
+  "fields": null,
+  "createdAt": {
+    "$date": "2020-08-17T12:55:54.908Z"
+  },
+  "updatedAt": {
+    "$date": "2020-08-17T12:55:55.065Z"
+  },
+  "__v": 0,
+  "role": {
+    "$oid": "5f3a7e5a080b362dd439349e"
+  }
+},{
+  "_id": {
+    "$oid": "5f3a7e5a080b362dd43934b9"
+  },
+  "action": "plugins::users-permissions.roles.create",
+  "subject": null,
+  "conditions": [],
+  "fields": null,
+  "createdAt": {
+    "$date": "2020-08-17T12:55:54.912Z"
+  },
+  "updatedAt": {
+    "$date": "2020-08-17T12:55:55.063Z"
+  },
+  "__v": 0,
+  "role": {
+    "$oid": "5f3a7e5a080b362dd439349e"
+  }
+},{
+  "_id": {
+    "$oid": "5f3a7e5a080b362dd43934ba"
+  },
+  "action": "plugins::users-permissions.roles.read",
+  "subject": null,
+  "conditions": [],
+  "fields": null,
+  "createdAt": {
+    "$date": "2020-08-17T12:55:54.912Z"
+  },
+  "updatedAt": {
+    "$date": "2020-08-17T12:55:55.106Z"
+  },
+  "__v": 0,
+  "role": {
+    "$oid": "5f3a7e5a080b362dd439349e"
+  }
+},{
+  "_id": {
+    "$oid": "5f3a7e5a080b362dd43934bb"
+  },
+  "action": "plugins::users-permissions.roles.update",
+  "subject": null,
+  "conditions": [],
+  "fields": null,
+  "createdAt": {
+    "$date": "2020-08-17T12:55:54.912Z"
+  },
+  "updatedAt": {
+    "$date": "2020-08-17T12:55:55.125Z"
+  },
+  "__v": 0,
+  "role": {
+    "$oid": "5f3a7e5a080b362dd439349e"
+  }
+},{
+  "_id": {
+    "$oid": "5f3a7e5a080b362dd43934bc"
+  },
+  "action": "plugins::users-permissions.roles.delete",
+  "subject": null,
+  "conditions": [],
+  "fields": null,
+  "createdAt": {
+    "$date": "2020-08-17T12:55:54.912Z"
+  },
+  "updatedAt": {
+    "$date": "2020-08-17T12:55:55.141Z"
+  },
+  "__v": 0,
+  "role": {
+    "$oid": "5f3a7e5a080b362dd439349e"
+  }
+},{
+  "_id": {
+    "$oid": "5f3a7e5a080b362dd43934bd"
+  },
+  "action": "plugins::users-permissions.providers.read",
+  "subject": null,
+  "conditions": [],
+  "fields": null,
+  "createdAt": {
+    "$date": "2020-08-17T12:55:54.912Z"
+  },
+  "updatedAt": {
+    "$date": "2020-08-17T12:55:55.073Z"
+  },
+  "__v": 0,
+  "role": {
+    "$oid": "5f3a7e5a080b362dd439349e"
+  }
+},{
+  "_id": {
+    "$oid": "5f3a7e5a080b362dd43934be"
+  },
+  "action": "plugins::users-permissions.providers.update",
+  "subject": null,
+  "conditions": [],
+  "fields": null,
+  "createdAt": {
+    "$date": "2020-08-17T12:55:54.912Z"
+  },
+  "updatedAt": {
+    "$date": "2020-08-17T12:55:55.067Z"
+  },
+  "__v": 0,
+  "role": {
+    "$oid": "5f3a7e5a080b362dd439349e"
+  }
+},{
+  "_id": {
+    "$oid": "5f3a7e5a080b362dd43934bf"
+  },
+  "action": "plugins::users-permissions.email-templates.read",
+  "subject": null,
+  "conditions": [],
+  "fields": null,
+  "createdAt": {
+    "$date": "2020-08-17T12:55:54.912Z"
+  },
+  "updatedAt": {
+    "$date": "2020-08-17T12:55:55.118Z"
+  },
+  "__v": 0,
+  "role": {
+    "$oid": "5f3a7e5a080b362dd439349e"
+  }
+},{
+  "_id": {
+    "$oid": "5f3a7e5a080b362dd43934c0"
+  },
+  "action": "plugins::users-permissions.email-templates.update",
+  "subject": null,
+  "conditions": [],
+  "fields": null,
+  "createdAt": {
+    "$date": "2020-08-17T12:55:54.912Z"
+  },
+  "updatedAt": {
+    "$date": "2020-08-17T12:55:55.147Z"
+  },
+  "__v": 0,
+  "role": {
+    "$oid": "5f3a7e5a080b362dd439349e"
+  }
+},{
+  "_id": {
+    "$oid": "5f3a7e5a080b362dd43934c1"
+  },
+  "action": "plugins::users-permissions.advanced-settings.read",
+  "subject": null,
+  "conditions": [],
+  "fields": null,
+  "createdAt": {
+    "$date": "2020-08-17T12:55:54.912Z"
+  },
+  "updatedAt": {
+    "$date": "2020-08-17T12:55:55.114Z"
+  },
+  "__v": 0,
+  "role": {
+    "$oid": "5f3a7e5a080b362dd439349e"
+  }
+},{
+  "_id": {
+    "$oid": "5f3a7e5a080b362dd43934c2"
+  },
+  "action": "plugins::users-permissions.advanced-settings.update",
+  "subject": null,
+  "conditions": [],
+  "fields": null,
+  "createdAt": {
+    "$date": "2020-08-17T12:55:54.912Z"
+  },
+  "updatedAt": {
+    "$date": "2020-08-17T12:55:55.134Z"
+  },
+  "__v": 0,
+  "role": {
+    "$oid": "5f3a7e5a080b362dd439349e"
+  }
+},{
+  "_id": {
+    "$oid": "5f3a7e5a080b362dd43934c3"
+  },
+  "action": "admin::marketplace.read",
+  "subject": null,
+  "conditions": [],
+  "fields": null,
+  "createdAt": {
+    "$date": "2020-08-17T12:55:54.912Z"
+  },
+  "updatedAt": {
+    "$date": "2020-08-17T12:55:55.060Z"
+  },
+  "__v": 0,
+  "role": {
+    "$oid": "5f3a7e5a080b362dd439349e"
+  }
+},{
+  "_id": {
+    "$oid": "5f3a7e5a080b362dd43934c4"
+  },
+  "action": "admin::marketplace.plugins.install",
+  "subject": null,
+  "conditions": [],
+  "fields": null,
+  "createdAt": {
+    "$date": "2020-08-17T12:55:54.913Z"
+  },
+  "updatedAt": {
+    "$date": "2020-08-17T12:55:55.064Z"
+  },
+  "__v": 0,
+  "role": {
+    "$oid": "5f3a7e5a080b362dd439349e"
+  }
+},{
+  "_id": {
+    "$oid": "5f3a7e5a080b362dd43934c5"
+  },
+  "action": "admin::marketplace.plugins.uninstall",
+  "subject": null,
+  "conditions": [],
+  "fields": null,
+  "createdAt": {
+    "$date": "2020-08-17T12:55:54.913Z"
+  },
+  "updatedAt": {
+    "$date": "2020-08-17T12:55:55.076Z"
+  },
+  "__v": 0,
+  "role": {
+    "$oid": "5f3a7e5a080b362dd439349e"
+  }
+},{
+  "_id": {
+    "$oid": "5f3a7e5a080b362dd43934c6"
+  },
+  "action": "admin::webhooks.create",
+  "subject": null,
+  "conditions": [],
+  "fields": null,
+  "createdAt": {
+    "$date": "2020-08-17T12:55:54.913Z"
+  },
+  "updatedAt": {
+    "$date": "2020-08-17T12:55:55.127Z"
+  },
+  "__v": 0,
+  "role": {
+    "$oid": "5f3a7e5a080b362dd439349e"
+  }
+},{
+  "_id": {
+    "$oid": "5f3a7e5a080b362dd43934c7"
+  },
+  "action": "admin::webhooks.read",
+  "subject": null,
+  "conditions": [],
+  "fields": null,
+  "createdAt": {
+    "$date": "2020-08-17T12:55:54.913Z"
+  },
+  "updatedAt": {
+    "$date": "2020-08-17T12:55:55.109Z"
+  },
+  "__v": 0,
+  "role": {
+    "$oid": "5f3a7e5a080b362dd439349e"
+  }
+},{
+  "_id": {
+    "$oid": "5f3a7e5a080b362dd43934c8"
+  },
+  "action": "admin::webhooks.update",
+  "subject": null,
+  "conditions": [],
+  "fields": null,
+  "createdAt": {
+    "$date": "2020-08-17T12:55:54.913Z"
+  },
+  "updatedAt": {
+    "$date": "2020-08-17T12:55:55.099Z"
+  },
+  "__v": 0,
+  "role": {
+    "$oid": "5f3a7e5a080b362dd439349e"
+  }
+},{
+  "_id": {
+    "$oid": "5f3a7e5a080b362dd43934c9"
+  },
+  "action": "admin::webhooks.delete",
+  "subject": null,
+  "conditions": [],
+  "fields": null,
+  "createdAt": {
+    "$date": "2020-08-17T12:55:54.913Z"
+  },
+  "updatedAt": {
+    "$date": "2020-08-17T12:55:55.071Z"
+  },
+  "__v": 0,
+  "role": {
+    "$oid": "5f3a7e5a080b362dd439349e"
+  }
+},{
+  "_id": {
+    "$oid": "5f3a7e5a080b362dd43934ca"
+  },
+  "action": "admin::users.create",
+  "subject": null,
+  "conditions": [],
+  "fields": null,
+  "createdAt": {
+    "$date": "2020-08-17T12:55:54.913Z"
+  },
+  "updatedAt": {
+    "$date": "2020-08-17T12:55:55.139Z"
+  },
+  "__v": 0,
+  "role": {
+    "$oid": "5f3a7e5a080b362dd439349e"
+  }
+},{
+  "_id": {
+    "$oid": "5f3a7e5a080b362dd43934cb"
+  },
+  "action": "admin::users.read",
+  "subject": null,
+  "conditions": [],
+  "fields": null,
+  "createdAt": {
+    "$date": "2020-08-17T12:55:54.913Z"
+  },
+  "updatedAt": {
+    "$date": "2020-08-17T12:55:55.149Z"
+  },
+  "__v": 0,
+  "role": {
+    "$oid": "5f3a7e5a080b362dd439349e"
+  }
+},{
+  "_id": {
+    "$oid": "5f3a7e5a080b362dd43934cc"
+  },
+  "action": "admin::users.update",
+  "subject": null,
+  "conditions": [],
+  "fields": null,
+  "createdAt": {
+    "$date": "2020-08-17T12:55:54.913Z"
+  },
+  "updatedAt": {
+    "$date": "2020-08-17T12:55:55.123Z"
+  },
+  "__v": 0,
+  "role": {
+    "$oid": "5f3a7e5a080b362dd439349e"
+  }
+},{
+  "_id": {
+    "$oid": "5f3a7e5a080b362dd43934cd"
+  },
+  "action": "admin::users.delete",
+  "subject": null,
+  "conditions": [],
+  "fields": null,
+  "createdAt": {
+    "$date": "2020-08-17T12:55:54.913Z"
+  },
+  "updatedAt": {
+    "$date": "2020-08-17T12:55:55.059Z"
+  },
+  "__v": 0,
+  "role": {
+    "$oid": "5f3a7e5a080b362dd439349e"
+  }
+},{
+  "_id": {
+    "$oid": "5f3a7e5a080b362dd43934ce"
+  },
+  "action": "admin::roles.create",
+  "subject": null,
+  "conditions": [],
+  "fields": null,
+  "createdAt": {
+    "$date": "2020-08-17T12:55:54.913Z"
+  },
+  "updatedAt": {
+    "$date": "2020-08-17T12:55:55.129Z"
+  },
+  "__v": 0,
+  "role": {
+    "$oid": "5f3a7e5a080b362dd439349e"
+  }
+},{
+  "_id": {
+    "$oid": "5f3a7e5a080b362dd43934cf"
+  },
+  "action": "admin::roles.read",
+  "subject": null,
+  "conditions": [],
+  "fields": null,
+  "createdAt": {
+    "$date": "2020-08-17T12:55:54.913Z"
+  },
+  "updatedAt": {
+    "$date": "2020-08-17T12:55:55.113Z"
+  },
+  "__v": 0,
+  "role": {
+    "$oid": "5f3a7e5a080b362dd439349e"
+  }
+},{
+  "_id": {
+    "$oid": "5f3a7e5a080b362dd43934d0"
+  },
+  "action": "admin::roles.update",
+  "subject": null,
+  "conditions": [],
+  "fields": null,
+  "createdAt": {
+    "$date": "2020-08-17T12:55:54.913Z"
+  },
+  "updatedAt": {
+    "$date": "2020-08-17T12:55:55.166Z"
+  },
+  "__v": 0,
+  "role": {
+    "$oid": "5f3a7e5a080b362dd439349e"
+  }
+},{
+  "_id": {
+    "$oid": "5f3a7e5a080b362dd43934d1"
+  },
+  "action": "admin::roles.delete",
+  "subject": null,
+  "conditions": [],
+  "fields": null,
+  "createdAt": {
+    "$date": "2020-08-17T12:55:54.913Z"
+  },
+  "updatedAt": {
+    "$date": "2020-08-17T12:55:55.145Z"
+  },
+  "__v": 0,
+  "role": {
+    "$oid": "5f3a7e5a080b362dd439349e"
+  }
+},{
+  "_id": {
+    "$oid": "5f3a83f8cfd76b1a54bc3543"
+  },
+  "action": "plugins::content-manager.explorer.delete",
+  "subject": "application::post.post",
+  "fields": null,
+  "conditions": [],
+  "createdAt": {
+    "$date": "2020-08-17T13:19:52.912Z"
+  },
+  "updatedAt": {
+    "$date": "2020-08-17T13:19:52.930Z"
+  },
+  "__v": 0,
+  "role": {
+    "$oid": "5f3a7e5a080b362dd439349e"
+  }
+},{
+  "_id": {
+    "$oid": "5f3a841d9bd0be15d0a3d01d"
+  },
+  "action": "plugins::content-manager.explorer.delete",
+  "subject": "application::category.category",
+  "fields": null,
+  "conditions": [],
+  "createdAt": {
+    "$date": "2020-08-17T13:20:29.829Z"
+  },
+  "updatedAt": {
+    "$date": "2020-08-17T13:20:29.842Z"
+  },
+  "__v": 0,
+  "role": {
+    "$oid": "5f3a7e5a080b362dd439349e"
+  }
+},{
+  "_id": {
+    "$oid": "5f3a847e2e418d1e8cc447ca"
+  },
+  "action": "plugins::content-manager.explorer.delete",
+  "subject": "application::comment.comment",
+  "fields": null,
+  "conditions": [],
+  "createdAt": {
+    "$date": "2020-08-17T13:22:06.397Z"
+  },
+  "updatedAt": {
+    "$date": "2020-08-17T13:22:06.433Z"
+  },
+  "__v": 0,
+  "role": {
+    "$oid": "5f3a7e5a080b362dd439349e"
+  }
+},{
+  "_id": {
+    "$oid": "5f3a95638611832cb0df6a9b"
+  },
+  "action": "plugins::content-manager.explorer.create",
+  "subject": "application::category.category",
+  "fields": [
+    "Name",
+    "posts"
+  ],
+  "conditions": [],
+  "createdAt": {
+    "$date": "2020-08-17T14:34:11.346Z"
+  },
+  "updatedAt": {
+    "$date": "2020-08-17T14:34:11.376Z"
+  },
+  "__v": 0,
+  "role": {
+    "$oid": "5f3a7e5a080b362dd439349e"
+  }
+},{
+  "_id": {
+    "$oid": "5f3a95638611832cb0df6a9c"
+  },
+  "action": "plugins::content-manager.explorer.read",
+  "subject": "application::category.category",
+  "fields": [
+    "Name",
+    "posts"
+  ],
+  "conditions": [],
+  "createdAt": {
+    "$date": "2020-08-17T14:34:11.346Z"
+  },
+  "updatedAt": {
+    "$date": "2020-08-17T14:34:11.389Z"
+  },
+  "__v": 0,
+  "role": {
+    "$oid": "5f3a7e5a080b362dd439349e"
+  }
+},{
+  "_id": {
+    "$oid": "5f3a95638611832cb0df6a9d"
+  },
+  "action": "plugins::content-manager.explorer.update",
+  "subject": "application::category.category",
+  "fields": [
+    "Name",
+    "posts"
+  ],
+  "conditions": [],
+  "createdAt": {
+    "$date": "2020-08-17T14:34:11.347Z"
+  },
+  "updatedAt": {
+    "$date": "2020-08-17T14:34:11.388Z"
+  },
+  "__v": 0,
+  "role": {
+    "$oid": "5f3a7e5a080b362dd439349e"
+  }
+},{
+  "_id": {
+    "$oid": "5f3a958204b66a28283030b9"
+  },
+  "action": "plugins::content-manager.explorer.create",
+  "subject": "application::post.post",
+  "fields": [
+    "Title",
+    "Upload_date",
+    "Content",
+    "Author",
+    "Like",
+    "comments"
+  ],
+  "conditions": [],
+  "createdAt": {
+    "$date": "2020-08-17T14:34:42.065Z"
+  },
+  "updatedAt": {
+    "$date": "2020-08-17T14:34:42.079Z"
+  },
+  "__v": 0,
+  "role": {
+    "$oid": "5f3a7e5a080b362dd439349e"
+  }
+},{
+  "_id": {
+    "$oid": "5f3a958204b66a28283030ba"
+  },
+  "action": "plugins::content-manager.explorer.read",
+  "subject": "application::post.post",
+  "fields": [
+    "Title",
+    "Upload_date",
+    "Content",
+    "Author",
+    "Like",
+    "comments"
+  ],
+  "conditions": [],
+  "createdAt": {
+    "$date": "2020-08-17T14:34:42.065Z"
+  },
+  "updatedAt": {
+    "$date": "2020-08-17T14:34:42.081Z"
+  },
+  "__v": 0,
+  "role": {
+    "$oid": "5f3a7e5a080b362dd439349e"
+  }
+},{
+  "_id": {
+    "$oid": "5f3a958204b66a28283030bb"
+  },
+  "action": "plugins::content-manager.explorer.update",
+  "subject": "application::post.post",
+  "fields": [
+    "Title",
+    "Upload_date",
+    "Content",
+    "Author",
+    "Like",
+    "comments"
+  ],
+  "conditions": [],
+  "createdAt": {
+    "$date": "2020-08-17T14:34:42.066Z"
+  },
+  "updatedAt": {
+    "$date": "2020-08-17T14:34:42.082Z"
+  },
+  "__v": 0,
+  "role": {
+    "$oid": "5f3a7e5a080b362dd439349e"
+  }
+},{
+  "_id": {
+    "$oid": "5f3b4ca14fdcb82890f1a0b2"
+  },
+  "action": "plugins::content-manager.explorer.create",
+  "subject": "plugins::users-permissions.user",
+  "fields": [
+    "username",
+    "email",
+    "provider",
+    "password",
+    "resetPasswordToken",
+    "confirmed",
+    "blocked",
+    "role",
+    "posts"
+  ],
+  "conditions": [],
+  "createdAt": {
+    "$date": "2020-08-18T03:36:01.550Z"
+  },
+  "updatedAt": {
+    "$date": "2020-08-18T03:41:38.310Z"
+  },
+  "__v": 0,
+  "role": {
+    "$oid": "5f3a7e5a080b362dd439349e"
+  }
+},{
+  "_id": {
+    "$oid": "5f3b4ca14fdcb82890f1a0b3"
+  },
+  "action": "plugins::content-manager.explorer.read",
+  "subject": "plugins::users-permissions.user",
+  "fields": [
+    "username",
+    "email",
+    "provider",
+    "password",
+    "resetPasswordToken",
+    "confirmed",
+    "blocked",
+    "role",
+    "posts"
+  ],
+  "conditions": [],
+  "createdAt": {
+    "$date": "2020-08-18T03:36:01.552Z"
+  },
+  "updatedAt": {
+    "$date": "2020-08-18T03:41:38.314Z"
+  },
+  "__v": 0,
+  "role": {
+    "$oid": "5f3a7e5a080b362dd439349e"
+  }
+},{
+  "_id": {
+    "$oid": "5f3b4ca14fdcb82890f1a0b4"
+  },
+  "action": "plugins::content-manager.explorer.update",
+  "subject": "plugins::users-permissions.user",
+  "fields": [
+    "username",
+    "email",
+    "provider",
+    "password",
+    "resetPasswordToken",
+    "confirmed",
+    "blocked",
+    "role",
+    "posts"
+  ],
+  "conditions": [],
+  "createdAt": {
+    "$date": "2020-08-18T03:36:01.552Z"
+  },
+  "updatedAt": {
+    "$date": "2020-08-18T03:41:38.312Z"
+  },
+  "__v": 0,
+  "role": {
+    "$oid": "5f3a7e5a080b362dd439349e"
+  }
+},{
+  "_id": {
+    "$oid": "5f3b506119a7811ee45e3206"
+  },
+  "action": "plugins::content-manager.explorer.create",
+  "subject": "application::account.account",
+  "fields": [
+    "Username",
+    "Password",
+    "Email",
+    "Phone",
+    "role",
+    "posts"
+  ],
+  "conditions": [],
+  "createdAt": {
+    "$date": "2020-08-18T03:52:01.553Z"
+  },
+  "updatedAt": {
+    "$date": "2020-08-18T03:52:01.565Z"
+  },
+  "__v": 0,
+  "role": {
+    "$oid": "5f3a7e5a080b362dd439349e"
+  }
+},{
+  "_id": {
+    "$oid": "5f3b506119a7811ee45e3207"
+  },
+  "action": "plugins::content-manager.explorer.read",
+  "subject": "application::account.account",
+  "fields": [
+    "Username",
+    "Password",
+    "Email",
+    "Phone",
+    "role",
+    "posts"
+  ],
+  "conditions": [],
+  "createdAt": {
+    "$date": "2020-08-18T03:52:01.554Z"
+  },
+  "updatedAt": {
+    "$date": "2020-08-18T03:52:01.568Z"
+  },
+  "__v": 0,
+  "role": {
+    "$oid": "5f3a7e5a080b362dd439349e"
+  }
+},{
+  "_id": {
+    "$oid": "5f3b506119a7811ee45e3208"
+  },
+  "action": "plugins::content-manager.explorer.update",
+  "subject": "application::account.account",
+  "fields": [
+    "Username",
+    "Password",
+    "Email",
+    "Phone",
+    "role",
+    "posts"
+  ],
+  "conditions": [],
+  "createdAt": {
+    "$date": "2020-08-18T03:52:01.554Z"
+  },
+  "updatedAt": {
+    "$date": "2020-08-18T03:52:01.566Z"
+  },
+  "__v": 0,
+  "role": {
+    "$oid": "5f3a7e5a080b362dd439349e"
+  }
+},{
+  "_id": {
+    "$oid": "5f3b506119a7811ee45e3209"
+  },
+  "action": "plugins::content-manager.explorer.delete",
+  "subject": "application::account.account",
+  "fields": null,
+  "conditions": [],
+  "createdAt": {
+    "$date": "2020-08-18T03:52:01.554Z"
+  },
+  "updatedAt": {
+    "$date": "2020-08-18T03:52:01.567Z"
+  },
+  "__v": 0,
+  "role": {
+    "$oid": "5f3a7e5a080b362dd439349e"
+  }
+},{
+  "_id": {
+    "$oid": "5f3b50b575cb2d2df059e38a"
+  },
+  "action": "plugins::content-manager.explorer.read",
+  "subject": "application::comment.comment",
+  "fields": [
+    "Upload_date",
+    "Content",
+    "account"
+  ],
+  "conditions": [],
+  "createdAt": {
+    "$date": "2020-08-18T03:53:25.036Z"
+  },
+  "updatedAt": {
+    "$date": "2020-08-18T03:53:25.047Z"
+  },
+  "__v": 0,
+  "role": {
+    "$oid": "5f3a7e5a080b362dd439349e"
+  }
+},{
+  "_id": {
+    "$oid": "5f3b50b575cb2d2df059e389"
+  },
+  "action": "plugins::content-manager.explorer.create",
+  "subject": "application::comment.comment",
+  "fields": [
+    "Upload_date",
+    "Content",
+    "account"
+  ],
+  "conditions": [],
+  "createdAt": {
+    "$date": "2020-08-18T03:53:25.035Z"
+  },
+  "updatedAt": {
+    "$date": "2020-08-18T03:53:25.046Z"
+  },
+  "__v": 0,
+  "role": {
+    "$oid": "5f3a7e5a080b362dd439349e"
+  }
+},{
+  "_id": {
+    "$oid": "5f3b50b575cb2d2df059e38b"
+  },
+  "action": "plugins::content-manager.explorer.update",
+  "subject": "application::comment.comment",
+  "fields": [
+    "Upload_date",
+    "Content",
+    "account"
+  ],
+  "conditions": [],
+  "createdAt": {
+    "$date": "2020-08-18T03:53:25.036Z"
+  },
+  "updatedAt": {
+    "$date": "2020-08-18T03:53:25.048Z"
+  },
+  "__v": 0,
+  "role": {
+    "$oid": "5f3a7e5a080b362dd439349e"
+  }
+}]

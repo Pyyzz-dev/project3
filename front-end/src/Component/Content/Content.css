@@ -1,0 +1,53 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+div{
+    border: 1px solid black
+}
+
+.sub-Content{
+    min-height: 300px;
+    width: 100%;
+}
+
+.sub-Content .advertisement{
+    height: 300px;
+    width: 100%;
+}
+
+.sub-Content .advertisement .sub-advertisement{
+    height: 260px;
+    width: 100%;
+}
+
+.sub-Content .advertisement .sub-advertisement .sprite-sheet{
+    width: 130px;
+    height: 100%;
+    background-image : url("../../img/sprite-sheet1.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    animation: moveX 1s steps(6) infinite;
+}
+@keyframes moveX{
+    from{background-position-x:0px;}
+    to{background-position-x:-500px;}
+}
+
+.sub-Content .content{
+    min-height: 1000px;
+}
+
+.sub-Content .content .sub-content{
+    min-height: 1000px;
+}
+
+.carousel{
+    background-image: url("../../img/background.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}

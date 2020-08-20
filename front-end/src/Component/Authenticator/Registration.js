@@ -90,7 +90,7 @@ export default class Registration extends Component {
           />
           <br />
           <button type="submit" class="btnLogin">Register</button>
-          <span class="register_text">Don't have account?</span><a href="https://google.com/">Register</a>
+          <span class="register_text">Already have account?</span><a href="/login">Login</a>
         </form>
       </div>
     );

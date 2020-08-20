@@ -21,6 +21,10 @@
     "Phone": {
       "type": "string"
     },
+    "role": {
+      "plugin": "users-permissions",
+      "model": "role"
+    },
     "posts": {
       "collection": "post"
     }

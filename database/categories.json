@@ -1,0 +1,50 @@
+[{
+  "_id": {
+    "$oid": "5f3aa0e72f3f512c58f65443"
+  },
+  "posts": [
+    {
+      "$oid": "5f3aa1242f3f512c58f65444"
+    },
+    {
+      "$oid": "5f3b4b1e5b51981f80deb41a"
+    }
+  ],
+  "Name": "Tin tức mới nhất",
+  "createdAt": {
+    "$date": "2020-08-17T15:23:19.892Z"
+  },
+  "updatedAt": {
+    "$date": "2020-08-18T03:55:56.973Z"
+  },
+  "__v": 0,
+  "created_by": {
+    "$oid": "5f3a7ea9080b362dd43934d2"
+  },
+  "updated_by": {
+    "$oid": "5f3a7ea9080b362dd43934d2"
+  }
+},{
+  "_id": {
+    "$oid": "5f3b4b2e5b51981f80deb41b"
+  },
+  "posts": [
+    {
+      "$oid": "5f3b4b1e5b51981f80deb41a"
+    }
+  ],
+  "Name": "Tù nhân ",
+  "createdAt": {
+    "$date": "2020-08-18T03:29:50.796Z"
+  },
+  "updatedAt": {
+    "$date": "2020-08-18T03:29:50.801Z"
+  },
+  "__v": 0,
+  "created_by": {
+    "$oid": "5f3a7ea9080b362dd43934d2"
+  },
+  "updated_by": {
+    "$oid": "5f3a7ea9080b362dd43934d2"
+  }
+}]

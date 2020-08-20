@@ -1,0 +1,27 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+div{
+    border: 1px solid black
+}
+
+
+/* 
+.header-menubar{
+    min-height:300px
+} */
+
+.logo-header {
+    height: 100px;
+    width: 150px;
+    border-radius: 5px;
+    background-image: url("../Image/logo-header.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+}
+

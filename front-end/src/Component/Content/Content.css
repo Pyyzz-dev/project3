@@ -84,6 +84,7 @@
 }
 .sub-Content .content .sub-content .post{
     min-height: 200px;
+    border-radius: 15px;
     border-bottom: 2px solid white;
 }
 .sub-Content .content .sub-content .post-body{
@@ -92,7 +93,7 @@
 }
 .sub-Content .content .sub-content .post-body .post-title{
     height: 25%;
-    background: white;
+    border-radius: 10px;
 }
 .sub-Content .content .sub-content .post-body .post-content{
     height: 60%;
@@ -133,11 +134,15 @@ body {
     padding-top: 40px;
     font-size: 1em;
     text-align: center;
-    background: #f1ede3;
+    /* background-image: url("../../img/effect1.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover; */
+    background: #e9e5d5;
     width: 100%;
     min-height: 200px;
     color: #555;
-  
+    border-radius: 10px;
     -webkit-transition: background 0.1s ease-in-out;
     transition: background 0.1s ease-in-out;
 }
@@ -151,8 +156,8 @@ body {
 .time-circle {
   position: relative;
   background: linear-gradient(to bottom, #BE4405, #F6C60C);
-  width: 200px;
-  height: 200px;
+  width: 180px;
+  height: 180px;
   border-radius: 50%;
   border: 4.5px solid #555;
   overflow: hidden;

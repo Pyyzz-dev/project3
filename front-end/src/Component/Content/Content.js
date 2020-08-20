@@ -47,16 +47,16 @@ export default class Content extends Component {
     };
     var data = this.state.data.length ? this.state.data.map((value,index)=>
       (
-        <div className="container px-0 py-3 post d-flex" id="post">
+        <div className="container px-3 py-3 post d-flex" id="post">
           <div className="post-avatar">
-
+            <img src={value.Image.url} style={{height:"100%", width:"100%"}}/>
           </div>
           <div className="post-body px-3 d-block">
             <div className="post-title" id="post-title">
               <h5 style={{fontFamily: "Helvetica, sans-serif"}}><Link to={"/Detail/"+ value._id}>{value.Title}</Link></h5>
             </div>
             <div className="post-content">
-
+              <h7 className="font-italic font-weight-bold">{value.Content}</h7>
             </div>
             <div className="post-upload-date px-1 d-flex justify-content-around" id="post-upload-date">
               <div>
@@ -122,7 +122,7 @@ export default class Content extends Component {
                           </div>
                           {data}
                         </div>
-                    </div>
+                      </div>
                   </div>
               </div>
               <div className="col-4 fixed pt-3">

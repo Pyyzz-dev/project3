@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import 'antd/dist/antd.css';
+import { Carousel } from 'antd';
 import axios from 'axios';
 import "./Detail.css";
 import CKEditor from '@ckeditor/ckeditor5-react';
@@ -26,6 +27,18 @@ export default class Detail extends Component{
             that.setState({data: data.data})
           })
       }
+      clickSwitch = () =>{
+        var fullpage = document.getElementById("fullpage");
+        var switchpage = document.getElementById("switch");
+        var post = document.getElementById("post");
+        if(fullpage.classList.contains("night")){
+          fullpage.classList.remove("night");
+          switchpage.classList.remove("switched");
+        }else{
+          fullpage.classList.add("night");
+          switchpage.classList.add("switched");
+        }
+      }
     clickComment = () =>{
       var modal = document.getElementById("exampleModalScrollable");
       modal.style.display = "block";
@@ -42,30 +55,120 @@ export default class Detail extends Component{
       console.log(editor.getData());
     }
     render(){
+      const contentStyle = {
+        textAlign: 'center',
+        height:"245px",
+        background: "radial-gradient(circle, rgba(0,0,0,0.30575980392156865) 0%, rgba(0,0,0,0.30575980392156865) 100%, rgba(255,255,255,1) 100%, rgba(255,0,9,1) 100%, rgba(254,4,4,1) 100%)"
+      };
         var data = this.state.data.length ? this.state.data.map((value,index)=>
       (
-        <tr>
-            <th scope="row">{index+1}</th>
-            <td id={"titlePost-"+value._id}>{value.Title}</td>
-            <td>{value.Upload_date}</td>
-            <td><Link to={"/DetailComment/"+ value._id} id={"comment-"+value._id}>{value.comments.length}</Link></td>
-          </tr>
+        <div className="detail-Post-content d-block px-5">
+          <div className="detail-Post-title d-block">
+            <div className="d-flex justify-content-start">
+              <p style={{fontSize:"35px", fontFamily:"Andale Mono, monospace"}} className="font-weight-bold">{value.Title}</p>
+            </div>
+            <div className="d-flex justify-content-start">
+              <p className="">Đã đăng vào {value.Upload_date}</p>
+            </div>
+            <div className="d-flex justify-content-start px-3">
+              <div className="px-3">
+                <div className="facebook icon px-3" style={{color:"white"}}><i class="fab fa-facebook-f"></i> Facebook</div>
+              </div>
+              <div className="px-3">
+                <div className="like icon px-3" style={{color:"white"}}><i class="far fa-thumbs-up"></i> Like</div>
+              </div>
+            </div>
+          </div>
+          <div className="detail-Post-subcontent d-flex pt-3">  
+            <div className="clickcomment d-block px-3">
+              <div className="py-3">
+                <div className="like icon px-3" onClick={this.clickComment} style={{color:"white", cursor:"pointer"}}><i class="fas fa-comments"></i> Comment</div>
+              </div>
+              <div className="py-3">
+                <div className="like icon px-3" style={{color:"white", cursor:"pointer"}}><i class="fas fa-backward"></i><Link to="/" style={{color:"white"}}> Back to Home</Link></div>
+              </div>
+            </div>
+            <div className="px-3">
+              <div>{value.Content}</div>
+            </div>
+              {/* <td id={"titlePost-"+value._id}>{value.Title}</td>
+              <td>{value.Upload_date}</td>
+              <td><Link to={"/DetailComment/"+ value._id} id={"comment-"+value._id}>{value.comments.length}</Link></td>*/}
+          </div>
+          <div>
+
+          </div>
+          
+        </div>
+           
       )
     ) : <p>Không có dữ liệu</p>
         return(
-            
-            <div>
-                <div className="detail-Post">
-                  <div className="container">
-                    <div className="detail-Post-content d-block">
-                      <div className="">
-                        {data}
-                      </div>
-                    </div>
-                  </div>
+          <div className="Content">
+        <div className="container-fluid sub-Content px-0">
+          <div className="container advertisement px-0 d-flex align-items-center">
+            <div className="sub-advertisement">
+              <Carousel effect="fade">
+                <div className="carousel1">
+                  <div style={contentStyle}><h1 style={{color:"white"}}>𝓦𝓮𝓵𝓬𝓸𝓶𝓮 𝓽𝓸 𝓸𝓾𝓻 𝓹𝓻𝓸𝓳𝓮𝓬𝓽</h1></div>
                 </div>
-                <div className="btn btn-outline-info" onClick={this.clickComment}>Comment</div>
-                <div class="modal" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableLabel" aria-hidden="true">
+                <div className="carousel2">
+                  <div style={contentStyle}><h1 style={{color:"white"}}>𝓦𝓮𝓵𝓬𝓸𝓶𝓮 𝓽𝓸 𝓸𝓾𝓻 𝓹𝓻𝓸𝓳𝓮𝓬𝓽</h1></div>
+                </div>
+                <div className="carousel3">
+                  <div style={contentStyle}><h1 style={{color:"white"}}>𝓦𝓮𝓵𝓬𝓸𝓶𝓮 𝓽𝓸 𝓸𝓾𝓻 𝓹𝓻𝓸𝓳𝓮𝓬𝓽</h1></div>
+                </div>
+                <div className="carousel4">
+                  <div style={contentStyle}><h1 style={{color:"white"}}>𝓦𝓮𝓵𝓬𝓸𝓶𝓮 𝓽𝓸 𝓸𝓾𝓻 𝓹𝓻𝓸𝓳𝓮𝓬𝓽</h1></div>
+                </div>
+              </Carousel>
+            </div>
+          </div>
+          <div className="content">
+            <div className="container sub-content d-flex px-0 pt-3">
+              <div className="col-8 pt-3">
+                  <div className="content-effect">
+                    <div id="fullpage">  
+                      <div class="section">
+                        <div class="time-circle">
+                              <div class="sun"></div>
+                              <div class="moon">
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                              </div>
+                              <div class="stars">
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                              </div>
+                              <div class="water"></div>
+                        </div>
+                          <div id="switch" onClick={this.clickSwitch}>
+                            <div id="circle">
+                        
+                            </div>
+                          </div>
+                          {data}
+                        </div>
+                      </div>
+                  </div>
+              </div>
+              <div className="col-4 fixed pt-3">
+                <div className="image-fixed">
+
+                </div>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+        
+        <div class="modal" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableLabel" aria-hidden="true">
                   <div class="modal-dialog modal-dialog-scrollable" role="document">
                     <div class="modal-content">
                       <div class="modal-header">
@@ -87,7 +190,7 @@ export default class Detail extends Component{
                     </div>
                   </div>
                 </div>
-              </div>
+      </div>
         )
     }
 }

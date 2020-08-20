@@ -3,10 +3,32 @@
     padding: 0;
     box-sizing: border-box;
 }
-div{
+/* div{
     border: 1px solid black;
-}
+} */
 
 .detail-Post-content{
     min-height: 500px;
+}
+.detail-Post-title{
+    min-height: 180px;
+    border-bottom: 2px dashed white;
+}
+.detail-Post-title .icon{
+    border-radius: 5px;
+}
+.detail-Post-title .facebook{
+    background: #4167b2;
+}
+.detail-Post-title .like{
+    background: blue;
+}
+.detail-Post-subcontent .like{
+    background: blue;
+    border-radius: 5px;
+}
+.detail-Post-subcontent .clickcomment{
+    width: 20%;
+    min-height: 400px;
+    border-right: 2px dashed white;
 }

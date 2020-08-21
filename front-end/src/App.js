@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import Content from "./Component/Content/Content";
-import Detail from "./Component/Detail/Detail";
+import Post from "./Component/Post/Post";
 import Home from "./Component/Home/Home";
 import Profile from "./Component/Profile/Profile";
+import Category from "./Component/Category/Category";
 import DetailComment from './Component/DetailComment/DetailComment';
 import './App.css';
 import {
@@ -20,8 +21,8 @@ class App extends Component {
             <Route exact path="/" component={Home}/>
             <Route path="/Content" component={Content}/>
             <Route path="/Profile/:id" component={Profile}/>
-            <Route path="/Detail/:id" component={Detail}/>
-            <Route path="/Category/:id" component={Detail}/>
+            <Route path="/Post/:id" component={Post}/>
+            <Route path="/Category/:id" component={Category}/>
             <Route path="/DetailComment/:id" component={DetailComment}/>
           </Switch>
         </div>   

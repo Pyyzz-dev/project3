@@ -13,12 +13,15 @@
 .header-menubar{
     min-height:300px
 } */
+.header{
+  background: #080d17;
+}
 
 .header .logo-header {
-    height: 100px;
+    height: 150px;
     width: 150px;
-    border-radius: 5px;
-    background-image: url("../Image/logo-header.jpg");
+    border-radius: 75px;
+    background-image: url("../../img/logo.jpg");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;

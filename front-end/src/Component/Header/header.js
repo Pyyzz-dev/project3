@@ -3,14 +3,19 @@ import "./header.css";
 import axios from 'axios';
 import {
   Link,
+  Redirect 
 } from "react-router-dom";
 
 export default class Header extends Component {
   constructor(props){
     super(props);
     this.state={
-        data:[]
+        data:[],
     }
+}
+
+refresh() {
+  window.location.reload();
 }
   componentDidMount(){
     let that = this;
@@ -19,27 +24,21 @@ export default class Header extends Component {
         url:"http://localhost:2020/categories"
       }).then(function(data){
         that.setState({data: data.data})
-        console.log(data.data);
       })
-  }
-  componentDidUpdate(){
-    console.log(this.prevProps);
-    // axios({
-    //     method:"GET",
-    //     url:"http://localhost:2020/categories?id="+id
-    //   }).then(function(data){
-    //     that.setState({data: data.data})
-    //     console.log(data.data);
-    //   })
   }
   render() {
     var data = this.state.data.length ? this.state.data.map((value,index)=>
       (
-      <Link to={"/Category/"+ value._id}>{value.Name}</Link>
+        <Link to={"/Category/"+value._id}>{value.Name}</Link>
+      )
+    ) : <p>Không có dữ liệu</p>
+    var data1 = this.state.data.length ? this.state.data.map((value,index)=>
+      (
+        <option value={value.Name}/>
       )
     ) : <p>Không có dữ liệu</p>
     return (
-      <div className="header bg-dark">
+      <div className="header">
         <div className="container header-menubar">
           <nav className="navbar navbar-expand-lg navbar-light ">
             <div className="navbar-brand">
@@ -60,39 +59,25 @@ export default class Header extends Component {
             </button>
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
               <ul className="navbar-nav m-auto">
-                <li className="nav-item dropdown">
-                  <a
-                    className="nav-link ml-5 text-light dropdown-toggle"
-                    id="navbarDropdown"
-                    role="button"
-                    data-toggle="dropdown"
-                    aria-haspopup="true"
-                    aria-expanded="false"
-                  >
-                    Categories
-                  </a>
+                <li className="nav-item dropdown d-flex">
+                  <div>
+                    <a className="nav-link ml-5 text-light dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Categories
+                    </a>
                   <div className="dropdown">
                     <div className="dropdown-content">
+                      <Link to={"/"}>All</Link>
                       {data}
                     </div>
                   </div>
+                  </div>
+                  <div>
+                    <button className="btn btn-outline-primary my-2 my-sm-0" type="button" onClick={this.refresh}>
+                      Search
+                    </button>
+                  </div>
                 </li>
-                
               </ul>
-              <form className="form-inline my-2 my-lg-0">
-                <input
-                  className="form-control mr-sm-2"
-                  type="search"
-                  placeholder="Search"
-                  aria-label="Search"
-                />
-                <button
-                  className="btn btn-outline-primary my-2 my-sm-0"
-                  type="submit"
-                >
-                  Search
-                </button>
-              </form>
             </div>
           </nav>
         </div> 

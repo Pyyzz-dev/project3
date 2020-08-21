@@ -25,6 +25,14 @@
       }
     },
     {
+      "method": "GET",
+      "path": "/categories/:name",
+      "handler": "category.findName",
+      "config": {
+        "policies": []
+      }
+    },
+    {
       "method": "POST",
       "path": "/categories",
       "handler": "category.create",

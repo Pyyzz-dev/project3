@@ -91,7 +91,7 @@ export default class Content extends Component {
             </div>
           </div>
           <div className="content">
-            <div className="container sub-content d-flex px-0 pt-3">
+            <div className="container sub-content d-flex px-0 py-3">
               <div className="col-8">
                   <div className="content-effect">
                     <div id="fullpage">  

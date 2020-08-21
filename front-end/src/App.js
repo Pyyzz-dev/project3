@@ -21,6 +21,7 @@ class App extends Component {
             <Route path="/Content" component={Content}/>
             <Route path="/Profile/:id" component={Profile}/>
             <Route path="/Detail/:id" component={Detail}/>
+            <Route path="/Category/:id" component={Detail}/>
             <Route path="/DetailComment/:id" component={DetailComment}/>
           </Switch>
         </div>   

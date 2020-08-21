@@ -30,7 +30,6 @@ export default class Detail extends Component{
       clickSwitch = () =>{
         var fullpage = document.getElementById("fullpage");
         var switchpage = document.getElementById("switch");
-        var post = document.getElementById("post");
         if(fullpage.classList.contains("night")){
           fullpage.classList.remove("night");
           switchpage.classList.remove("switched");
@@ -72,17 +71,17 @@ export default class Detail extends Component{
             </div>
             <div className="d-flex justify-content-start px-3">
               <div className="px-3">
-                <div className="facebook icon px-3" style={{color:"white"}}><i class="fab fa-facebook-f"></i> Facebook</div>
+                <div className="facebook icon px-3" style={{color:"white"}}><i className="fab fa-facebook-f"></i> Facebook</div>
               </div>
               <div className="px-3">
-                <div className="like icon px-3" style={{color:"white"}}><i class="far fa-thumbs-up"></i> Like</div>
+                <div className="like icon px-3" style={{color:"white"}}><i className="far fa-thumbs-up"></i> Like</div>
               </div>
             </div>
           </div>
           <div className="detail-Post-subcontent d-flex pt-3">  
             <div className="clickcomment d-block px-3">
               <div className="py-3">
-                <div className="like icon px-3" onClick={this.clickComment} style={{color:"white", cursor:"pointer"}}><i class="fas fa-comments"></i> Comment</div>
+                <div className="like icon px-3" onClick={this.clickComment} style={{color:"white", cursor:"pointer"}}><i className="fas fa-comments"></i> Comment</div>
               </div>
               <div className="py-3">
                 <div className="like icon px-3" style={{color:"white", cursor:"pointer"}}><i class="fas fa-backward"></i><Link to="/" style={{color:"white"}}> Back to Home</Link></div>
@@ -91,9 +90,6 @@ export default class Detail extends Component{
             <div className="px-3">
               <div>{value.Content}</div>
             </div>
-              {/* <td id={"titlePost-"+value._id}>{value.Title}</td>
-              <td>{value.Upload_date}</td>
-              <td><Link to={"/DetailComment/"+ value._id} id={"comment-"+value._id}>{value.comments.length}</Link></td>*/}
           </div>
           <div>
 
@@ -129,15 +125,15 @@ export default class Detail extends Component{
               <div className="col-8 pt-3">
                   <div className="content-effect">
                     <div id="fullpage">  
-                      <div class="section">
-                        <div class="time-circle">
-                              <div class="sun"></div>
-                              <div class="moon">
+                      <div className="section">
+                        <div className="time-circle">
+                              <div className="sun"></div>
+                              <div className="moon">
                                     <div></div>
                                     <div></div>
                                     <div></div>
                               </div>
-                              <div class="stars">
+                              <div className="stars">
                                     <div></div>
                                     <div></div>
                                     <div></div>
@@ -146,7 +142,7 @@ export default class Detail extends Component{
                                     <div></div>
                                     <div></div>
                               </div>
-                              <div class="water"></div>
+                              <div className="water"></div>
                         </div>
                           <div id="switch" onClick={this.clickSwitch}>
                             <div id="circle">
@@ -168,24 +164,24 @@ export default class Detail extends Component{
           
         </div>
         
-        <div class="modal" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableLabel" aria-hidden="true">
-                  <div class="modal-dialog modal-dialog-scrollable" role="document">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalCenteredLabel">Comment</h5>
-                          <button type="button" class="close" id="close1" data-dismiss="modal" aria-label="Close">
+        <div className="modal" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableLabel" aria-hidden="true">
+                  <div className="modal-dialog modal-dialog-scrollable" role="document">
+                    <div className="modal-content">
+                      <div className="modal-header">
+                        <h5 className="modal-title" id="exampleModalCenteredLabel">Comment</h5>
+                          <button type="button" className="close" id="close1" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                           </button>
                       </div>
-                      <div class="modal-body">
+                      <div className="modal-body">
                         <CKEditor
                           editor={ClassicEditor}
                           onChange={this.handleOnChange}
                         />
                       </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" id="close2" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                      <div className="modal-footer">
+                        <button type="button" className="btn btn-secondary" id="close2" data-dismiss="modal">Close</button>
+                        <button type="button" className="btn btn-primary">Save changes</button>
                       </div>
                     </div>
                   </div>

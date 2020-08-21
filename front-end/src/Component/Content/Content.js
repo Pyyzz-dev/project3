@@ -22,7 +22,6 @@ export default class Content extends Component {
       url:"http://localhost:2020/posts"
     }).then(function(data){
       that.setState({data: data.data})
-      console.log(that.state.data);
     })
   }
 

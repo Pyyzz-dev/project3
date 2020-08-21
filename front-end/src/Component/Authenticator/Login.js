@@ -21,24 +21,33 @@ export default class Login extends Component {
     });
   }
 
-   handleSubmit(event) {
+  setCookie(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    var expires = "expires=" + d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+  }
+  handleSubmit(event) {
     const { username, password } = this.state;
     console.log("Submited");
     console.log("Username:" + username);
     console.log("Password:" + password);
     axios.post(
-        "http://localhost:1337/auth/local", {
-        identifier: username,
-        password: password
-      }).then(response => {
-        console.log(response);
-        if (response.data.jwt) {
-         console.log("You are logined");
-         window.location.href="/content";
-        }else console.log("You are not logined");
-      }).catch(error => {
-        console.log("login error", error);
-      });
+      "http://localhost:1337/auth/local", {
+      identifier: username,
+      password: password
+    }).then(response => {
+      console.log(response);
+      //if response have jwt => login success
+      if (response.data.jwt) {
+        console.log("You are logined");
+        this.setCookie("token",response.data.jwt,0.5);
+        //move to home page
+        window.location.href = "/content";
+      } else console.log("You are not logined");
+    }).catch(error => {
+      console.log("login error", error.response.data.message[0]);
+    });
     event.preventDefault();
   }
 

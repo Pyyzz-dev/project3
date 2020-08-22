@@ -126,7 +126,7 @@ export default class Content extends Component {
               </div>
               <div className="col-4 fixed">
                 <div className="image-fixed">
-
+                  <img style={{height:"100%", width:"100%"}} src="https://1.bp.blogspot.com/-G79n7byRp_g/XUIyhVs9iII/AAAAAAAAQSk/nKkkwwsXejU99DhGg59uoLXCQVskmTvDACLcBGAs/s1600/hinh-nen-4d-king-lion.jpg"/>
                 </div>
               </div>
             </div>

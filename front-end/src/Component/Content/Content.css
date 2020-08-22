@@ -109,15 +109,21 @@
     height: 600px;
     position: sticky;
     top: 0;
-    background-image: url("../../img/fixed.jpg");
+    /* background-image: url("../../img/fixed.jpg");
     background-repeat: no-repeat;
     background-position: center;
-    background-size: cover;
+    background-size: cover; */
     -webkit-box-shadow: 2px 7px 15px 13px rgba(0,0,0,0.64);
     -moz-box-shadow: 2px 7px 15px 13px rgba(0,0,0,0.64);
     box-shadow: 2px 7px 15px 13px rgba(0,0,0,0.64);
 }
 
+.image-fixed:hover img{
+  transform: scale(1.05);
+  transition: all ease-in-out 0.3s;
+
+
+}
 @import url(https://fonts.googleapis.com/css?family=Lato);
 
 #info {

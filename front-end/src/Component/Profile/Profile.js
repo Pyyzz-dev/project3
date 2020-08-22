@@ -17,18 +17,17 @@ export default class Profile extends Component {
       method: "GET",
       url: "http://localhost:2020/users?id=" + id,
     }).then(function (data) {
-      that.setState({ data: data.data[0] });
-      console.log(data.data[0]);
+      that.setState({ data: data.data});
     });
   }
     render() {
-      return (
-        <div className="container emp-profile">
+      var data = this.state.data.length ? this.state.data.map((value,index)=>
+      (
         <form method="post">
           <div className="row">
             <div className="col-md-4">
               <div className="profile-img">
-                  <img src={this.state.data.avatar ? "http://localhost:2020" + this.state.data.avatar.url : null} alt />
+                  <img src={value.avatar.url} alt />
                 <div className="file btn btn-lg btn-primary">
                   Thay đổi ảnh
                   <input type="file" name="file" />
@@ -37,19 +36,24 @@ export default class Profile extends Component {
             </div>
             <div className="col-md-6">
               <div className="profile-head">
-                  <h5>{this.state.data.username}</h5>
+                <p style={{fontFamily: "'Dancing Script', cursive", color:"white", fontSize:"50px"}}>{value.username}</p>
                 <ul className="nav nav-tabs" id="myTab" role="tablist">
                   <li className="nav-item">
-                    <a className="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">
+                    <a className="nav-link active" style={{color:"black"}} id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">
                       Thông tin
+                    </a>
+                  </li>
+                  <li className="nav-item" style={{borderLeft:"2px solid black"}}>
+                  <a className="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">
+                      <Link to="/" style={{color:"black"}}>Back to Home</Link>
                     </a>
                   </li>
                 </ul>
               </div>
             </div>
-            <div className="col-md-4">
+            {/* <div className="col-md-4">
               <input type="submit" className="profile-edit-btn" name="btnAddMore" value="Chỉnh sửa thông tin"/>
-            </div>
+            </div> */}
           </div>
           <div className="row">
             <div className="col-md-4" />
@@ -58,10 +62,10 @@ export default class Profile extends Component {
                 <div className="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                   <div className="row">
                     <div className="col-md-6">
-                      <label>Tên đăng nhập</label>
+                      <label>Username</label>
                     </div>
                     <div className="col-md-6">
-                        <p>{this.state.data.username}</p>
+                        <p>{value.username}</p>
                     </div>
                   </div>
                   <div className="row">
@@ -69,39 +73,39 @@ export default class Profile extends Component {
                       <label>Email</label>
                     </div>
                     <div className="col-md-6">
-                        <p>{this.state.data.email}</p>
+                        <p>{value.email}</p>
                     </div>
                   </div>
                   <div className="row">
                     <div className="col-md-6">
-                      <label>Số điện thoại</label>
+                      <label>Phone</label>
                     </div>
                     <div className="col-md-6">
-                        <p>{this.state.data.phone}</p>
-                    </div>
-                  </div>
-                  <div className="row">
-                    <div className="col-md-6">
-                      <label>Đã like </label>
-                    </div>
-                    <div className="col-md-6">
-                      <p>3 bài </p>
+                        <p>{value.phone}</p>
                     </div>
                   </div>
                   <div className="row">
                     <div className="col-md-6">
-                      <label>Đã comment </label>
+                      <label>Liked</label>
                     </div>
                     <div className="col-md-6">
-                        <p>5 bài </p>
+                      <p>{value.posts.length} bài</p>
+                    </div>
+                  </div>
+                  <div className="row">
+                    <div className="col-md-6">
+                      <label>Commented</label>
+                    </div>
+                    <div className="col-md-6">
+                        <p>{value.posts.length} bài</p>
                       </div>
                     </div>
                     <div className="row">
                       <div className="col-md-6">
-                        <label>Đã đăng </label>
+                        <label>Posted</label>
                       </div>
                       <div className="col-md-6">
-                        <p>{this.state.data.posts} bài</p>
+                        <p>{value.posts.length} bài</p>
                       </div>
                     </div>
                 </div>
@@ -109,7 +113,17 @@ export default class Profile extends Component {
             </div>
           </div>
         </form>
-  </div>
+      )
+    ) : <p>Không có dữ liệu</p>
+    var data1 = this.state.data.length ? this.state.data.map((value,index)=>
+      (
+        <option value={value.Name}/>
+      )
+    ) : <p>Không có dữ liệu</p>
+      return (
+        <div className="container emp-profile">
+          {data}
+        </div>
 
                 );
               }

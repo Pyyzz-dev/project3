@@ -2,8 +2,7 @@ import React, { Component } from "react";
 import "./header.css";
 import axios from 'axios';
 import {
-  Link,
-  Redirect 
+  Link
 } from "react-router-dom";
 
 export default class Header extends Component {
@@ -30,7 +29,7 @@ refresh() {
     var data = this.state.data.length ? this.state.data.map((value,index)=>
       (
         <div className="content-mainPage h-100" onClick={this.refresh}>
-          <Link to={"/Category/"+value._id} style={{color:"white", textDecoration:"none", fontSize:"20px", fontFamily:"'Dancing Script', cursive;"}}>{value.Name}</Link>
+          <Link to={"/Category/"+value._id} style={{textDecoration:"none", fontSize:"20px", fontFamily: "'Dancing Script', cursive", color:"white"}}>{value.Name}</Link>
         </div>
       )
     ) : <p>Không có dữ liệu</p>
@@ -86,8 +85,9 @@ refresh() {
                                 <button type="button" className="notification general ml-2">
                                     <i style={{fontSize: "20px"}} className="far fa-bell"></i>
                                 </button>
+                                
                                 <button type="button" className="fix general ml-2">
-                                    <i style={{fontSize: "20px"}} className="fas fa-wrench"></i>
+                                  <Link to="/Profile/5f3aa1e52f3f512c58f65446" style={{color:"black"}}><i style={{fontSize: "20px"}} className="fas fa-user-shield"></i></Link>
                                 </button>
                                 <button type="button" className="account general ml-2">
                                     <i style={{fontSize: "20px"}} className="fas fa-sign-in-alt"></i>
@@ -99,13 +99,13 @@ refresh() {
                 <div className="container headerPart2 d-flex align-items-center px-0">
                     <div className="headerPart2-link w-100 h-50 d-flex">
                         <div className="content-mainPage h-100">
-                          <Link to={"/"} style={{color:"white", textDecoration:"none", fontSize:"20px", fontFamily:"'Dancing Script', cursive;"}}>Trang chủ</Link>
+                          <Link to={"/"} style={{textDecoration:"none", fontSize:"20px", fontFamily: "'Dancing Script', cursive", color:"white"}}>Trang chủ</Link>
                         </div>
                         {data}
                         <div className="content-mainPage-Vip h-75 d-flex justify-content-center align-items-center"
                            style={{borderRadius:"20px"}}>
                             <div
-                                style={{color:"rgb(86, 120, 224)", textDecoration:"none", fontSize:"20px", fontFamily:"'Dancing Script', cursive;"}}>VIP</div>
+                                style={{textDecoration:"none", fontSize:"20px", fontFamily: "'Dancing Script', cursive", color:"white"}}>VIP</div>
                         </div>
                     </div>
                 </div>

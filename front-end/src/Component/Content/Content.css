@@ -106,7 +106,7 @@
     min-height: 1000px;
 }
 .sub-Content .content .sub-content .fixed .image-fixed{
-    height: 600px;
+    height: 500px!important;
     position: sticky;
     top: 0;
     /* background-image: url("../../img/fixed.jpg");

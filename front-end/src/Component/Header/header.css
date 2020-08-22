@@ -6,7 +6,6 @@
 /* div, button, span2 {
   border: 1px solid black;
 } */
-
 .isLogin{
   background-image: url("../../img/AnhThePhong.jpg");
   background-position: center;
@@ -15,6 +14,7 @@
 }
 @media screen and (min-width: 992px){
   .header-projectPyyzz{
+    
       background-image: url("../../img/background4.jpg");
       background-position: center;
       background-repeat: no-repeat;

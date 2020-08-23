@@ -1,0 +1,58 @@
+body {
+    background-color: gray;
+}
+
+.logo {
+    margin: 0px auto;
+    background-image: url("../Image/logo.jpg");
+    width: 100px;
+    height: 100px;
+    background-size: cover;
+    background-color: #fa3;
+}
+
+.login_form {
+    padding: 40px 20px;
+    background-color: white;
+    display: inline-block;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    display: inline-block;
+    border: 3px solid black;
+    border-radius: 5px;
+}
+
+form label {
+    margin: 0px;
+    margin-top: 5px;
+}
+
+form input {
+    border: none;
+    border-bottom: 2px solid gray;
+    width: 100%;
+}
+
+form input:focus {
+    border: none;
+    background-color: #fb4;
+}
+
+.btnLogin {
+    width: 100%;
+    margin-top: 10px;
+    background: linear-gradient(to right, #931, #d51, #f71, #fb4);
+    border: none;
+    border-radius: 20px;
+    padding: 5px;
+}
+
+.btnLogin:hover {
+    background: linear-gradient(to right, #fb4, #f71, #d51, #931);
+}

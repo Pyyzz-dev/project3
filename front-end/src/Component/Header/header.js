@@ -90,7 +90,7 @@ refresh() {
                                   <Link to="/Profile/5f3aa1e52f3f512c58f65446" style={{color:"black"}}><i style={{fontSize: "20px"}} className="fas fa-user-shield"></i></Link>
                                 </button>
                                 <button type="button" className="account general ml-2">
-                                    <i style={{fontSize: "20px"}} className="fas fa-sign-in-alt"></i>
+                                    <Link to="/login" style={{color:"black"}}><i style={{fontSize: "20px"}} className="fas fa-sign-in-alt"></i></Link>
                                 </button>
                             </div>
                         </div>

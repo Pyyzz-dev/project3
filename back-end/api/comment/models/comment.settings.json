@@ -15,9 +15,10 @@
     "Content": {
       "type": "richtext"
     },
-    "account": {
-      "via": "comment",
-      "model": "account"
+    "user": {
+      "plugin": "users-permissions",
+      "model": "user",
+      "via": "comments"
     }
   }
 }

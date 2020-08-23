@@ -14,7 +14,6 @@
 }
 @media screen and (min-width: 992px){
   .header-projectPyyzz{
-    
       background-image: url("../../img/background4.jpg");
       background-position: center;
       background-repeat: no-repeat;
@@ -52,9 +51,9 @@
       height: 100%;
       background-image : url("../../img/sprite-sheet1.png");
       background-repeat: no-repeat;
-      background-position: center center;
+      background-position: center;
       background-size: cover;
-      animation: moveX 1s steps(6) infinite;
+      animation: moveX 1.3s steps(6) infinite;
   }
   @keyframes moveX{
       from{background-position-x:0px;}

@@ -69,6 +69,10 @@
     },
     "phone": {
       "type": "biginteger"
+    },
+    "comments": {
+      "via": "user",
+      "collection": "comment"
     }
   }
 }

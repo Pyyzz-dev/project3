@@ -27,10 +27,6 @@
     },
     "posts": {
       "collection": "post"
-    },
-    "comment": {
-      "model": "comment",
-      "via": "account"
     }
   }
 }

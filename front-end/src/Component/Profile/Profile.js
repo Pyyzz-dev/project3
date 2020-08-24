@@ -7,7 +7,7 @@ export default class Profile extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: [],
+      data: []
     };
   }
   componentDidMount() {
@@ -113,11 +113,6 @@ export default class Profile extends Component {
             </div>
           </div>
         </form>
-      )
-    ) : <p>Không có dữ liệu</p>
-    var data1 = this.state.data.length ? this.state.data.map((value,index)=>
-      (
-        <option value={value.Name}/>
       )
     ) : <p>Không có dữ liệu</p>
       return (

@@ -13,9 +13,7 @@ export default class Header extends Component {
     }
 }
 
-refresh() {
-  window.location.reload();
-}
+
   componentDidMount(){
     let that = this;
     axios({
@@ -24,6 +22,9 @@ refresh() {
       }).then(function(data){
         that.setState({data: data.data})
       })
+  }
+  refresh() {
+    window.location.reload();
   }
   render() {
     var data = this.state.data.length ? this.state.data.map((value,index)=>
@@ -87,7 +88,7 @@ refresh() {
                                 </button>
                                 
                                 <button type="button" className="fix general ml-2">
-                                  <Link to="/Profile/5f3aa1e52f3f512c58f65446" style={{color:"black"}}><i style={{fontSize: "20px"}} className="fas fa-user-shield"></i></Link>
+                                  <Link to={"/Profile/"+this.props.idUser} style={{color:"black"}}><i style={{fontSize: "20px"}} className="fas fa-user-shield"></i></Link>
                                 </button>
                                 <button type="button" className="account general ml-2">
                                     <Link to="/login" style={{color:"black"}}><i style={{fontSize: "20px"}} className="fas fa-sign-in-alt"></i></Link>

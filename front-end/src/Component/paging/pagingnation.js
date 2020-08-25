@@ -51,34 +51,7 @@ class Paging extends Component {
         );
         this.observer.observe(this.loadingRef);
     }
-//    componentDidUpdate(prevProps) {
-//         if (this.props.match.params.id !== prevProps.match.params.id) {
-//             this.setState({ posts:[] });
-//             this.setState({ page: 0 });
-//             this.setState({ canLoad: true });
-//             this.setState({ prevY: 0 });
-//             var api = `${this.props.api}page=${this.state.page}&limit=1`
-//             this.setState({ loading: true });
-//             axios.get(
-//                 api
-//             ).then(res => {
-           
-//                 this.setState({ posts: [...this.state.posts, ...res.data.data] });
-//                 this.setState({ page: res.data.nextPage });
-//                 this.setState({ canLoad: res.data.canLoad });
-//             });
-//         var option = {
-//             root: null,
-//             rootMargin: "0px",
-//             threshold: 1.0
-//         };
-//         this.observer = new IntersectionObserver(
-//             this.handleObserver.bind(this),
-//             option
-//         );
-//         this.observer.observe(this.loadingRef);
-//         }
-//       }
+
     handleObserver(entities, observer) {
         const y = entities[0].boundingClientRect.y;
         setTimeout(() => {

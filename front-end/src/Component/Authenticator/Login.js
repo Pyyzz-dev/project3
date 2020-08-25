@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import axios from "axios";
 import './Login.css';
+import { Link } from "react-router-dom";
 export default class Login extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
+      data:[],
       username: "",
       password: "",
       loginErrors: ""
@@ -13,6 +15,21 @@ export default class Login extends Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
+  }
+  getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+      var c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return "";
   }
 
   handleChange(event) {
@@ -29,24 +46,25 @@ export default class Login extends Component {
   }
   handleSubmit(event) {
     const { username, password } = this.state;
-    console.log("Submited");
-    console.log("Username:" + username);
-    console.log("Password:" + password);
+    // console.log("Submited");
+    // console.log("Username:" + username);
+    // console.log("Password:" + password);
     axios.post(
       "http://localhost:2020/auth/local", {
       identifier: username,
       password: password
-    }).then(response => {
-      console.log(response);
+    }).then(data => {
+      console.log(data);
       //if response have jwt => login success
-      if (response.data.jwt) {
+      if (data.data.jwt) {
         console.log("You are logined");
-        this.setCookie("token",response.data.jwt,0.5);
+        this.setCookie("token",data.data.user.id,0.5);
         //move to home page
-        window.location.href = "/content";
+        // console.log(data.data);
+        window.location.href = "/Home/"+ this.getCookie("token");
       } else console.log("You are not logined");
     }).catch(error => {
-      console.log("login error", error.response.data.message[0]);
+      console.log("login error", error.data.data.message[0]);
     });
     event.preventDefault();
   }
@@ -81,7 +99,7 @@ export default class Login extends Component {
           />
           <br />
           <button type="submit" className="btnLogin">Login</button>
-          <span className="register_text">Don't have account?</span><a href="/register">Register</a>
+          <span className="register_text">Don't have account?</span><Link to="/register">Register</Link>
         </form>
       </div>
     );

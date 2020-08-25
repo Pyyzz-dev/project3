@@ -17,7 +17,8 @@ export default class Detail extends Component{
         this.state={
             data:[],
             dataComment:[],
-            dataUser:[]
+            dataUser:[],
+            countLike: this.getCookie("like")
         }
     }
     componentDidMount(){
@@ -28,7 +29,6 @@ export default class Detail extends Component{
             url:"http://localhost:2020/posts?id="+id
           }).then(function(data){
             that.setState({data: data.data, dataComment: data.data[0].comments})
-            console.log(data.data[0].comments);
             var idUser = data.data[0].comments[0].user;
             axios({
               method: "GET",
@@ -37,6 +37,21 @@ export default class Detail extends Component{
               that.setState({ dataUser: data.data});
             });
           })
+      }
+      getCookie(cname) {
+        var name = cname + "=";
+        var decodedCookie = decodeURIComponent(document.cookie);
+        var ca = decodedCookie.split(';');
+        for(var i = 0; i <ca.length; i++) {
+          var c = ca[i];
+          while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+          }
+          if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+          }
+        }
+        return "";
       }
       clickSwitch = () =>{
         var fullpage = document.getElementById("fullpage");
@@ -64,6 +79,26 @@ export default class Detail extends Component{
     handleOnChange = (e, editor) =>{
       console.log(editor.getData());
     }
+    setCookie(cname, cvalue, exdays) {
+      var d = new Date();
+      d.setTime(d.getTime() + (exdays*24*60*60*1000));
+      var expires = "expires="+ d.toUTCString();
+      document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    }
+    clickLike = () =>{
+      this.setCookie("like", this.state.countLike, 0.5)
+      var countLike = parseInt(this.getCookie("like"));
+      var like = document.getElementById("like");
+      if(like.textContent === "Like"){
+        like.textContent = "Liked"
+        this.setState({countLike: countLike - 1});
+        this.setCookie("like", this.state.countLike, 0.5);
+      }else{
+        like.textContent = "Like"
+        this.setState({countLike: countLike + 1});
+        this.setCookie("like", this.state.countLike, 0.5);
+      }
+    }
     render(){
       const contentStyle = {
         textAlign: 'center',
@@ -82,12 +117,16 @@ export default class Detail extends Component{
             </div>
             <div className="d-flex justify-content-start px-3">
               <div className="px-3">
-                <div className="facebook icon px-3" style={{color:"white"}}><i className="fab fa-facebook-f"></i> Facebook</div>
+                <button className="facebook icon px-3" style={{color:"white"}}><i className="fab fa-facebook-f"></i> Facebook</button>
               </div>
               <div className="px-3">
-                <div className="like icon px-3" style={{color:"white"}}><i className="far fa-thumbs-up"></i> Like</div>
+                <button className="like icon px-3" onClick={this.clickLike} id="like" style={{color:"white"}}> Like </button>
+              </div>
+              <div className="px-3">
+                <div className="like icon px-3" style={{color:"white"}}><i className="far fa-thumbs-up"></i> {parseInt(this.getCookie("like"))} lượt Like </div>
               </div>
             </div>
+            
           </div>
           <div className="detail-Post-subcontent d-flex pt-3">  
             <div className="clickcomment d-block px-3">
@@ -95,7 +134,11 @@ export default class Detail extends Component{
                 <div className="like icon px-3" onClick={this.clickComment} style={{color:"white", cursor:"pointer"}}><i className="fas fa-comments"></i> Comment</div>
               </div>
               <div className="py-3">
-                <div className="like icon px-3" style={{color:"white", cursor:"pointer"}}><i class="fas fa-backward"></i><Link to="/" style={{color:"white"}}> Back to Home</Link></div>
+                <div className="like icon px-3" style={{color:"white", cursor:"pointer"}}><i class="fas fa-backward"></i>
+                {
+                  this.getCookie("token")? <Link to={"/Home/"+this.getCookie("token")} style={{color:"white"}}> Back to Home</Link> : <Link to="/" style={{color:"white"}}> Back to Home</Link>
+                }
+                </div>
               </div>
             </div>
             <div className="px-3">
@@ -127,14 +170,14 @@ export default class Detail extends Component{
 
     var dataComment = this.state.dataComment.length ? this.state.dataComment.map((value,index)=>
       (
-        <div className="title-comment px-0 py-3">
+        <div className="title-comment px-0">
           <div className="title-comment-sub" id="fullpage">
               <div className="section title-and-content-comment d-flex">
-                  <div className="col-2 h-100 avatar-author-comment px-0 py-3 d-flex justify-content-center">
+                  <div className="col-2 h-100 avatar-author-comment px-0 d-flex justify-content-center">
                      {dataUserAvatar}
                   </div>
-                  <div className="col-10 h-100 content-post-comment px-0 d-block" style={{color:"white"}}>
-                      <div className="px-5 py-3">
+                  <div className="col-10 content-post-comment px-0 d-block" style={{color:"white"}}>
+                      <div className="px-5 py-1">
                         <div className="d-flex">
                           {dataUserInfo}
                           <div className="px-5 d-flex align-items-center" style={{fontSize:"12px"}}>

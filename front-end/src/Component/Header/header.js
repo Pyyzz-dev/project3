@@ -10,20 +10,65 @@ export default class Header extends Component {
     super(props);
     this.state={
         data:[],
+        dataUser:[],
+        token:[]        
     }
 }
 
-refresh() {
-  window.location.reload();
+getCookie(cname) {
+  var name = cname + "=";
+  var decodedCookie = decodeURIComponent(document.cookie);
+  var ca = decodedCookie.split(';');
+  for(var i = 0; i <ca.length; i++) {
+    var c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
 }
   componentDidMount(){
     let that = this;
+    var profile = document.getElementById("fix");
+    var token = this.getCookie("token");
+    if(token){
+      profile.style.display="block";
+      this.setState({token: token});
+    }else{
+      profile.style.display="none";
+    }
+    var idUser = this.props.idUser;
     axios({
         method:"GET",
         url:"http://localhost:2020/categories"
       }).then(function(data){
         that.setState({data: data.data})
       })
+      axios({
+        method: "GET",
+        url: "http://localhost:2020/users?id=" + idUser,
+      }).then(function (data) {
+        that.setState({ dataUser: data.data});
+      });
+  }
+  refresh() {
+    window.location.reload();
+  }
+  clickProfile = ()=>{
+    var idUser = this.props.idUser;
+    window.location.href = "/Profile/"+ idUser;
+  }
+  setCookie(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    var expires = "expires=" + d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+  }
+  deleteCookie = () =>{
+    this.setCookie("token", "", -1);
   }
   render() {
     var data = this.state.data.length ? this.state.data.map((value,index)=>
@@ -38,6 +83,16 @@ refresh() {
         <option value={value.Name}/>
       )
     ) : <p>Không có dữ liệu</p>
+    var avatarUser = this.state.dataUser.length ? this.state.dataUser.map((value,index)=>
+      (
+        <img onClick={this.clickProfile} style={{height:"100%", width:"100%", borderRadius:"40px"}} src={value.avatar.url} alt />
+      )
+    ) : <p>Không có dữ liệu</p>
+    var nameUser = this.state.dataUser.length ? this.state.dataUser.map((value,index)=>
+      (
+        <p>{value.username}</p>
+      )
+    ) : <p>Không có dữ liệu</p>
     return (
       <div className="projectPyyzz">
         <div className="header-projectPyyzz px-0">
@@ -46,11 +101,17 @@ refresh() {
                     <div className="header-iconMain d-flex">
                         <div className="header-iconMain-icon w-25 h-100 d-flex align-items-center">
                             <div className="logoOfP d-flex align-items-center">
-                                <div className="logo">
-
+                                <div className="logo-projectPyyzz" id="logo-projectPyyzz">
+                                  {
+                                    this.state.token.length ?  avatarUser : <img style={{height:"100%", width:"100%", borderRadius:"40px"}} src="https://imgix.ranker.com/user_node_img/50045/1000889229/original/1-photo-u1?w=650&q=50&fm=pjpg&fit=crop&crop=faces" alt />
+                                  }
                                 </div>
-                                <div className="text d-flex align-items-center px-2">
-                                    <h4 style={{fontFamily: "'Dancing Script', cursive", color:"white"}}>N.D.Phong</h4>
+                                <div className="text d-flex align-items-center px-2" id="text-projectPyyzz">
+                                  <div className="d-flex align-items-center" style={{fontFamily: "'Dancing Script', cursive", fontSize:"20px", color:"white"}}>
+                                  {
+                                    this.state.token.length ?  nameUser : <p>Đang ở trang xem chùa</p>
+                                  }
+                                  </div>
                                 </div>
                                 <div className="sprite-sheet d-flex justify-content-center px-0">
 
@@ -85,12 +146,14 @@ refresh() {
                                 <button type="button" className="notification general ml-2">
                                     <i style={{fontSize: "20px"}} className="far fa-bell"></i>
                                 </button>
-                                
-                                <button type="button" className="fix general ml-2">
-                                  <Link to="/Profile/5f3aa1e52f3f512c58f65446" style={{color:"black"}}><i style={{fontSize: "20px"}} className="fas fa-user-shield"></i></Link>
+                                <button type="button" id="fix" className="fix general ml-2">
+                                  <Link to={"/Profile/"+this.getCookie("token")} style={{color:"black"}}><i style={{fontSize: "20px"}} className="fas fa-user-shield"></i></Link>
                                 </button>
                                 <button type="button" className="account general ml-2">
-                                    <Link to="/login" style={{color:"black"}}><i style={{fontSize: "20px"}} className="fas fa-sign-in-alt"></i></Link>
+                                  {
+                                    this.state.token.length ? <Link to="/login" onClick={this.deleteCookie} style={{color:"black"}}><i style={{fontSize: "20px"}} className="fas fa-sign-in-alt"></i></Link>  : <Link to="/login" style={{color:"black"}}><i style={{fontSize: "20px"}} className="fas fa-sign-in-alt"></i></Link>
+                                  }
+                                    
                                 </button>
                             </div>
                         </div>
@@ -99,7 +162,9 @@ refresh() {
                 <div className="container headerPart2 d-flex align-items-center px-0">
                     <div className="headerPart2-link w-100 h-50 d-flex">
                         <div className="content-mainPage h-100">
-                          <Link to={"/"} style={{textDecoration:"none", fontSize:"20px", fontFamily: "'Dancing Script', cursive", color:"white"}}>Trang chủ</Link>
+                          {
+                            this.state.token.length  ? <Link to={"/Home/"+this.getCookie("token")} style={{textDecoration:"none", fontSize:"20px", fontFamily: "'Dancing Script', cursive", color:"white"}}>Trang chủ</Link>  : <Link to={"/"} style={{textDecoration:"none", fontSize:"20px", fontFamily: "'Dancing Script', cursive", color:"white"}}>Trang chủ</Link>
+                          }
                         </div>
                         {data}
                         <div className="content-mainPage-Vip h-75 d-flex justify-content-center align-items-center"

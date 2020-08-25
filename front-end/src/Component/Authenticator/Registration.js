@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import './Login.css';
+import { Link } from "react-router-dom";
 export default class Registration extends Component {
   constructor(props) {
     super(props);
@@ -31,9 +32,6 @@ export default class Registration extends Component {
 
   handleSubmit(event) {
     const { email, password, username, password_confirmation } = this.state;
-    console.log(username);
-    console.log(email);
-    console.log(password);
     axios.post(
       "http://localhost:2020/auth/local/register",
       {
@@ -108,7 +106,7 @@ export default class Registration extends Component {
           />
           <br />
           <button type="submit" className="btnLogin">Register</button>
-          <span className="register_text">Already have account?</span><a href="/login">Login</a>
+          <span className="register_text">Already have account?</span><Link to="/login">Login</Link>
         </form>
       </div>
     );

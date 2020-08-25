@@ -40,10 +40,11 @@
     height: 80px;
 }
 .avatar-user-comment{
-    height: 70px;
-    width: 70px;
+    height: 50px;
+    width: 50px;
 }
 .content-post-comment{
+    height: 85px;
     background: rgb(32, 32, 32);
     border-radius: 10px;
     border-radius: 10px;

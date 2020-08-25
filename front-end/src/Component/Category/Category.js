@@ -13,13 +13,13 @@ export default class Category extends Component{
     constructor(props){
         super(props);
         this.state ={
-            data:[]
+            data:[],
+            token:[]
         }
     }
     clickSwitch = () =>{
         var fullpage = document.getElementById("fullpage");
         var switchpage = document.getElementById("switch");
-        var post = document.getElementById("post");
         if(fullpage.classList.contains("night")){
           fullpage.classList.remove("night");
           switchpage.classList.remove("switched");
@@ -37,6 +37,24 @@ export default class Category extends Component{
         }).then(function(data){
           that.setState({data: data.data[0].posts});
         })
+      }
+      getCookie(cname) {
+        var name = cname + "=";
+        var decodedCookie = decodeURIComponent(document.cookie);
+        var ca = decodedCookie.split(';');
+        for(var i = 0; i <ca.length; i++) {
+          var c = ca[i];
+          while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+          }
+          if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+          }
+        }
+        return "";
+      }
+      refresh() {
+        window.location.reload();
       }
       render(){
         const contentStyle = {
@@ -69,9 +87,10 @@ export default class Category extends Component{
           </div>
         )
       ) : <p>Không có dữ liệu</p>
+      var idUser = this.getCookie("token");
           return(
               <div>
-                    <Header/>
+                  <Header idUser = {idUser}/>
                     <div className="Content">
             <div className="container-fluid sub-Content px-0">
               <div className="container advertisement px-0 d-flex align-items-center">

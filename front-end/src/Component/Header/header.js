@@ -2,15 +2,19 @@ import React, { Component } from "react";
 import "./header.css";
 import axios from 'axios';
 import {
-  Link,
+  Link
 } from "react-router-dom";
 
 export default class Header extends Component {
   constructor(props){
     super(props);
     this.state={
-        data:[]
+        data:[],
     }
+}
+
+refresh() {
+  window.location.reload();
 }
   componentDidMount(){
     let that = this;
@@ -19,84 +23,96 @@ export default class Header extends Component {
         url:"http://localhost:2020/categories"
       }).then(function(data){
         that.setState({data: data.data})
-        console.log(data.data);
       })
-  }
-  componentDidUpdate(){
-    console.log(this.prevProps);
-    // axios({
-    //     method:"GET",
-    //     url:"http://localhost:2020/categories?id="+id
-    //   }).then(function(data){
-    //     that.setState({data: data.data})
-    //     console.log(data.data);
-    //   })
   }
   render() {
     var data = this.state.data.length ? this.state.data.map((value,index)=>
       (
-      <Link to={"/Category/"+ value._id}>{value.Name}</Link>
+        <div className="content-mainPage h-100" onClick={this.refresh}>
+          <Link to={"/Category/"+value._id} style={{textDecoration:"none", fontSize:"20px", fontFamily: "'Dancing Script', cursive", color:"white"}}>{value.Name}</Link>
+        </div>
+      )
+    ) : <p>Không có dữ liệu</p>
+    var data1 = this.state.data.length ? this.state.data.map((value,index)=>
+      (
+        <option value={value.Name}/>
       )
     ) : <p>Không có dữ liệu</p>
     return (
-      <div className="header bg-dark">
-        <div className="container header-menubar">
-          <nav className="navbar navbar-expand-lg navbar-light ">
-            <div className="navbar-brand">
-              <div className="logo-header">
+      <div className="projectPyyzz">
+        <div className="header-projectPyyzz px-0">
+            <div className="container-fluid h-100 w-100 px-0">
+                <div className="container headerPart1 px-0 d-flex align-items-center">
+                    <div className="header-iconMain d-flex">
+                        <div className="header-iconMain-icon w-25 h-100 d-flex align-items-center">
+                            <div className="logoOfP d-flex align-items-center">
+                                <div className="logo">
 
-              </div>
-            </div>
-            <button
-              className="navbar-toggler"
-              type="button"
-              data-toggle="collapse"
-              data-target="#navbarSupportedContent"
-              aria-controls="navbarSupportedContent"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
-              <span className="navbar-toggler-icon"></span>
-            </button>
-            <div className="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul className="navbar-nav m-auto">
-                <li className="nav-item dropdown">
-                  <a
-                    className="nav-link ml-5 text-light dropdown-toggle"
-                    id="navbarDropdown"
-                    role="button"
-                    data-toggle="dropdown"
-                    aria-haspopup="true"
-                    aria-expanded="false"
-                  >
-                    Categories
-                  </a>
-                  <div className="dropdown">
-                    <div className="dropdown-content">
-                      {data}
+                                </div>
+                                <div className="text d-flex align-items-center px-2">
+                                    <h4 style={{fontFamily: "'Dancing Script', cursive", color:"white"}}>N.D.Phong</h4>
+                                </div>
+                                <div className="sprite-sheet d-flex justify-content-center px-0">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div className="header-iconMain-content w-50 h-100 d-flex align-items-center">
+                            <div className="header-search w-100 h-50 d-flex justify-content-center">
+                                <div className="header-search-sub d-flex align-items-center">
+                                    <div className="iconSearch d-flex align-items-center" onClick={this.refresh} style={{cursor: "pointer"}}>
+                                        <i className="fas fa-search"></i>
+                                    </div>
+                                    <div className="inputSearch d-flex align-items-center">
+                                        <input list="browsers" name="browser" id="browser"
+                                          style={{border:"0px", width:"100%", height:"100%"}} aria-autocomplete="list"
+                                            autocomplete="off" type="text"
+                                            placeholder="Nhập tên bài hát, ca sĩ hoặc mv... "/>
+                                        <datalist className="optionsSearch" id="browsers">
+                                          <option value="All"/>
+                                          {data1}
+                                        </datalist>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            className="header-iconMain-information w-25 h-100 d-flex justify-content-end align-items-center">
+                            <div className="header-information-sub w-75 h-75 d-flex align-items-center justify-content-end">
+                                <button type="button" className="add general ml-2">
+                                    <i style={{fontSize: "20px"}} className="fas fa-user-plus"></i>
+                                </button>
+                                <button type="button" className="notification general ml-2">
+                                    <i style={{fontSize: "20px"}} className="far fa-bell"></i>
+                                </button>
+                                
+                                <button type="button" className="fix general ml-2">
+                                  <Link to="/Profile/5f3aa1e52f3f512c58f65446" style={{color:"black"}}><i style={{fontSize: "20px"}} className="fas fa-user-shield"></i></Link>
+                                </button>
+                                <button type="button" className="account general ml-2">
+                                    <Link to="/login" style={{color:"black"}}><i style={{fontSize: "20px"}} className="fas fa-sign-in-alt"></i></Link>
+                                </button>
+                            </div>
+                        </div>
                     </div>
-                  </div>
-                </li>
-                
-              </ul>
-              <form className="form-inline my-2 my-lg-0">
-                <input
-                  className="form-control mr-sm-2"
-                  type="search"
-                  placeholder="Search"
-                  aria-label="Search"
-                />
-                <button
-                  className="btn btn-outline-primary my-2 my-sm-0"
-                  type="submit"
-                >
-                  Search
-                </button>
-              </form>
+                </div>
+                <div className="container headerPart2 d-flex align-items-center px-0">
+                    <div className="headerPart2-link w-100 h-50 d-flex">
+                        <div className="content-mainPage h-100">
+                          <Link to={"/"} style={{textDecoration:"none", fontSize:"20px", fontFamily: "'Dancing Script', cursive", color:"white"}}>Trang chủ</Link>
+                        </div>
+                        {data}
+                        <div className="content-mainPage-Vip h-75 d-flex justify-content-center align-items-center"
+                           style={{borderRadius:"20px"}}>
+                            <div
+                                style={{textDecoration:"none", fontSize:"20px", fontFamily: "'Dancing Script', cursive", color:"white"}}>VIP</div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </nav>
-        </div> 
-      </div>   
+        </div>
+      </div>
+ 
     );
   }
 }

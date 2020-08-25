@@ -55,6 +55,24 @@
     },
     "posts": {
       "collection": "post"
+    },
+    "avatar": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "phone": {
+      "type": "biginteger"
+    },
+    "comments": {
+      "via": "user",
+      "collection": "comment"
     }
   }
 }

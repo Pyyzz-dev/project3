@@ -2,19 +2,22 @@ import React, {Component} from 'react';
 import 'antd/dist/antd.css';
 import { Carousel } from 'antd';
 import axios from 'axios';
-import "./Detail.css";
+import "./Post.css";
 import CKEditor from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import {
     Link,
   } from "react-router-dom";
+  import ReactMarkdown from "react-markdown"
 
 
 export default class Detail extends Component{
     constructor(props){
         super(props);
         this.state={
-            data:[]
+            data:[],
+            dataComment:[],
+            dataUser:[]
         }
     }
     componentDidMount(){
@@ -24,7 +27,15 @@ export default class Detail extends Component{
             method:"GET",
             url:"http://localhost:2020/posts?id="+id
           }).then(function(data){
-            that.setState({data: data.data})
+            that.setState({data: data.data, dataComment: data.data[0].comments})
+            console.log(data.data[0].comments);
+            var idUser = data.data[0].comments[0].user;
+            axios({
+              method: "GET",
+              url: "http://localhost:2020/users?id=" + idUser,
+            }).then(function (data) {
+              that.setState({ dataUser: data.data});
+            });
           })
       }
       clickSwitch = () =>{
@@ -99,6 +110,52 @@ export default class Detail extends Component{
            
       )
     ) : <p>Không có dữ liệu</p>
+    var dataUserAvatar = this.state.dataUser.length ? this.state.dataUser.map((value,index)=>
+      (
+        <div className="avatar-user-comment">
+          <img src={value.avatar.url} style={{height:"100%", width:"100%", borderRadius:"35px"}}/>
+        </div>
+      )
+    ) : <p>Không có dữ liệu</p>
+    var dataUserInfo = this.state.dataUser.length ? this.state.dataUser.map((value,index)=>
+    (
+      <div className="info-user-comment px-1" style={{fontFamily: "'Dancing Script', cursive", color:"#4167b2", fontSize:"25px"}}>
+        {value.username}
+      </div>
+    )
+  ) : <p>Không có dữ liệu</p>
+
+    var dataComment = this.state.dataComment.length ? this.state.dataComment.map((value,index)=>
+      (
+        <div className="title-comment px-0 py-3">
+          <div className="title-comment-sub" id="fullpage">
+              <div className="section title-and-content-comment d-flex">
+                  <div className="col-2 h-100 avatar-author-comment px-0 py-3 d-flex justify-content-center">
+                     {dataUserAvatar}
+                  </div>
+                  <div className="col-10 h-100 content-post-comment px-0 d-block" style={{color:"white"}}>
+                      <div className="px-5 py-3">
+                        <div className="d-flex">
+                          {dataUserInfo}
+                          <div className="px-5 d-flex align-items-center" style={{fontSize:"12px"}}>
+                            Update at: {value.Upload_date}
+                          </div>
+                        </div>
+                      </div>
+                      <div className="d-flex justify-content-start px-5">
+                        {/* <ReactMarkdown source={value.Content}/> */}
+                        {value.Content}
+                      </div>
+                      <div>
+
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+      )
+    ) : <p>Không có dữ liệu</p>
+    
         return(
           <div className="Content">
         <div className="container-fluid sub-Content px-0">
@@ -122,11 +179,11 @@ export default class Detail extends Component{
           </div>
           <div className="content">
             <div className="container sub-content d-flex px-0 pt-3">
-              <div className="col-8 pt-3">
+              <div className="col-9 pt-3">
                   <div className="content-effect">
                     <div id="fullpage">  
                       <div className="section">
-                        <div className="time-circle">
+                          <div className="time-circle">
                               <div className="sun"></div>
                               <div className="moon">
                                     <div></div>
@@ -143,18 +200,29 @@ export default class Detail extends Component{
                                     <div></div>
                               </div>
                               <div className="water"></div>
-                        </div>
+                          </div>
                           <div id="switch" onClick={this.clickSwitch}>
                             <div id="circle">
                         
                             </div>
                           </div>
                           {data}
+                          <div className="space" style={{height:"30px", backgroundColor:"white"}}>
+
+                          </div>
+                          <div className="comments d-block px-5">
+                            <div className="count-comments" style={{height:"30px"}}>
+                               <div className="count-comments-sub h-100">
+                                  <p>Đã có {this.state.dataComment.length} bình luận</p>
+                                </div>
+                            </div>
+                            {dataComment}
+                          </div>
                         </div>
                       </div>
                   </div>
               </div>
-              <div className="col-4 fixed pt-3">
+              <div className="col-3 fixed pt-3">
                 <div className="image-fixed">
 
                 </div>

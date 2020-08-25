@@ -72,6 +72,14 @@
       "config": {
         "policies": []
       }
+    },
+    {
+      "method": "GET",
+      "path": "/infinity-load",
+      "handler": "post.handleInfinityLoad",
+      "config": {
+        "policies": []
+      }
     }
   ]
 }

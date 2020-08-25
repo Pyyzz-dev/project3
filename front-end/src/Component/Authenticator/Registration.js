@@ -32,9 +32,6 @@ export default class Registration extends Component {
 
   handleSubmit(event) {
     const { email, password, username, password_confirmation } = this.state;
-    console.log(username);
-    console.log(email);
-    console.log(password);
     axios.post(
       "http://localhost:2020/auth/local/register",
       {

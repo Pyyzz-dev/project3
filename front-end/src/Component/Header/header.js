@@ -102,10 +102,16 @@ getCookie(cname) {
                         <div className="header-iconMain-icon w-25 h-100 d-flex align-items-center">
                             <div className="logoOfP d-flex align-items-center">
                                 <div className="logo-projectPyyzz" id="logo-projectPyyzz">
-                                  {avatarUser}
+                                  {
+                                    this.state.token.length ?  avatarUser : <img style={{height:"100%", width:"100%", borderRadius:"40px"}} src="https://imgix.ranker.com/user_node_img/50045/1000889229/original/1-photo-u1?w=650&q=50&fm=pjpg&fit=crop&crop=faces" alt />
+                                  }
                                 </div>
                                 <div className="text d-flex align-items-center px-2" id="text-projectPyyzz">
-                                  <div className="d-flex align-items-center" style={{fontFamily: "'Dancing Script', cursive", fontSize:"27px", color:"white"}}>{nameUser}</div>
+                                  <div className="d-flex align-items-center" style={{fontFamily: "'Dancing Script', cursive", fontSize:"20px", color:"white"}}>
+                                  {
+                                    this.state.token.length ?  nameUser : <p>Đang ở trang xem chùa</p>
+                                  }
+                                  </div>
                                 </div>
                                 <div className="sprite-sheet d-flex justify-content-center px-0">
 

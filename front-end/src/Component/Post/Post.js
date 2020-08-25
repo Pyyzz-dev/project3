@@ -17,13 +17,13 @@ export default class Detail extends Component{
         this.state={
             data:[],
             dataComment:[],
-            dataUser:[]
+            dataUser:[],
+            countLike: this.getCookie("like")
         }
     }
     componentDidMount(){
         let that = this;
         var id = this.props.match.params.id;
-        console.log(this.getCookie("token"));
         axios({
             method:"GET",
             url:"http://localhost:2020/posts?id="+id
@@ -79,6 +79,26 @@ export default class Detail extends Component{
     handleOnChange = (e, editor) =>{
       console.log(editor.getData());
     }
+    setCookie(cname, cvalue, exdays) {
+      var d = new Date();
+      d.setTime(d.getTime() + (exdays*24*60*60*1000));
+      var expires = "expires="+ d.toUTCString();
+      document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    }
+    clickLike = () =>{
+      this.setCookie("like", this.state.countLike, 0.5)
+      var countLike = parseInt(this.getCookie("like"));
+      var like = document.getElementById("like");
+      if(like.textContent === "Like"){
+        like.textContent = "Liked"
+        this.setState({countLike: countLike - 1});
+        this.setCookie("like", this.state.countLike, 0.5);
+      }else{
+        like.textContent = "Like"
+        this.setState({countLike: countLike + 1});
+        this.setCookie("like", this.state.countLike, 0.5);
+      }
+    }
     render(){
       const contentStyle = {
         textAlign: 'center',
@@ -97,12 +117,16 @@ export default class Detail extends Component{
             </div>
             <div className="d-flex justify-content-start px-3">
               <div className="px-3">
-                <div className="facebook icon px-3" style={{color:"white"}}><i className="fab fa-facebook-f"></i> Facebook</div>
+                <button className="facebook icon px-3" style={{color:"white"}}><i className="fab fa-facebook-f"></i> Facebook</button>
               </div>
               <div className="px-3">
-                <div className="like icon px-3" style={{color:"white"}}><i className="far fa-thumbs-up"></i> Like</div>
+                <button className="like icon px-3" onClick={this.clickLike} id="like" style={{color:"white"}}> Like </button>
+              </div>
+              <div className="px-3">
+                <div className="like icon px-3" style={{color:"white"}}><i className="far fa-thumbs-up"></i> {parseInt(this.getCookie("like"))} lượt Like </div>
               </div>
             </div>
+            
           </div>
           <div className="detail-Post-subcontent d-flex pt-3">  
             <div className="clickcomment d-block px-3">
@@ -146,14 +170,14 @@ export default class Detail extends Component{
 
     var dataComment = this.state.dataComment.length ? this.state.dataComment.map((value,index)=>
       (
-        <div className="title-comment px-0 py-3">
+        <div className="title-comment px-0">
           <div className="title-comment-sub" id="fullpage">
               <div className="section title-and-content-comment d-flex">
-                  <div className="col-2 h-100 avatar-author-comment px-0 py-3 d-flex justify-content-center">
+                  <div className="col-2 h-100 avatar-author-comment px-0 d-flex justify-content-center">
                      {dataUserAvatar}
                   </div>
-                  <div className="col-10 h-100 content-post-comment px-0 d-block" style={{color:"white"}}>
-                      <div className="px-5 py-3">
+                  <div className="col-10 content-post-comment px-0 d-block" style={{color:"white"}}>
+                      <div className="px-5 py-1">
                         <div className="d-flex">
                           {dataUserInfo}
                           <div className="px-5 d-flex align-items-center" style={{fontSize:"12px"}}>

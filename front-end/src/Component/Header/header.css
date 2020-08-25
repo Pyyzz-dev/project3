@@ -34,7 +34,7 @@
       cursor: pointer;
   }
   .header-projectPyyzz .headerPart1 .header-iconMain .header-iconMain-icon .logoOfP .text{
-      min-width: 100px;
+      width: 100px;
       height: 80px;
   }
   .header-projectPyyzz .headerPart1 .header-iconMain .header-iconMain-icon .logoOfP .sprite-sheet{

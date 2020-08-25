@@ -16,6 +16,21 @@ export default class Login extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
+  getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+      var c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return "";
+  }
 
   handleChange(event) {
     this.setState({
@@ -43,10 +58,10 @@ export default class Login extends Component {
       //if response have jwt => login success
       if (data.data.jwt) {
         console.log("You are logined");
-        this.setCookie("token",data.data.jwt,0.5);
+        this.setCookie("token",data.data.user.id,0.5);
         //move to home page
-        var idUser = data.data.user.id;
-        window.location.href = "/Home/"+ idUser;
+        // console.log(data.data);
+        window.location.href = "/Home/"+ this.getCookie("token");
       } else console.log("You are not logined");
     }).catch(error => {
       console.log("login error", error.data.data.message[0]);

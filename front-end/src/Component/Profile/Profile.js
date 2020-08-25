@@ -20,6 +20,7 @@ export default class Profile extends Component {
       that.setState({ data: data.data});
     });
   }
+
     render() {
       var data = this.state.data.length ? this.state.data.map((value,index)=>
       (
@@ -45,7 +46,7 @@ export default class Profile extends Component {
                   </li>
                   <li className="nav-item" style={{borderLeft:"2px solid black"}}>
                   <a className="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">
-                      <Link to="/" style={{color:"black"}}>Back to Home</Link>
+                      <Link to={"/Home/"+this.props.match.params.id} style={{color:"black"}}>Back to Home</Link>
                     </a>
                   </li>
                 </ul>

@@ -23,12 +23,12 @@ export default class Detail extends Component{
     componentDidMount(){
         let that = this;
         var id = this.props.match.params.id;
+        console.log(this.getCookie("token"));
         axios({
             method:"GET",
             url:"http://localhost:2020/posts?id="+id
           }).then(function(data){
             that.setState({data: data.data, dataComment: data.data[0].comments})
-            console.log(data.data[0].comments);
             var idUser = data.data[0].comments[0].user;
             axios({
               method: "GET",
@@ -37,6 +37,21 @@ export default class Detail extends Component{
               that.setState({ dataUser: data.data});
             });
           })
+      }
+      getCookie(cname) {
+        var name = cname + "=";
+        var decodedCookie = decodeURIComponent(document.cookie);
+        var ca = decodedCookie.split(';');
+        for(var i = 0; i <ca.length; i++) {
+          var c = ca[i];
+          while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+          }
+          if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+          }
+        }
+        return "";
       }
       clickSwitch = () =>{
         var fullpage = document.getElementById("fullpage");
@@ -95,7 +110,11 @@ export default class Detail extends Component{
                 <div className="like icon px-3" onClick={this.clickComment} style={{color:"white", cursor:"pointer"}}><i className="fas fa-comments"></i> Comment</div>
               </div>
               <div className="py-3">
-                <div className="like icon px-3" style={{color:"white", cursor:"pointer"}}><i class="fas fa-backward"></i><Link to="/" style={{color:"white"}}> Back to Home</Link></div>
+                <div className="like icon px-3" style={{color:"white", cursor:"pointer"}}><i class="fas fa-backward"></i>
+                {
+                  this.getCookie("token")? <Link to={"/Home/"+this.getCookie("token")} style={{color:"white"}}> Back to Home</Link> : <Link to="/" style={{color:"white"}}> Back to Home</Link>
+                }
+                </div>
               </div>
             </div>
             <div className="px-3">

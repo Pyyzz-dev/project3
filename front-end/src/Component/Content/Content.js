@@ -28,7 +28,6 @@ export default class Content extends Component {
   clickSwitch = () =>{
     var fullpage = document.getElementById("fullpage");
     var switchpage = document.getElementById("switch");
-    var post = document.getElementById("post");
     if(fullpage.classList.contains("night")){
       fullpage.classList.remove("night");
       switchpage.classList.remove("switched");

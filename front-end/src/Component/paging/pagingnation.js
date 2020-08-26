@@ -66,6 +66,17 @@ class Paging extends Component {
         );
         this.observer.observe(this.loadingRef);
     }
+    clickSwitch = () =>{
+      var fullpage = document.getElementById("fullpage");
+      var switchpage = document.getElementById("switch");
+      if(fullpage.classList.contains("night")){
+        fullpage.classList.remove("night");
+        switchpage.classList.remove("switched");
+      }else{
+        fullpage.classList.add("night");
+        switchpage.classList.add("switched");
+      }
+    }
 
     handleObserver(entities, observer) {
         const y = entities[0].boundingClientRect.y;

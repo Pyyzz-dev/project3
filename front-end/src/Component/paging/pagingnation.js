@@ -21,14 +21,12 @@ class Paging extends Component {
             prevY: 0
         };
     }
-
     getPosts = page => {
         var api = `${this.props.api}page=${this.state.page}&limit=2`
         this.setState({ loading: true });
         axios.get(
             api
         ).then(res => {
-            
             this.setState({ posts: [...this.state.posts, ...res.data.data] });
             this.setState({ page: res.data.nextPage });
             this.setState({ canLoad: res.data.canLoad });
@@ -49,8 +47,8 @@ class Paging extends Component {
       }
       return "";
     }
-   
 
+   
 
     componentDidMount() {
       let that = this; 
@@ -83,7 +81,6 @@ class Paging extends Component {
         switchpage.classList.add("switched");
       }
     }
-
     handleObserver(entities, observer) {
         const y = entities[0].boundingClientRect.y;
         setTimeout(() => {
@@ -108,7 +105,6 @@ class Paging extends Component {
             height: "100px",
             margin: "30px"
         };
-
         const imgCSS = {
             display: "block",
             width: "100%"
@@ -116,7 +112,6 @@ class Paging extends Component {
         const loadingTextCSS = { display: this.state.canLoad ? "block" : "none" };
         const endingCSS = { display: this.state.canLoad ? "none" : "block" };
 
-        
             const contentStyle = {
                 textAlign: 'center',
                 height:"245px",
@@ -194,7 +189,6 @@ class Paging extends Component {
                                   </div>
                                     <div id="switch" onClick={this.clickSwitch}>
                                       <div id="circle">
-                                  
                                       </div>
                                     </div>
                                     {data}
@@ -204,7 +198,6 @@ class Paging extends Component {
                         </div>
                         <div className="col-4 fixed pt-3">
                           <div className="image-fixed">
-          
                           </div>
                         </div>
                       </div>
@@ -218,6 +211,7 @@ class Paging extends Component {
                     <span style={endingCSS}>Hết bài rồi bạn ơi!</span>
                   </div>
                 </div>
+
             
                 
         );

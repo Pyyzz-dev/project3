@@ -10,8 +10,8 @@ import {
 // import Detail from '../Detail/Detail';
 export default class Content extends Component {
 
-  
 
+  
   constructor(props){
     super(props);
     this.state = {
@@ -28,7 +28,6 @@ export default class Content extends Component {
       that.setState({data: data.data})
     })
   }
-
   clickSwitch = () =>{
     var fullpage = document.getElementById("fullpage");
     var switchpage = document.getElementById("switch");
@@ -57,14 +56,11 @@ export default class Content extends Component {
     }
     return "";
   }
-
   render(){
-    
     return(
       <div>
         <Paging api ={"http://localhost:2020" + "/infinity-load?"} idUser = {this.props.idUser} />
       </div>
-      
     )
   }
 }

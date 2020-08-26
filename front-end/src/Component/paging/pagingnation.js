@@ -36,7 +36,6 @@ class Paging extends Component {
         axios.get(
             api
         ).then(res => {
-            
             this.setState({ posts: [...this.state.posts, ...res.data.data] });
             this.setState({ page: res.data.nextPage });
             this.setState({ canLoad: res.data.canLoad });

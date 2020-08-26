@@ -29,7 +29,6 @@ class App extends Component {
             <Route exact path="/" component={Home}/>
             <Route path="/Home/:id" component={Home}/>
             <Route path="/Content" component={Content}/>
-            
             <Route path="/Profile/:id" component={Profile}/>
             <Route path="/Post/:id" component={Post}/>
             <Route path="/Category/:id" component={Category}/>

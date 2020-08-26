@@ -192,35 +192,7 @@ class Paging extends Component {
                     <span style={endingCSS}>Hết bài rồi bạn ơi!</span>
                 </div>
                 </div>
-            // <div className="post-container">
-            //     <div>
-            //         {this.state.posts.map((post, i) => (
-            //             <div className='m-post' key={i}>
-            //                 <Link to={`/posts-detail/${post._id}`}>
-            //                     <div>
-            //                         <div>
-            //                             {post.image ? <Image src={"http://localhost:2020" + post.image.url} fluid></Image> : 'khong co'}
-            //                         </div>
-            //                         <div>
-            //                             <h4 className="m-post__title font-weight-bold my-2">{post.title}</h4>
-            //                             <div >{post.description}</div>
-            //                             <div style={{ color: "red", fontSize: ".8rem" }}>
-            //                                 <span>{moment(post.updatedAt).format('LLLL')}</span>
-            //                             </div>
-            //                         </div>
-            //                     </div>
-            //                 </Link>
-            //             </div>
-            //         ))}
-            //     </div>
-                // <div
-                //     ref={loadingRef => (this.loadingRef = loadingRef)}
-                //     style={loadingCSS}
-                // >
-                //     <span style={loadingTextCSS} >Loading...</span>
-                //     <span style={endingCSS}>Hết bài rồi bạn ơi!</span>
-                // </div>
-            // </div>
+            
         );
     }
 }

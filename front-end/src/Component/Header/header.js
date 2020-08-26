@@ -52,7 +52,7 @@ getCookie(cname) {
         url: "http://localhost:2020/users?id=" + idUser
       }).then(function (data) {
         that.setState({ dataUser: data.data});
-        console.log(data.data);
+        
       });
   }
   refresh() {
@@ -72,6 +72,7 @@ getCookie(cname) {
     this.setCookie("token", "", -1);
   }
   render() {
+    
     var data = this.state.data.length ? this.state.data.map((value,index)=>
       (
         <div className="content-mainPage h-100" onClick={this.refresh}>
@@ -87,6 +88,7 @@ getCookie(cname) {
     var avatarUser = this.state.dataUser.length ? this.state.dataUser.map((value,index)=>
       (
         <img onClick={this.clickProfile} style={{height:"100%", width:"100%", borderRadius:"40px"}} src={value.avatar.url} alt />
+        
       )
     ) : <p>Không có dữ liệu</p>
     var nameUser = this.state.dataUser.length ? this.state.dataUser.map((value,index)=>

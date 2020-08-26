@@ -7,7 +7,7 @@ import Home from "./Component/Home/Home";
 import Profile from "./Component/Profile/Profile";
 import Category from "./Component/Category/Category";
 import DetailComment from './Component/DetailComment/DetailComment';
-import Paging from "./Component/paging/pagingnation"
+
 // import './App.css';
 
 import {

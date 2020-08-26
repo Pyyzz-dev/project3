@@ -8,7 +8,6 @@ import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import {
     Link,
   } from "react-router-dom";
-  import ReactMarkdown from "react-markdown"
 
 
 export default class Detail extends Component{
@@ -44,10 +43,10 @@ export default class Detail extends Component{
         var ca = decodedCookie.split(';');
         for(var i = 0; i <ca.length; i++) {
           var c = ca[i];
-          while (c.charAt(0) == ' ') {
+          while (c.charAt(0) === ' ') {
             c = c.substring(1);
           }
-          if (c.indexOf(name) == 0) {
+          if (c.indexOf(name) === 0) {
             return c.substring(name.length, c.length);
           }
         }

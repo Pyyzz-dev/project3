@@ -24,12 +24,12 @@ module.exports = {
       });
   },
 
-   handleInfinityLoad : async ctx => {
+ handleInfinityLoad : async ctx => {
     let { page, limit } = ctx.request.query;
     page = parseInt(page);
     limit = parseInt(limit);
 
     let data = strapi.services.post.getItemsAtPage(page, limit);
-    return data; 
-  }
+    return data;
+}
 }

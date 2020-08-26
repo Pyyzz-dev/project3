@@ -56,6 +56,13 @@ class Paging extends Component {
       return "";
     }
     componentDidMount() {
+      let that = this; 
+      axios({
+        method: "GET",
+        url:"http://localhost:2020/posts"
+      }).then(function(data){
+        that.setState({posts: data.data})
+      })
         this.getPosts(this.state.page);
         var option = {
             root: null,

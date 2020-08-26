@@ -56,69 +56,7 @@ export default class Content extends Component {
       <div>
         <Paging api ={"http://localhost:2020" + "/infinity-load"} idUser = {this.props.idUser} />
       </div>
-      // <div className="Content">
-      //   <div className="container-fluid sub-Content px-0">
-      //     <div className="container advertisement px-0 d-flex align-items-center">
-      //       <div className="sub-advertisement">
-      //         <Carousel effect="fade">
-      //           <div className="carousel1">
-      //             <div style={contentStyle}><h1 style={{color:"white"}}>𝓦𝓮𝓵𝓬𝓸𝓶𝓮 𝓽𝓸 𝓸𝓾𝓻 𝓹𝓻𝓸𝓳𝓮𝓬𝓽</h1></div>
-      //           </div>
-      //           <div className="carousel2">
-      //             <div style={contentStyle}><h1 style={{color:"white"}}>𝓦𝓮𝓵𝓬𝓸𝓶𝓮 𝓽𝓸 𝓸𝓾𝓻 𝓹𝓻𝓸𝓳𝓮𝓬𝓽</h1></div>
-      //           </div>
-      //           <div className="carousel3">
-      //             <div style={contentStyle}><h1 style={{color:"white"}}>𝓦𝓮𝓵𝓬𝓸𝓶𝓮 𝓽𝓸 𝓸𝓾𝓻 𝓹𝓻𝓸𝓳𝓮𝓬𝓽</h1></div>
-      //           </div>
-      //           <div className="carousel4">
-      //             <div style={contentStyle}><h1 style={{color:"white"}}>𝓦𝓮𝓵𝓬𝓸𝓶𝓮 𝓽𝓸 𝓸𝓾𝓻 𝓹𝓻𝓸𝓳𝓮𝓬𝓽</h1></div>
-      //           </div>
-      //         </Carousel>
-      //       </div>
-      //     </div>
-      //     <div className="content">
-      //       <div className="container sub-content d-flex px-0 pt-3">
-      //         <div className="col-8 pt-3">
-      //             <div className="content-effect">
-      //               <div id="fullpage">  
-      //                 <div class="section">
-      //                   <div class="time-circle">
-      //                         <div class="sun"></div>
-      //                         <div class="moon">
-      //                               <div></div>
-      //                               <div></div>
-      //                               <div></div>
-      //                         </div>
-      //                         <div class="stars">
-      //                               <div></div>
-      //                               <div></div>
-      //                               <div></div>
-      //                               <div></div>
-      //                               <div></div>
-      //                               <div></div>
-      //                               <div></div>
-      //                         </div>
-      //                         <div class="water"></div>
-      //                   </div>
-      //                     <div id="switch" onClick={this.clickSwitch}>
-      //                       <div id="circle">
-                        
-      //                       </div>
-      //                     </div>
-      //                     {data}
-      //                   </div>
-      //                 </div>
-      //             </div>
-      //         </div>
-      //         <div className="col-4 fixed pt-3">
-      //           <div className="image-fixed">
-
-      //           </div>
-      //         </div>
-      //       </div>
-      //     </div>
-      //   </div>
-      // </div>
+      
     )
   }
 }

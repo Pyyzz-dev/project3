@@ -7,7 +7,7 @@ import Home from "./Component/Home/Home";
 import Profile from "./Component/Profile/Profile";
 import Category from "./Component/Category/Category";
 import DetailComment from './Component/DetailComment/DetailComment';
-import Paging from "./Component/paging/pagingnation"
+
 // import './App.css';
 
 import {
@@ -29,9 +29,6 @@ class App extends Component {
             <Route exact path="/" component={Home}/>
             <Route path="/Home/:id" component={Home}/>
             <Route path="/Content" component={Content}/>
-            
-           
-            
             
             <Route path="/Profile/:id" component={Profile}/>
             <Route path="/Post/:id" component={Post}/>

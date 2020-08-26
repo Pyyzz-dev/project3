@@ -11,7 +11,6 @@ class Paging extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            data:[],
             posts: [],
             canLoad: true,
             page: 0,
@@ -57,13 +56,6 @@ class Paging extends Component {
       return "";
     }
     componentDidMount() {
-        let that = this;
-        axios({
-          method: "GET",
-          url:"http://localhost:2020/posts"
-        }).then(function(data){
-          that.setState({data: data.data})
-        })
         this.getPosts(this.state.page);
         var option = {
             root: null,
@@ -154,7 +146,7 @@ class Paging extends Component {
                     </div>
                     <div className="content">
                       <div className="container sub-content d-flex px-0 pt-3">
-                        <div className="col-8 pt-3">
+                        <div className="col-9 pt-3">
                             <div className="content-effect">
                               <div id="fullpage">  
                                 <div class="section">
@@ -186,7 +178,7 @@ class Paging extends Component {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-4 fixed pt-3">
+                        <div className="col-3 fixed pt-3">
                           <div className="image-fixed">
           
                           </div>

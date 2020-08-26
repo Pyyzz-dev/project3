@@ -32,23 +32,26 @@ export default class Registration extends Component {
 
   handleSubmit(event) {
     const { email, password, username, password_confirmation } = this.state;
+    console.log(username + " - " + email + " - " + password);
     axios.post(
-      "http://localhost:2020/auth/local/register",
+      "http://localhost:1337/auth/local/register",
       {
         username: username,
         email: email,
         password: password
-
       }).then(response => {
-      console.log(response);
-      //if response have jwt => login success
-      if (response.data.jwt) {
-        console.log("You are register");
-        this.setCookie("token", response.data.jwt, 0.5);
-        //move to home page
-        window.location.href = "/content";
-      } else alert("Register Error: " + response.data.data[0].message[0].message);
-    })
+        console.log(response.data);
+        //if response have jwt => login success
+        if (response.data.jwt) {
+          console.log("You are register");
+          this.setCookie("token", response.data.jwt, 0.5);
+          //move to home page
+          window.location.href = "/content";
+        } else alert("Register Error: " + response.data.data[0].message[0].message);
+      }).catch(error => {
+        
+        alert("Error occurred"+ error.response.data.message[0].messages[0].message);
+      })
     event.preventDefault();
   }
 

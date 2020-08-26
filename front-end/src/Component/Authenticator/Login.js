@@ -50,7 +50,7 @@ export default class Login extends Component {
     // console.log("Username:" + username);
     // console.log("Password:" + password);
     axios.post(
-      "http://localhost:2020/auth/local", {
+      "http://localhost:1337/auth/local", {
       identifier: username,
       password: password
     }).then(data => {
@@ -64,7 +64,8 @@ export default class Login extends Component {
         window.location.href = "/Home/"+ this.getCookie("token");
       } else console.log("You are not logined");
     }).catch(error => {
-      console.log("login error", error.data.data.message[0]);
+      //console.log(error.response.data.message[0].messages[0].message);
+      alert("Error occurred: "+ error.response.data.message[0].messages[0].message);
     });
     event.preventDefault();
   }

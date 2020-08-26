@@ -57,6 +57,7 @@ class Paging extends Component {
         url:"http://localhost:2020/posts"
       }).then(function(data){
         that.setState({data: data.data})
+        console.log(data.data);
       })
         this.getPosts(this.state.page);
         var option = {
@@ -125,7 +126,7 @@ class Paging extends Component {
                     </div>
                     <div className="post-body px-3 d-block">
                       <div className="post-title" id="post-title">
-                        <h5 style={{fontFamily: "Helvetica, sans-serif"}}><Link to={"/Detail/"+ value._id}>{value.Title}</Link></h5>
+                        <h5 style={{fontFamily: "Helvetica, sans-serif"}}><Link to={"/Post/"+ value._id}>{value.Title}</Link></h5>
                       </div>
                       <div className="post-content">
                         <h7 className="font-italic font-weight-bold">{value.Content}</h7>
@@ -165,7 +166,7 @@ class Paging extends Component {
                     </div>
                     <div className="content">
                       <div className="container sub-content d-flex px-0 pt-3">
-                        <div className="col-8 pt-3">
+                        <div className="col-9 pt-3">
                             <div className="content-effect">
                               <div id="fullpage">  
                                 <div class="section">
@@ -196,7 +197,7 @@ class Paging extends Component {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-4 fixed pt-3">
+                        <div className="col-3 fixed pt-3">
                           <div className="image-fixed">
                           </div>
                         </div>

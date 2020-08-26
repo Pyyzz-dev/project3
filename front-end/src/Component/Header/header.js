@@ -49,9 +49,10 @@ getCookie(cname) {
       })
       axios({
         method: "GET",
-        url: "http://localhost:2020/users?id=" + idUser,
+        url: "http://localhost:2020/users?id=" + idUser
       }).then(function (data) {
         that.setState({ dataUser: data.data});
+        console.log(data.data);
       });
   }
   refresh() {

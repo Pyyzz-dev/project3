@@ -24,12 +24,12 @@ class Paging extends Component {
     }
 
     getPosts = page => {
-        var api = `${this.props.api}page=${this.state.page}&limit=3`
+        var api = `${this.props.api}page=${this.state.page}&limit=1`
         this.setState({ loading: true });
         axios.get(
             api
         ).then(res => {
-            console.log(res.data.data);
+            
             this.setState({ posts: [...this.state.posts, ...res.data.data] });
             this.setState({ page: res.data.nextPage });
             this.setState({ canLoad: res.data.canLoad });
@@ -73,7 +73,7 @@ class Paging extends Component {
             if (this.state.canLoad && this.state.prevY > y)
                 this.getPosts(this.state.page);
             this.setState({ prevY: y });
-        }, 500);
+        }, 100);
     }
     render() {
 
@@ -187,10 +187,10 @@ class Paging extends Component {
                   <div
                     ref={loadingRef => (this.loadingRef = loadingRef)}
                     style={loadingCSS}
-                >
+                  >
                     <span style={loadingTextCSS} >Loading...</span>
                     <span style={endingCSS}>Hết bài rồi bạn ơi!</span>
-                </div>
+                  </div>
                 </div>
             
         );

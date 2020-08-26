@@ -14,14 +14,14 @@ function findbyId(id){
 
 async function getItemsAtPage(page, limit) {
   // count: size , page number, canLoad
-  var size = await strapi.query('post').count();
+  let size = await strapi.query('post').count();
   let pageNumber = Math.ceil(size / limit);
   let canLoad = true;
   if (page < 0 || page > pageNumber)
       page = 0;
   let start = page * limit ;
 
-  var items = await strapi.query('post').find({
+  let items = await strapi.query('post').find({
       _start: start,
       _limit: limit
   });
@@ -30,7 +30,6 @@ async function getItemsAtPage(page, limit) {
       canLoad = false;
 
   return {
-  size,
       data: items,
       canLoad: canLoad,
       nextPage: page + 1

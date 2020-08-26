@@ -1,34 +1,26 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import moment from 'moment';
 import "../Content/Content.css";
 import 'antd/dist/antd.css';
 import { Carousel } from 'antd';
 import {
-    Link
+    BrowserRouter as Router,
+    Link,
+    useParams
 } from "react-router-dom";
 import { withRouter } from "react-router";
 class Paging extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            data:[],
             posts: [],
             canLoad: true,
             page: 0,
             prevY: 0
         };
     }
-    clickSwitch = () =>{
-      var fullpage = document.getElementById("fullpage");
-      var switchpage = document.getElementById("switch");
-      if(fullpage.classList.contains("night")){
-        fullpage.classList.remove("night");
-        switchpage.classList.remove("switched");
-      }else{
-        fullpage.classList.add("night");
-        switchpage.classList.add("switched");
-      }
-    }
-
     getPosts = page => {
         var api = `${this.props.api}page=${this.state.page}&limit=2`
         this.setState({ loading: true });
@@ -55,13 +47,16 @@ class Paging extends Component {
       }
       return "";
     }
+
+   
+
     componentDidMount() {
       let that = this; 
       axios({
         method: "GET",
         url:"http://localhost:2020/posts"
       }).then(function(data){
-        that.setState({posts: data.data})
+        that.setState({data: data.data})
       })
         this.getPosts(this.state.page);
         var option = {
@@ -86,7 +81,6 @@ class Paging extends Component {
         switchpage.classList.add("switched");
       }
     }
-
     handleObserver(entities, observer) {
         const y = entities[0].boundingClientRect.y;
         setTimeout(() => {
@@ -95,14 +89,22 @@ class Paging extends Component {
             this.setState({ prevY: y });
         }, 100);
     }
+    clickSwitch = () =>{
+      var fullpage = document.getElementById("fullpage");
+      var switchpage = document.getElementById("switch");
+      if(fullpage.classList.contains("night")){
+        fullpage.classList.remove("night");
+        switchpage.classList.remove("switched");
+      }else{
+        fullpage.classList.add("night");
+        switchpage.classList.add("switched");
+      }
+    }
     render() {
-
-        // Additional css
         const loadingCSS = {
             height: "100px",
             margin: "30px"
         };
-
         const imgCSS = {
             display: "block",
             width: "100%"
@@ -110,7 +112,6 @@ class Paging extends Component {
         const loadingTextCSS = { display: this.state.canLoad ? "block" : "none" };
         const endingCSS = { display: this.state.canLoad ? "none" : "block" };
 
-        
             const contentStyle = {
                 textAlign: 'center',
                 height:"245px",
@@ -164,7 +165,7 @@ class Paging extends Component {
                     </div>
                     <div className="content">
                       <div className="container sub-content d-flex px-0 pt-3">
-                        <div className="col-9 pt-3">
+                        <div className="col-8 pt-3">
                             <div className="content-effect">
                               <div id="fullpage">  
                                 <div class="section">
@@ -188,7 +189,6 @@ class Paging extends Component {
                                   </div>
                                     <div id="switch" onClick={this.clickSwitch}>
                                       <div id="circle">
-                                  
                                       </div>
                                     </div>
                                     {data}
@@ -196,9 +196,8 @@ class Paging extends Component {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-3 fixed pt-3">
+                        <div className="col-4 fixed pt-3">
                           <div className="image-fixed">
-          
                           </div>
                         </div>
                       </div>
@@ -212,6 +211,7 @@ class Paging extends Component {
                     <span style={endingCSS}>Hết bài rồi bạn ơi!</span>
                   </div>
                 </div>
+
             
         );
     }

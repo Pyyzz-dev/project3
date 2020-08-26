@@ -1,11 +1,17 @@
 import React, {Component} from 'react';
+import { Carousel } from 'antd';
 import axios from 'axios';
 import 'antd/dist/antd.css';
 import "./Content.css";
 import Paging from "../paging/pagingnation";
+import {
+  Link,
+} from "react-router-dom";
 // import Detail from '../Detail/Detail';
 export default class Content extends Component {
 
+
+  
   constructor(props){
     super(props);
     this.state = {
@@ -22,7 +28,6 @@ export default class Content extends Component {
       that.setState({data: data.data})
     })
   }
-
   clickSwitch = () =>{
     var fullpage = document.getElementById("fullpage");
     var switchpage = document.getElementById("switch");
@@ -34,6 +39,7 @@ export default class Content extends Component {
       switchpage.classList.add("switched");
     }
   }
+
   getCookie(cname) {
     var name = cname + "=";
     var decodedCookie = decodeURIComponent(document.cookie);
@@ -49,14 +55,11 @@ export default class Content extends Component {
     }
     return "";
   }
-
   render(){
-    
     return(
       <div>
-        <Paging api ={"http://localhost:2020" + "/infinity-load"} idUser = {this.props.idUser} />
+        <Paging api ={"http://localhost:2020" + "/infinity-load?"} idUser = {this.props.idUser} />
       </div>
-      
     )
   }
 }

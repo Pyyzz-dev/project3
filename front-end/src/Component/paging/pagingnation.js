@@ -24,7 +24,7 @@ class Paging extends Component {
     }
 
     getPosts = page => {
-        var api = `${this.props.api}page=${this.state.page}&limit=1`
+        var api = `${this.props.api}page=${this.state.page}&limit=2`
         this.setState({ loading: true });
         axios.get(
             api

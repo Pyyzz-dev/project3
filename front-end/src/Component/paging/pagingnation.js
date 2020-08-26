@@ -125,7 +125,7 @@ class Paging extends Component {
                     </div>
                     <div className="post-body px-3 d-block">
                       <div className="post-title" id="post-title">
-                        <h5 style={{fontFamily: "Helvetica, sans-serif"}}><Link to={"/Detail/"+ value._id}>{value.Title}</Link></h5>
+                        <h5 style={{fontFamily: "Helvetica, sans-serif"}}><Link to={"/Post/"+ value._id}>{value.Title}</Link></h5>
                       </div>
                       <div className="post-content">
                         <h7 className="font-italic font-weight-bold">{value.Content}</h7>

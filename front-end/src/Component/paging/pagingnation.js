@@ -30,7 +30,7 @@ class Paging extends Component {
     }
 
     getPosts = page => {
-        var api = `${this.props.api}page=${this.state.page}&limit=1`
+        var api = `${this.props.api}page=${this.state.page}&limit=2`
         this.setState({ loading: true });
         axios.get(
             api
@@ -67,6 +67,17 @@ class Paging extends Component {
             option
         );
         this.observer.observe(this.loadingRef);
+    }
+    clickSwitch = () =>{
+      var fullpage = document.getElementById("fullpage");
+      var switchpage = document.getElementById("switch");
+      if(fullpage.classList.contains("night")){
+        fullpage.classList.remove("night");
+        switchpage.classList.remove("switched");
+      }else{
+        fullpage.classList.add("night");
+        switchpage.classList.add("switched");
+      }
     }
 
     handleObserver(entities, observer) {

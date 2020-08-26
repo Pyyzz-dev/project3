@@ -1,16 +1,10 @@
 import React, {Component} from 'react';
-import { Carousel } from 'antd';
 import axios from 'axios';
 import 'antd/dist/antd.css';
 import "./Content.css";
 import Paging from "../paging/pagingnation";
-import {
-  Link,
-} from "react-router-dom";
 // import Detail from '../Detail/Detail';
 export default class Content extends Component {
-
-  
 
   constructor(props){
     super(props);
@@ -60,7 +54,7 @@ export default class Content extends Component {
     
     return(
       <div>
-        <Paging api ={"http://localhost:2020" + "/infinity-load?"} idUser = {this.props.idUser} />
+        <Paging api ={"http://localhost:2020" + "/infinity-load"} idUser = {this.props.idUser} />
       </div>
       // <div className="Content">
       //   <div className="container-fluid sub-Content px-0">

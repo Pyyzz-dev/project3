@@ -1,26 +1,33 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import moment from 'moment';
 import "../Content/Content.css";
 import 'antd/dist/antd.css';
 import { Carousel } from 'antd';
-
-import Image from 'react-bootstrap/Image';
 import {
-    BrowserRouter as Router,
-    Link,
-    useParams
+    Link
 } from "react-router-dom";
 import { withRouter } from "react-router";
 class Paging extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            data:[],
             posts: [],
             canLoad: true,
             page: 0,
             prevY: 0
         };
+    }
+    clickSwitch = () =>{
+      var fullpage = document.getElementById("fullpage");
+      var switchpage = document.getElementById("switch");
+      if(fullpage.classList.contains("night")){
+        fullpage.classList.remove("night");
+        switchpage.classList.remove("switched");
+      }else{
+        fullpage.classList.add("night");
+        switchpage.classList.add("switched");
+      }
     }
 
     getPosts = page => {
@@ -50,10 +57,14 @@ class Paging extends Component {
       }
       return "";
     }
-   
-
-
     componentDidMount() {
+        let that = this;
+        axios({
+          method: "GET",
+          url:"http://localhost:2020/posts"
+        }).then(function(data){
+          that.setState({data: data.data})
+        })
         this.getPosts(this.state.page);
         var option = {
             root: null,

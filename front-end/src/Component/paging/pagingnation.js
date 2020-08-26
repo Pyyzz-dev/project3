@@ -4,8 +4,6 @@ import moment from 'moment';
 import "../Content/Content.css";
 import 'antd/dist/antd.css';
 import { Carousel } from 'antd';
-
-import Image from 'react-bootstrap/Image';
 import {
     BrowserRouter as Router,
     Link,
@@ -16,6 +14,7 @@ class Paging extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            data:[],
             posts: [],
             canLoad: true,
             page: 0,
@@ -54,6 +53,13 @@ class Paging extends Component {
 
 
     componentDidMount() {
+      let that = this; 
+      axios({
+        method: "GET",
+        url:"http://localhost:2020/posts"
+      }).then(function(data){
+        that.setState({data: data.data})
+      })
         this.getPosts(this.state.page);
         var option = {
             root: null,
@@ -86,9 +92,18 @@ class Paging extends Component {
             this.setState({ prevY: y });
         }, 100);
     }
+    clickSwitch = () =>{
+      var fullpage = document.getElementById("fullpage");
+      var switchpage = document.getElementById("switch");
+      if(fullpage.classList.contains("night")){
+        fullpage.classList.remove("night");
+        switchpage.classList.remove("switched");
+      }else{
+        fullpage.classList.add("night");
+        switchpage.classList.add("switched");
+      }
+    }
     render() {
-
-        // Additional css
         const loadingCSS = {
             height: "100px",
             margin: "30px"
@@ -204,6 +219,7 @@ class Paging extends Component {
                   </div>
                 </div>
             
+                
         );
     }
 }

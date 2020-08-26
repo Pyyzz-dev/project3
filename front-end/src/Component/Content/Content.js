@@ -40,6 +40,8 @@ export default class Content extends Component {
       switchpage.classList.add("switched");
     }
   }
+
+  
   getCookie(cname) {
     var name = cname + "=";
     var decodedCookie = decodeURIComponent(document.cookie);

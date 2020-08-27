@@ -103,10 +103,9 @@ export default class Header extends Component {
       )
     ) : <p>Không có dữ liệu</p>
     var avatarUser = this.state.dataUser.length ? this.state.dataUser.map((value, index) =>
-      (
+      {
         <img onClick={this.clickProfile} style={{ height: "100%", width: "100%", borderRadius: "40px" }} src={value.avatar.url} alt />
-
-      )
+      }
     ) : <p>Không có dữ liệu</p>
     var nameUser = this.state.dataUser.length ? this.state.dataUser.map((value, index) =>
       (
@@ -145,11 +144,11 @@ export default class Header extends Component {
                         <i className="fas fa-search"></i>
                       </div>
                       <div className="inputSearch d-flex align-items-center">
-                        <input  list="browsers" name="searchKey" id="browser"
+                        <input list="browsers" name="searchKey" id="browser"
                           style={{ border: "0px", width: "100%", height: "100%" }} aria-autocomplete="list"
                           autocomplete="off" type="text"
                           value={this.state.searchKey}
-                          onChange={ this.handleChange } 
+                          onChange={this.handleChange}
                           placeholder="Nhập tên bài hát, ca sĩ hoặc mv... " />
                         <datalist className="optionsSearch" id="browsers">
                           <option value="All" />

@@ -1,10 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import './Login.css';
-<<<<<<< HEAD
-=======
 import {notification} from 'antd';
->>>>>>> 041a3292544dba080fa0672cda318b4252e02cb3
 import { Link } from "react-router-dom";
 export default class Registration extends Component {
   constructor(props) {
@@ -42,35 +39,22 @@ export default class Registration extends Component {
         username: username,
         email: email,
         password: password
-<<<<<<< HEAD
-=======
-
->>>>>>> 041a3292544dba080fa0672cda318b4252e02cb3
       }).then(response => {
-      console.log(response);
-      //if response have jwt => login success
-      if (response.data.jwt) {
-<<<<<<< HEAD
-        console.log("You are register");
-        this.setCookie("token", response.data.jwt, 0.5);
-        //move to home page
-        window.location.href = "/";
-      }
-    }).catch(error =>{
-      
-       alert("Register Error: " + error.response.data.message[0].messages[0].message);
-=======
-        notification["success"]({
-          message: 'Success',
-          description:
-            'You register successful',
-        });
-        this.setCookie("token", response.data.jwt, 0.5);
-        //move to home page
-        window.location.href = "/";
-      } else alert("Register Error: " + response.data.data[0].message[0].message);
->>>>>>> 041a3292544dba080fa0672cda318b4252e02cb3
-    })
+        console.log(response);
+        //if response have jwt => login success
+        if (response.data.jwt) {
+          notification["success"]({
+            message: 'Success',
+            description:
+              'You register successful',
+          });
+          this.setCookie("token", response.data.jwt, 0.5);
+          //move to home page
+          window.location.href = "/";
+        }
+      }).catch(error => {
+        alert("Register Error: " + error.response.data.message[0].messages[0].message);
+      })
     event.preventDefault();
   }
 

@@ -1,0 +1,74 @@
+[{
+  "_id": {
+    "$oid": "5f3a7ea9080b362dd43934d2"
+  },
+  "isActive": true,
+  "blocked": false,
+  "roles": [
+    {
+      "$oid": "5f3a7e5a080b362dd439349e"
+    }
+  ],
+  "username": "Dương Phong",
+  "registrationToken": null,
+  "firstname": "Nguyễn Dương",
+  "lastname": "Phong",
+  "email": "ndphonghe130315@gmail.com",
+  "password": "$2a$10$NOeJy3NgN7xYcir246Lxd.ecxA.n5pL9fpiOSrDL9i1zqjwsQHJJu",
+  "createdAt": {
+    "$date": "2020-08-17T12:57:13.629Z"
+  },
+  "updatedAt": {
+    "$date": "2020-08-18T02:38:19.438Z"
+  },
+  "__v": 0,
+  "resetPasswordToken": "374aa493184c98d6c27d7d62d298422437df371d"
+},{
+  "_id": {
+    "$oid": "5f3a9d37c470162eb090fd7f"
+  },
+  "isActive": false,
+  "blocked": false,
+  "roles": [
+    {
+      "$oid": "5f3a7e5a080b362dd439349f"
+    }
+  ],
+  "username": "Quang Vinh",
+  "registrationToken": "fda45605d2680266a26d168b66f32b07dd63a827",
+  "firstname": "Quang",
+  "lastname": "Vinh",
+  "email": "quangvinh@gmail.com",
+  "createdAt": {
+    "$date": "2020-08-17T15:07:35.490Z"
+  },
+  "updatedAt": {
+    "$date": "2020-08-17T15:09:52.369Z"
+  },
+  "__v": 0,
+  "password": "$2a$10$m4Bh8nQuYktpB/qQCL9/fe40YhdqEZ8BjAgK5mP/OUfR3Xmslb78i"
+},{
+  "_id": {
+    "$oid": "5f3a9d58c470162eb090fd80"
+  },
+  "isActive": false,
+  "blocked": false,
+  "roles": [
+    {
+      "$oid": "5f3a7e5a080b362dd43934a0"
+    }
+  ],
+  "username": "Mạnh Cao",
+  "registrationToken": "96f2ddc66962d6270ad2f274a348b4b0b25566fb",
+  "firstname": "Cao Bá",
+  "lastname": "Mạnh",
+  "email": "manhcaoisme@gmail.com",
+  "createdAt": {
+    "$date": "2020-08-17T15:08:08.047Z"
+  },
+  "updatedAt": {
+    "$date": "2020-08-17T15:10:37.532Z"
+  },
+  "__v": 0,
+  "password": "$2a$10$wC3CurHZQRwjEA.QWw5JAeGQ4P5/QO8EZs1qHrD294JhREAx7OWtK"
+}]

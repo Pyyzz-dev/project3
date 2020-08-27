@@ -38,7 +38,6 @@ export default class Registration extends Component {
         username: username,
         email: email,
         password: password
-
       }).then(response => {
       console.log(response);
       //if response have jwt => login success
@@ -47,7 +46,10 @@ export default class Registration extends Component {
         this.setCookie("token", response.data.jwt, 0.5);
         //move to home page
         window.location.href = "/";
-      } else alert("Register Error: " + response.data.data[0].message[0].message);
+      }
+    }).catch(error =>{
+      
+       alert("Register Error: " + error.response.data.message[0].messages[0].message);
     })
     event.preventDefault();
   }

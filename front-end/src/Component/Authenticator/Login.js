@@ -64,7 +64,7 @@ export default class Login extends Component {
         window.location.href = "/Home/"+ this.getCookie("token");
       } else console.log("You are not logined");
     }).catch(error => {
-      console.log("login error", error.data.data.message[0]);
+      alert("Register Error: " + error.response.data.message[0].messages[0].message);
     });
     event.preventDefault();
   }

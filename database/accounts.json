@@ -1,0 +1,59 @@
+[{
+  "_id": {
+    "$oid": "5f3b508c19a7811ee45e320a"
+  },
+  "posts": [
+    {
+      "$oid": "5f3b4b1e5b51981f80deb41a"
+    }
+  ],
+  "Username": "Dương Phong",
+  "Password": "DuongPhong1",
+  "Email": "ndphonghe130315@gmail.com",
+  "Phone": "0363235199",
+  "createdAt": {
+    "$date": "2020-08-18T03:52:44.139Z"
+  },
+  "updatedAt": {
+    "$date": "2020-08-18T03:52:44.146Z"
+  },
+  "__v": 0,
+  "created_by": {
+    "$oid": "5f3a7ea9080b362dd43934d2"
+  },
+  "role": {
+    "$oid": "5f3a9b8dc470162eb090fd1e"
+  },
+  "updated_by": {
+    "$oid": "5f3a7ea9080b362dd43934d2"
+  }
+},{
+  "_id": {
+    "$oid": "5f3b511475cb2d2df059e38c"
+  },
+  "posts": [
+    {
+      "$oid": "5f3b4b1e5b51981f80deb41a"
+    }
+  ],
+  "Username": "Quang Vinh",
+  "Password": "QuangVinh1",
+  "Email": "quangvinh@gmail.com",
+  "Phone": "0966592831",
+  "createdAt": {
+    "$date": "2020-08-18T03:55:00.706Z"
+  },
+  "updatedAt": {
+    "$date": "2020-08-18T03:55:00.714Z"
+  },
+  "__v": 0,
+  "created_by": {
+    "$oid": "5f3a7ea9080b362dd43934d2"
+  },
+  "role": {
+    "$oid": "5f3a9b8dc470162eb090fd1e"
+  },
+  "updated_by": {
+    "$oid": "5f3a7ea9080b362dd43934d2"
+  }
+}]

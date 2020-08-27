@@ -99,7 +99,7 @@ export default class Detail extends Component{
         notification["success"]({
           message: 'You Like This Post',
           description:
-            'oke boy',
+            'oke boy'
         });
       }
     }

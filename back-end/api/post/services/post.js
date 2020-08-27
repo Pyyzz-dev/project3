@@ -11,8 +11,36 @@ function getPostsLike() {
 function findbyId(id){
   return strapi.query("post").find({id: id});
 }
+
+async function getItemsAtPage(page, limit) {
+  // count: size , page number, canLoad
+  let size = await strapi.query('post').count();
+  let pageNumber = Math.ceil(size / limit);
+  let canLoad = true;
+  if (page < 0 || page > pageNumber)
+      page = 0;
+  let start = page * limit ;
+
+  let items = await strapi.query('post').find({
+      _start: start,
+      _limit: limit
+  });
+
+  if (limit * page + items.length >= size)
+      canLoad = false;
+
+  return {
+      data: items,
+      canLoad: canLoad,
+      nextPage: page + 1
+  }
+
+}
 module.exports = {
   getPosts,
   getPostsLike,
-  findbyId
+  findbyId,
+  getItemsAtPage
 };
+
+

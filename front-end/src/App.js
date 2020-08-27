@@ -8,6 +8,8 @@ import Profile from "./Component/Profile/Profile";
 import Category from "./Component/Category/Category";
 import DetailComment from './Component/DetailComment/DetailComment';
 
+// import './App.css';
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -15,6 +17,9 @@ import {
 } from "react-router-dom";
 
 class App extends Component {
+
+  
+
   render(){
     return(
 

@@ -113,7 +113,7 @@ export default class Category extends Component{
               </div>
               <div className="content">
                 <div className="container sub-content d-flex px-0 pt-3">
-                  <div className="col-8 pt-3">
+                  <div className="col-9 pt-3">
                       <div className="content-effect">
                         <div id="fullpage">  
                           <div class="section">
@@ -145,7 +145,7 @@ export default class Category extends Component{
                           </div>
                       </div>
                   </div>
-                  <div className="col-4 fixed pt-3">
+                  <div className="col-3 fixed pt-3">
                     <div className="image-fixed">
     
                     </div>

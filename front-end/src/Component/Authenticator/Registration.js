@@ -40,16 +40,15 @@ export default class Registration extends Component {
         email: email,
         password: password
       }).then(response => {
-        console.log(response.data);
+    
         //if response have jwt => login success
         if (response.data.jwt) {
           console.log("You are register");
           this.setCookie("token", response.data.jwt, 0.5);
           //move to home page
-          window.location.href = "/content";
-        } else alert("Register Error: " + response.data.data[0].message[0].message);
-      }).catch(error => {
-        
+          window.location.href = "/";
+        } 
+      }).catch(error =>{
         alert("Error occurred"+ error.response.data.message[0].messages[0].message);
       })
     event.preventDefault();

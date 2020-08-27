@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import { Carousel } from 'antd';
 import axios from 'axios';
 import 'antd/dist/antd.css';
@@ -10,41 +10,45 @@ import {
 // import Detail from '../Detail/Detail';
 export default class Content extends Component {
 
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
-      data : [],
+      data: [],
       displayNone: "none",
+      searchData: []
     }
+
+
   }
-  componentDidMount(){
-    let that = this; 
+  componentDidMount() {
+    let that = this;
+    this.setState({ searchData: this.props.setState })
     axios({
       method: "GET",
-      url:"http://localhost:2020/posts"
-    }).then(function(data){
-      that.setState({data: data.data});
+      url: "http://localhost:2020/posts"
+    }).then(function (data) {
+      that.setState({ data: data.data });
     })
   }
 
-  clickSwitch = () =>{
+  clickSwitch = () => {
     var fullpage = document.getElementById("fullpage");
     var switchpage = document.getElementById("switch");
-    if(fullpage.classList.contains("night")){
+    if (fullpage.classList.contains("night")) {
       fullpage.classList.remove("night");
       switchpage.classList.remove("switched");
-    }else{
+    } else {
       fullpage.classList.add("night");
       switchpage.classList.add("switched");
     }
   }
 
-  
+
   getCookie(cname) {
     var name = cname + "=";
     var decodedCookie = decodeURIComponent(document.cookie);
     var ca = decodedCookie.split(';');
-    for(var i = 0; i <ca.length; i++) {
+    for (var i = 0; i < ca.length; i++) {
       var c = ca[i];
       while (c.charAt(0) == ' ') {
         c = c.substring(1);
@@ -55,12 +59,20 @@ export default class Content extends Component {
     }
     return "";
   }
-  render(){
-    return(
+
+  showResult(){
+    console.log(this.props.searchData);
+  }
+  render = () => {
+    { console.log("Search data at content: " + this.props.searchData); }
+    return (
       <div>
-        <Paging api ={"http://localhost:2020" + "/infinity-load?"} idUser = {this.props.idUser} />
+        <button onClick={this.showResult}>
+          check Search
+        </button>
+        <Paging api={"http://localhost:2020" + "/infinity-load?"} idUser={this.props.idUser} searchData={this.props.searchData} />
       </div>
-      
+
     )
   }
 }

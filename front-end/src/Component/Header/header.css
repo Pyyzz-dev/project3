@@ -1,0 +1,120 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* div, button, span2 {
+  border: 1px solid black;
+} */
+.isLogin{
+  background-image: url("../../img/AnhThePhong.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+@media screen and (min-width: 992px){
+  .header-projectPyyzz{
+      background-image: url("../../img/background4.jpg");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      height: 200px;
+  }
+  .header-projectPyyzz .headerPart1{
+      height: 60%;
+      width: 100%;
+  }
+  .header-projectPyyzz .headerPart1 .header-iconMain{
+      height: 80%;
+      width: 100%;
+  }
+  .header-projectPyyzz .headerPart1 .header-iconMain .header-iconMain-icon .logoOfP .logo-projectPyyzz{
+      width: 80px;
+      height: 80px;
+      cursor: pointer;
+  }
+  .header-projectPyyzz .headerPart1 .header-iconMain .header-iconMain-icon .logoOfP .text{
+      width: 100px;
+      height: 80px;
+  }
+  .header-projectPyyzz .headerPart1 .header-iconMain .header-iconMain-icon .logoOfP .sprite-sheet{
+      width: 80px;
+      height: 80px;
+      background-image : url("../../img/sprite-sheet1.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      animation: moveX 1.3s steps(6) infinite;
+  }
+  @keyframes moveX{
+      from{background-position-x:0px;}
+      to{background-position-x:-500px;}
+  }
+  .header-projectPyyzz .headerPart1 .header-iconMain .header-iconMain-content .header-search{
+      border-radius: 20px;
+      background-color: white;
+      border: 1px solid thistle;
+  }
+  .header-projectPyyzz .headerPart1 .header-iconMain .header-iconMain-content .header-search-sub{
+      height: 100%;
+      width: 95%;
+  }
+  .header-projectPyyzz .headerPart1 .header-iconMain .header-iconMain-content .header-search-sub .iconSearch{
+      font-size: 25px;
+      width: 8%;
+  }
+  .header-projectPyyzz .headerPart1 .header-iconMain .header-iconMain-content .header-search-sub .inputSearch{
+      height: 70%;
+      width: 95%;
+      font-size: 13px;
+  }
+  .header-projectPyyzz .headerPart1 .header-iconMain .header-iconMain-information button{
+      width: 48px;
+      height: 48px;
+      border-radius: 24px;
+      border: 1px solid rgb(97, 7, 7);
+      transition: all 0.5s ease-in-out;
+  }
+  .header-projectPyyzz .headerPart1 .header-iconMain .header-iconMain-information button:hover{
+      animation: swing 1s ease;
+      animation-iteration-count: 1;
+  }
+  @keyframes swing {
+      15% {
+          transform: translateY(10px);
+      }
+      
+      30% {
+          transform: translateY(-10px);
+      }
+      
+      50% {
+          transform: translateY(5px);
+      }
+      
+      65% {
+          transform: translateY(-5px);
+      }
+      
+      80% {
+          transform: translateY(3px);
+      }
+      
+      100% {
+          transform: translateY(0);
+      }
+  }
+  .header-projectPyyzz .headerPart2{
+      height: 40%;
+      width: 100%;
+  }
+  .header-projectPyyzz .headerPart2 .headerPart2-link .content-mainPage{
+      padding-right: 30px;
+      cursor: pointer;
+  }
+  .header-projectPyyzz .headerPart2 .headerPart2-link .content-mainPage-Vip{
+      width: 65px;
+      cursor: pointer;
+      background: linear-gradient(90deg, rgba(255,0,0,1) 0%, rgba(53,35,255,0.8239670868347339) 25%, rgba(78,55,9,1) 50%, rgba(4,101,254,1) 75%, rgba(241,255,0,1) 100%);
+  }
+}

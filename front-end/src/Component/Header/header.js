@@ -4,7 +4,6 @@ import axios from 'axios';
 import {
   Link
 } from "react-router-dom";
-import {notification} from "antd"
 
 export default class Header extends Component {
   constructor(props) {
@@ -13,7 +12,8 @@ export default class Header extends Component {
       data: [],
       dataUser: [],
       token: [],
-      searchKey: ""
+      searchKey: "",
+      searchResult: []
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -69,6 +69,7 @@ export default class Header extends Component {
   clickProfile = () => {
     var idUser = this.props.idUser;
     window.location.href = "/Profile/" + idUser;
+    return 0;
   }
   setCookie(cname, cvalue, exdays) {
     var d = new Date();
@@ -82,15 +83,16 @@ export default class Header extends Component {
   search = () => {
     let key = this.state.searchKey;
     axios.get(
-      "http://localhost:2020/search", {
+      "http://localhost:2020/search?key="+key, {
       key: key
     }).then(data => {
+      console.log(key);
       console.log(data);
+      this.setState({searchData:data.data});
     })
   }
 
   render() {
-
     var data = this.state.data.length ? this.state.data.map((value, index) =>
       (
         <div className="content-mainPage h-100" onClick={this.refresh}>
@@ -105,7 +107,10 @@ export default class Header extends Component {
     ) : <p>Không có dữ liệu</p>
     var avatarUser = this.state.dataUser.length ? this.state.dataUser.map((value, index) =>
       (
-        <img onClick={this.clickProfile} style={{ height: "100%", width: "100%", borderRadius: "40px" }} src={value.avatar.url} alt />
+        <img
+          onClick={this.clickProfile}
+          style={{ height: "100%", width: "100%", borderRadius: "40px" }}
+          src={value.avatar.url} alt="image" />
       )
     ) : <p>Không có dữ liệu</p>
     var nameUser = this.state.dataUser.length ? this.state.dataUser.map((value, index) =>

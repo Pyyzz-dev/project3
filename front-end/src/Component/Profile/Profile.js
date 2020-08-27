@@ -28,7 +28,7 @@ export default class Profile extends Component {
           <div className="row">
             <div className="col-md-4">
               <div className="profile-img">
-                  <img src={value.avatar.url} alt />
+                  <img src={value.avatar.url} alt="Không load được ảnh" />
                 <div className="file btn btn-lg btn-primary">
                   Thay đổi ảnh
                   <input type="file" name="file" />

@@ -71,8 +71,9 @@
       "type": "biginteger"
     },
     "comments": {
-      "via": "user",
-      "collection": "comment"
+      "columnName": "username",
+      "collection": "comment",
+      "via": "user"
     }
   }
 }

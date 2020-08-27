@@ -44,10 +44,10 @@ export default class Category extends Component{
         var ca = decodedCookie.split(';');
         for(var i = 0; i <ca.length; i++) {
           var c = ca[i];
-          while (c.charAt(0) == ' ') {
+          while (c.charAt(0) === ' ') {
             c = c.substring(1);
           }
-          if (c.indexOf(name) == 0) {
+          if (c.indexOf(name) === 0) {
             return c.substring(name.length, c.length);
           }
         }
@@ -66,7 +66,7 @@ export default class Category extends Component{
         (
           <div className="container px-3 py-3 post d-flex" id="post">
             <div className="post-avatar">
-              <img src={value.Image.url} style={{height:"100%", width:"100%"}}/>
+              <img src={value.Image.url} style={{height:"100%", width:"100%"}} alt="Không load được ảnh"/>
             </div>
             <div className="post-body px-3 d-block">
               <div className="post-title" id="post-title">

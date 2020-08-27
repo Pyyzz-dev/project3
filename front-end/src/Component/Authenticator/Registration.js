@@ -37,8 +37,8 @@ export default class Registration extends Component {
       {
         username: username,
         email: email,
-        password: password
-
+        password: password,
+        password_confirmation: password_confirmation
       }).then(response => {
       console.log(response);
       //if response have jwt => login success

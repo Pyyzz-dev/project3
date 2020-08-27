@@ -4,6 +4,7 @@ import axios from 'axios';
 import {
   Link
 } from "react-router-dom";
+import {notification} from "antd"
 
 export default class Header extends Component {
   constructor(props){
@@ -51,8 +52,7 @@ getCookie(cname) {
         method: "GET",
         url: "http://localhost:2020/users?id=" + idUser,
       }).then(function (data) {
-        that.setState({ dataUser: data.data});
-        
+        that.setState({ dataUser: data.data});      
       });
   }
   refresh() {

@@ -20,6 +20,12 @@ function findbyId(id) {
   });
 }
 
+function findbyTitle(key) {
+  return strapi.query("post").find({
+    tittle: key
+  });
+}
+
 function commentOfPost(idPost) {
   return regeneratorRuntime.async(function commentOfPost$(_context) {
     while (1) {
@@ -117,11 +123,31 @@ function getItemsAtPage(page, limit) {
   });
 }
 
+function search(key) {
+  var searchKey;
+  return regeneratorRuntime.async(function search$(_context4) {
+    while (1) {
+      switch (_context4.prev = _context4.next) {
+        case 0:
+          searchKey = '/' + key + '/i';
+          return _context4.abrupt("return", strapi.query("post").find({
+            Title: new RegExp(key, 'i')
+          }));
+
+        case 2:
+        case "end":
+          return _context4.stop();
+      }
+    }
+  });
+}
+
 module.exports = {
   getPosts: getPosts,
   getPostsLike: getPostsLike,
   findbyId: findbyId,
   getItemsAtPage: getItemsAtPage,
   createComment: createComment,
-  commentOfPost: commentOfPost
+  commentOfPost: commentOfPost,
+  search: search
 };

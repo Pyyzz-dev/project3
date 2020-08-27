@@ -90,7 +90,7 @@ getCookie(cname) {
     ) : <p>Không có dữ liệu</p>
     var nameUser = this.state.dataUser.length ? this.state.dataUser.map((value,index)=>
       (
-        <p>{value.username}</p>
+        <p key={index}>{value.username}</p>
       )
     ) : <p>Không có dữ liệu</p>
     return (

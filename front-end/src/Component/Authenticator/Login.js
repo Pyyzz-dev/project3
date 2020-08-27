@@ -2,6 +2,10 @@ import React, { Component } from "react";
 import axios from "axios";
 import './Login.css';
 import { Link } from "react-router-dom";
+<<<<<<< HEAD
+=======
+
+>>>>>>> 041a3292544dba080fa0672cda318b4252e02cb3
 export default class Login extends Component {
   constructor(props) {
     super(props);
@@ -62,9 +66,16 @@ export default class Login extends Component {
         //move to home page
         // console.log(data.data);
         window.location.href = "/Home/"+ this.getCookie("token");
+<<<<<<< HEAD
       } else console.log("You are not logined");
     }).catch(error => {
       alert("Register Error: " + error.response.data.message[0].messages[0].message);
+=======
+        
+      } else console.log("You are not logined");
+    }).catch(error => {
+      console.log("login error", error.data.data.message[0]);
+>>>>>>> 041a3292544dba080fa0672cda318b4252e02cb3
     });
     event.preventDefault();
   }

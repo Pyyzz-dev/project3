@@ -95,7 +95,21 @@ export default class Header extends Component {
       this.setState({searchData:data.data});
     })
   }
-
+backHome = () => {
+  console.log("Back To Home");
+  let key = this.state.searchKey;
+  console.log(this);
+  axios.get(
+    "http://localhost:2020/search?key=", {
+    key: key
+  }).then(data => {
+    // console.log(key);
+    // console.log(data);
+    this.props.getDataFromChildren(data.data);
+  }).catch(err => {
+    console.log("Error at Back Home");
+  })
+}
   render() {
     var data = this.state.data.length ? this.state.data.map((value, index) =>
       (
@@ -194,7 +208,7 @@ export default class Header extends Component {
               <div className="headerPart2-link w-100 h-50 d-flex">
                 <div className="content-mainPage h-100">
                   {
-                    this.state.token.length ? <Link to={"/Home/" + this.getCookie("token")} style={{ textDecoration: "none", fontSize: "20px", fontFamily: "'Dancing Script', cursive", color: "white" }}>Trang chủ</Link> : <Link to={"/"} style={{ textDecoration: "none", fontSize: "20px", fontFamily: "'Dancing Script', cursive", color: "white" }}>Trang chủ</Link>
+                    this.state.token.length ? <Link to={"/Home/" + this.getCookie("token")} onClick={this.backHome} style={{ textDecoration: "none", fontSize: "20px", fontFamily: "'Dancing Script', cursive", color: "white" }}>Trang chủ</Link> : <Link to={"/"} style={{ textDecoration: "none", fontSize: "20px", fontFamily: "'Dancing Script', cursive", color: "white" }}>Trang chủ</Link>
                   }
                 </div>
                 {data}

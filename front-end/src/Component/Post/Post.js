@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import 'antd/dist/antd.css';
-import { Carousel } from 'antd';
+import { Carousel ,notification } from 'antd';
 import axios from 'axios';
 import "./Post.css";
 import CKEditor from '@ckeditor/ckeditor5-react';
@@ -96,6 +96,11 @@ export default class Detail extends Component{
         like.textContent = "Like"
         this.setState({countLike: countLike + 1});
         this.setCookie("like", this.state.countLike, 0.5);
+        notification["success"]({
+          message: 'You Like This Post',
+          description:
+            'oke boy',
+        });
       }
     }
     render(){

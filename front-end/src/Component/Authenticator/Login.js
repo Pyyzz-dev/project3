@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import './Login.css';
 import { Link } from "react-router-dom";
+
 export default class Login extends Component {
   constructor(props) {
     super(props);
@@ -62,6 +63,7 @@ export default class Login extends Component {
         //move to home page
         // console.log(data.data);
         window.location.href = "/Home/"+ this.getCookie("token");
+        
       } else console.log("You are not logined");
     }).catch(error => {
       console.log("login error", error.data.data.message[0]);

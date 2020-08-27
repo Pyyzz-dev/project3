@@ -3,7 +3,7 @@ import axios from 'axios';
 import moment from 'moment';
 import "../Content/Content.css";
 import 'antd/dist/antd.css';
-import { Carousel } from 'antd';
+import { Carousel, notification } from 'antd';
 import {
     BrowserRouter as Router,
     Link,
@@ -56,7 +56,8 @@ class Paging extends Component {
         method: "GET",
         url:"http://localhost:2020/posts"
       }).then(function(data){
-        that.setState({data: data.data})
+        that.setState({data: data.data});
+        
       })
         this.getPosts(this.state.page);
         var option = {

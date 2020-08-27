@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import './Login.css';
+import {notification} from 'antd';
 import { Link } from "react-router-dom";
 export default class Registration extends Component {
   constructor(props) {
@@ -43,7 +44,11 @@ export default class Registration extends Component {
       console.log(response);
       //if response have jwt => login success
       if (response.data.jwt) {
-        console.log("You are register");
+        notification["success"]({
+          message: 'Success',
+          description:
+            'You register successful',
+        });
         this.setCookie("token", response.data.jwt, 0.5);
         //move to home page
         window.location.href = "/";

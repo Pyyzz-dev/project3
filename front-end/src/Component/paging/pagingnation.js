@@ -118,7 +118,8 @@ class Paging extends Component {
       height: "245px",
       background: "radial-gradient(circle, rgba(0,0,0,0.30575980392156865) 0%, rgba(0,0,0,0.30575980392156865) 100%, rgba(255,255,255,1) 100%, rgba(255,0,9,1) 100%, rgba(254,4,4,1) 100%)"
     };
-    var data = this.state.posts.length ? this.state.posts.map((value, index) =>
+    console.log("Search data at Pagging:"+this.props.searchData);
+    var data =this.props.searchData ? this.props.searchData.map((value, index) =>
       (
         <div className="container px-3 py-3 post d-flex" id="post">
           <div className="post-avatar">

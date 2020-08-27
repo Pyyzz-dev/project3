@@ -80,6 +80,15 @@
       "config": {
         "policies": []
       }
+    },
+    {
+      "method": "GET",
+      "path": "/search",
+      "handler": "post.search",
+      "config": {
+        "policies": []
+      }
     }
+
   ]
 }

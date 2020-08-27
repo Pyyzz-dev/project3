@@ -2,7 +2,7 @@
 const { sanitizeEntity } = require('strapi-utils');
 
 module.exports = {
-  Top5Post: async ctx => { 
+  Top5Post: async ctx => {
     var data = await strapi.services.post.getPosts()
     ctx.send({
       ok: true,
@@ -16,20 +16,25 @@ module.exports = {
       data: data
     });
   },
-  FindbyId: async ctx =>{
-      var data = await strapi.services.post.findbyId(id)
-      ctx.send({
-          ok:true,
-          data:data
-      });
+  FindbyId: async ctx => {
+    var data = await strapi.services.post.findbyId(id)
+    ctx.send({
+      ok: true,
+      data: data
+    });
   },
 
- handleInfinityLoad : async ctx => {
+  handleInfinityLoad: async ctx => {
     let { page, limit } = ctx.request.query;
     page = parseInt(page);
     limit = parseInt(limit);
-
     let data = strapi.services.post.getItemsAtPage(page, limit);
     return data;
-}
+  },
+  search: async ctx => {
+    let { key } = ctx.request.query;
+    key = key;
+    let data = strapi.services.post.search(key);
+    return data;
+  }
 }

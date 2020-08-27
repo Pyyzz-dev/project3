@@ -8,8 +8,11 @@ function getPostsLike() {
   return strapi.query('post').findOne({ _sort: 'Like:desc' });
 }
 
-function findbyId(id){
-  return strapi.query("post").find({id: id});
+function findbyId(id) {
+  return strapi.query("post").find({ id: id });
+}
+function findbyTitle(key) {
+  return strapi.query("post").find({ tittle: key });
 }
 
 async function getItemsAtPage(page, limit) {
@@ -18,29 +21,35 @@ async function getItemsAtPage(page, limit) {
   let pageNumber = Math.ceil(size / limit);
   let canLoad = true;
   if (page < 0 || page > pageNumber)
-      page = 0;
-  let start = page * limit ;
+    page = 0;
+  let start = page * limit;
 
   let items = await strapi.query('post').find({
-      _start: start,
-      _limit: limit
+    _start: start,
+    _limit: limit
   });
 
   if (limit * page + items.length >= size)
-      canLoad = false;
+    canLoad = false;
 
   return {
-      data: items,
-      canLoad: canLoad,
-      nextPage: page + 1
+    data: items,
+    canLoad: canLoad,
+    nextPage: page + 1
   }
 
+}
+async function search(key) {
+  let searchKey = '/' + key + '/i';
+  return strapi.query("post").find({ Title:  new RegExp(key ,'i')});//Post 1
 }
 module.exports = {
   getPosts,
   getPostsLike,
   findbyId,
-  getItemsAtPage
+  getItemsAtPage,
+  findbyTitle,
+  search
 };
 
 

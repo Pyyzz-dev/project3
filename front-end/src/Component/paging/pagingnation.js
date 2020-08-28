@@ -1,13 +1,10 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import moment from 'moment';
 import "../Content/Content.css";
 import 'antd/dist/antd.css';
 import { Carousel } from 'antd';
 import {
-    BrowserRouter as Router,
     Link,
-    useParams
 } from "react-router-dom";
 import { withRouter } from "react-router";
 class Paging extends Component {
@@ -38,10 +35,10 @@ class Paging extends Component {
       var ca = decodedCookie.split(';');
       for(var i = 0; i <ca.length; i++) {
         var c = ca[i];
-        while (c.charAt(0) == ' ') {
+        while (c.charAt(0) === ' ') {
           c = c.substring(1);
         }
-        if (c.indexOf(name) == 0) {
+        if (c.indexOf(name) === 0) {
           return c.substring(name.length, c.length);
         }
       }
@@ -116,10 +113,10 @@ class Paging extends Component {
             height: "100px",
             margin: "30px"
         };
-        const imgCSS = {
-            display: "block",
-            width: "100%"
-        }
+        // const imgCSS = {
+        //     display: "block",
+        //     width: "100%"
+        // }
         const loadingTextCSS = { display: this.state.canLoad ? "block" : "none" };
         const endingCSS = { display: this.state.canLoad ? "none" : "block" };
 
@@ -130,16 +127,16 @@ class Paging extends Component {
               };
               var data = this.state.posts.length ? this.state.posts.map((value,index)=>
                 (
-                  <div className="container px-3 py-3 post d-flex" id="post">
+                  <div key={index} className="container px-3 py-3 post d-flex" id="post">
                     <div className="post-avatar">
-                      <img src={value.Image.url} style={{height:"100%", width:"100%"}}/>
+                      <img src={value.Image.url} style={{height:"100%", width:"100%"}} alt="Không load được ảnh"/>
                     </div>
                     <div className="post-body px-3 d-block">
                       <div className="post-title" id="post-title">
-                        <h5 style={{fontFamily: "Helvetica, sans-serif"}}><Link to={"/Detail/"+ value._id}>{value.Title}</Link></h5>
+                        <h5 style={{fontFamily: "Helvetica, sans-serif"}}><Link to={"/Post/"+ value._id}>{value.Title}</Link></h5>
                       </div>
                       <div className="post-content">
-                        <h7 className="font-italic font-weight-bold">{value.Content}</h7>
+                        <p style={{fontSize:"15px"}} className="font-italic font-weight-bold">{value.Content}</p>
                       </div>
                       <div className="post-upload-date px-1 d-flex justify-content-around" id="post-upload-date">
                         <div>
@@ -176,18 +173,18 @@ class Paging extends Component {
                     </div>
                     <div className="content">
                       <div className="container sub-content d-flex px-0 pt-3">
-                        <div className="col-8 pt-3">
+                        <div className="col-9 pt-3">
                             <div className="content-effect">
                               <div id="fullpage">  
-                                <div class="section">
-                                  <div class="time-circle">
-                                        <div class="sun"></div>
-                                        <div class="moon">
+                                <div className="section">
+                                  <div className="time-circle">
+                                        <div className="sun"></div>
+                                        <div className="moon">
                                               <div></div>
                                               <div></div>
                                               <div></div>
                                         </div>
-                                        <div class="stars">
+                                        <div className="stars">
                                               <div></div>
                                               <div></div>
                                               <div></div>
@@ -196,7 +193,7 @@ class Paging extends Component {
                                               <div></div>
                                               <div></div>
                                         </div>
-                                        <div class="water"></div>
+                                        <div className="water"></div>
                                   </div>
                                     <div id="switch" onClick={this.clickSwitch}>
                                       <div id="circle">
@@ -207,7 +204,7 @@ class Paging extends Component {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-4 fixed pt-3">
+                        <div className="col-3 fixed pt-3">
                           <div className="image-fixed">
                           </div>
                         </div>

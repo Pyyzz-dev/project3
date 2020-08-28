@@ -21,10 +21,10 @@ getCookie(cname) {
   var ca = decodedCookie.split(';');
   for(var i = 0; i <ca.length; i++) {
     var c = ca[i];
-    while (c.charAt(0) == ' ') {
+    while (c.charAt(0) === ' ') {
       c = c.substring(1);
     }
-    if (c.indexOf(name) == 0) {
+    if (c.indexOf(name) === 0) {
       return c.substring(name.length, c.length);
     }
   }
@@ -73,24 +73,24 @@ getCookie(cname) {
   render() {
     var data = this.state.data.length ? this.state.data.map((value,index)=>
       (
-        <div className="content-mainPage h-100" onClick={this.refresh}>
+        <div key={index} className="content-mainPage h-100" onClick={this.refresh}>
           <Link to={"/Category/"+value._id} style={{textDecoration:"none", fontSize:"20px", fontFamily: "'Dancing Script', cursive", color:"white"}}>{value.Name}</Link>
         </div>
       )
     ) : <p>Không có dữ liệu</p>
     var data1 = this.state.data.length ? this.state.data.map((value,index)=>
       (
-        <option value={value.Name}/>
+        <option key={index} value={value.Name}/>
       )
     ) : <p>Không có dữ liệu</p>
     var avatarUser = this.state.dataUser.length ? this.state.dataUser.map((value,index)=>
       (
-        <img onClick={this.clickProfile} style={{height:"100%", width:"100%", borderRadius:"40px"}} src={value.avatar.url} alt />
+        <img key={index} onClick={this.clickProfile} style={{height:"100%", width:"100%", borderRadius:"40px"}} src={value.avatar.url} alt="Không load được ảnh" />
       )
     ) : <p>Không có dữ liệu</p>
     var nameUser = this.state.dataUser.length ? this.state.dataUser.map((value,index)=>
       (
-        <p>{value.username}</p>
+        <p key={index}>{value.username}</p>
       )
     ) : <p>Không có dữ liệu</p>
     return (
@@ -103,7 +103,7 @@ getCookie(cname) {
                             <div className="logoOfP d-flex align-items-center">
                                 <div className="logo-projectPyyzz" id="logo-projectPyyzz">
                                   {
-                                    this.state.token.length ?  avatarUser : <img style={{height:"100%", width:"100%", borderRadius:"40px"}} src="https://imgix.ranker.com/user_node_img/50045/1000889229/original/1-photo-u1?w=650&q=50&fm=pjpg&fit=crop&crop=faces" alt />
+                                    this.state.token.length ?  avatarUser : <img style={{height:"100%", width:"100%", borderRadius:"40px"}} src="https://imgix.ranker.com/user_node_img/50045/1000889229/original/1-photo-u1?w=650&q=50&fm=pjpg&fit=crop&crop=faces" alt="Không load được ảnh" />
                                   }
                                 </div>
                                 <div className="text d-flex align-items-center px-2" id="text-projectPyyzz">
@@ -127,7 +127,7 @@ getCookie(cname) {
                                     <div className="inputSearch d-flex align-items-center">
                                         <input list="browsers" name="browser" id="browser"
                                           style={{border:"0px", width:"100%", height:"100%"}} aria-autocomplete="list"
-                                            autocomplete="off" type="text"
+                                            autoComplete="off" type="text"
                                             placeholder="Nhập tên bài hát, ca sĩ hoặc mv... "/>
                                         <datalist className="optionsSearch" id="browsers">
                                           <option value="All"/>

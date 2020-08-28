@@ -37,17 +37,17 @@ export default class Registration extends Component {
       {
         username: username,
         email: email,
-        password: password
-
-      }).then(response => {
-      console.log(response);
+        password: password,
+        password_confirmation: password_confirmation
+      }).then(data => {
+      console.log(data);
       //if response have jwt => login success
-      if (response.data.jwt) {
+      if (data.data.jwt) {
         console.log("You are register");
-        this.setCookie("token", response.data.jwt, 0.5);
+        this.setCookie("token", data.data.user.id, 0.5);
         //move to home page
-        window.location.href = "/";
-      } else alert("Register Error: " + response.data.data[0].message[0].message);
+        window.location.href = "/Home/"+ this.getCookie("token");
+      } else alert("Register Error: " + data.data.data[0].message[0].message);
     })
     event.preventDefault();
   }

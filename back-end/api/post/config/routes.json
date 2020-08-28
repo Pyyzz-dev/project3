@@ -48,7 +48,14 @@
         "policies": []
       }
     },
-   
+    {
+      "method": "GET",
+      "path": "/posts/:idPost/comment",
+      "handler": "post.commentOfPost",
+      "config": {
+        "policies": []
+      }
+    },
     {
       "method": "POST",
       "path": "/posts",
@@ -77,6 +84,14 @@
       "method": "GET",
       "path": "/infinity-load",
       "handler": "post.handleInfinityLoad",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/:idPost/comment",
+      "handler": "post.createComment",
       "config": {
         "policies": []
       }

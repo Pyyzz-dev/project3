@@ -125,7 +125,7 @@ class Paging extends Component {
                         <h5 style={{fontFamily: "Helvetica, sans-serif"}}><Link to={"/Post/"+ value._id}>{value.Title}</Link></h5>
                       </div>
                       <div className="post-content">
-                        <h6 className="font-italic font-weight-bold">{value.Content}</h6>
+                        <p style={{fontSize:"15px"}} className="font-italic font-weight-bold">{value.Content}</p>
                       </div>
                       <div className="post-upload-date px-1 d-flex justify-content-around" id="post-upload-date">
                         <div>

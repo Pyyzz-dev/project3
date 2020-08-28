@@ -18,7 +18,7 @@ import ReactMarkdown from "react-markdown"
         var id = this.props.match.params.id
         axios({
             method:"GET",
-            url:"http://localhost:2020/posts?id="+id
+            url:process.env.DOMAIN +"posts?id="+id
           }).then(function(data){
             that.setState({data: data.data[0].comments})
           })

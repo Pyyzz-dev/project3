@@ -51,7 +51,7 @@ class Paging extends Component {
       let that = this; 
       axios({
         method: "GET",
-        url:"http://localhost:2020/posts"
+        url:process.env.DOMAIN +"posts"
       }).then(function(data){
         that.setState({data: data.data})
       })

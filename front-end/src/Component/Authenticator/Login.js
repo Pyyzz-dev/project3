@@ -50,7 +50,7 @@ export default class Login extends Component {
     // console.log("Username:" + username);
     // console.log("Password:" + password);
     axios.post(
-      "http://localhost:2020/auth/local", {
+      process.env.DOMAIN +"auth/local", {
       identifier: username,
       password: password
     }).then(data => {

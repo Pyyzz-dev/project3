@@ -33,7 +33,7 @@ export default class Category extends Component{
         var id = this.props.match.params.id;
         axios({
           method: "GET",
-          url:"http://localhost:2020/categories?id="+id
+          url:process.env.DOMAIN +"categories?id="+id
         }).then(function(data){
           that.setState({data: data.data[0].posts});
         })

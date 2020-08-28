@@ -43,13 +43,13 @@ getCookie(cname) {
     var idUser = this.props.idUser;
     axios({
         method:"GET",
-        url:"http://localhost:2020/categories"
+        url:process.env.DOMAIN +"categories"
       }).then(function(data){
         that.setState({data: data.data})
       })
       axios({
         method: "GET",
-        url: "http://localhost:2020/users?id=" + idUser,
+        url: process.env.DOMAIN +"users?id=" + idUser,
       }).then(function (data) {
         that.setState({ dataUser: data.data});
       });

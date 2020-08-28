@@ -15,7 +15,7 @@ export default class Profile extends Component {
     var id = this.props.match.params.id;
     axios({
       method: "GET",
-      url: "http://localhost:2020/users?id=" + id,
+      url: process.env.DOMAIN +" users?id=" + id,
     }).then(function (data) {
       that.setState({ data: data.data});
     });

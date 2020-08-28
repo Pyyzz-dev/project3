@@ -1,14 +1,10 @@
-import React, { Component } from 'react';
-import axios from 'axios';
-import moment from 'moment';
+import React, { Component } from "react";
+import axios from "axios";
+import moment from "moment";
 import "../Content/Content.css";
-import 'antd/dist/antd.css';
-import { Carousel, notification } from 'antd';
-import {
-  BrowserRouter as Router,
-  Link,
-  useParams
-} from "react-router-dom";
+import "antd/dist/antd.css";
+import { Carousel, notification } from "antd";
+import { BrowserRouter as Router, Link, useParams } from "react-router-dom";
 import { withRouter } from "react-router";
 class Paging extends Component {
   constructor(props) {
@@ -18,27 +14,37 @@ class Paging extends Component {
       posts: [],
       canLoad: true,
       page: 0,
-      prevY: 0
+      prevY: 0,
+      currentPost: 0,
     };
   }
-  getPosts = page => {
-    var api = `${this.props.api}page=${this.state.page}&limit=2`
+  getPosts = (page) => {
+    var api = `${this.props.api}page=${this.state.page}&limit=2`;
     this.setState({ loading: true });
-    axios.get(
-      api
-    ).then(res => {
-      this.setState({ posts: [...this.state.posts, ...res.data.data] });
+    axios.get(api).then((res) => {
+      let loadData =this.state.posts;
+      loadData.push(
+        this.props.searchData[this.state.currentPost]
+      );
+      this.setState({currentPost:this.state.currentPost+1});
+      loadData.push(
+        this.props.searchData[this.state.currentPost]
+      );
+      this.setState({currentPost:this.state.currentPost+1});
+      console.log("Current Load Data = " + loadData);
+      this.setState({ posts: loadData });
+      console.log("Infinity Load - Post length:"+this.state.posts.length);
       this.setState({ page: res.data.nextPage });
       this.setState({ canLoad: res.data.canLoad });
     });
-  }
+  };
   getCookie(cname) {
     var name = cname + "=";
     var decodedCookie = decodeURIComponent(document.cookie);
-    var ca = decodedCookie.split(';');
+    var ca = decodedCookie.split(";");
     for (var i = 0; i < ca.length; i++) {
       var c = ca[i];
-      while (c.charAt(0) == ' ') {
+      while (c.charAt(0) == " ") {
         c = c.substring(1);
       }
       if (c.indexOf(name) == 0) {
@@ -48,22 +54,19 @@ class Paging extends Component {
     return "";
   }
 
-
-
   componentDidMount() {
     let that = this;
     axios({
       method: "GET",
-      url: "http://localhost:2020/posts"
+      url: "http://localhost:2020/posts",
     }).then(function (data) {
       that.setState({ data: data.data });
-
-    })
+    });
     this.getPosts(this.state.page);
     var option = {
       root: null,
       rootMargin: "0px",
-      threshold: 1.0
+      threshold: 1.0,
     };
     this.observer = new IntersectionObserver(
       this.handleObserver.bind(this),
@@ -81,7 +84,7 @@ class Paging extends Component {
       fullpage.classList.add("night");
       switchpage.classList.add("switched");
     }
-  }
+  };
   handleObserver(entities, observer) {
     const y = entities[0].boundingClientRect.y;
     setTimeout(() => {
@@ -100,39 +103,48 @@ class Paging extends Component {
       fullpage.classList.add("night");
       switchpage.classList.add("switched");
     }
-  }
+  };
   render() {
     const loadingCSS = {
       height: "100px",
-      margin: "30px"
+      margin: "30px",
     };
     const imgCSS = {
       display: "block",
-      width: "100%"
-    }
+      width: "100%",
+    };
     const loadingTextCSS = { display: this.state.canLoad ? "block" : "none" };
     const endingCSS = { display: this.state.canLoad ? "none" : "block" };
 
     const contentStyle = {
-      textAlign: 'center',
+      textAlign: "center",
       height: "245px",
-      background: "radial-gradient(circle, rgba(0,0,0,0.30575980392156865) 0%, rgba(0,0,0,0.30575980392156865) 100%, rgba(255,255,255,1) 100%, rgba(255,0,9,1) 100%, rgba(254,4,4,1) 100%)"
+      background:
+        "radial-gradient(circle, rgba(0,0,0,0.30575980392156865) 0%, rgba(0,0,0,0.30575980392156865) 100%, rgba(255,255,255,1) 100%, rgba(255,0,9,1) 100%, rgba(254,4,4,1) 100%)",
     };
-    console.log("Search data at Pagging:"+this.props.searchData);
-    var data =this.props.searchData ? this.props.searchData.map((value, index) =>
-      (
+    
+    var data = this.state.posts.length ? this.state.posts.map((value, index) => 
+    (
         <div className="container px-3 py-3 post d-flex" id="post">
           <div className="post-avatar">
-            <img src={value.Image.url} style={{ height: "100%", width: "100%" }} />
+            <img
+              src={value.Image.url}
+              style={{ height: "100%", width: "100%" }}
+            />
           </div>
           <div className="post-body px-3 d-block">
             <div className="post-title" id="post-title">
-              <h5 style={{ fontFamily: "Helvetica, sans-serif" }}><Link to={"/Post/" + value._id}>{value.Title}</Link></h5>
+              <h5 style={{ fontFamily: "Helvetica, sans-serif" }}>
+                <Link to={"/Post/" + value._id}>{value.Title}</Link>
+              </h5>
             </div>
             <div className="post-content">
               <h7 className="font-italic font-weight-bold">{value.Content}</h7>
             </div>
-            <div className="post-upload-date px-1 d-flex justify-content-around" id="post-upload-date">
+            <div
+              className="post-upload-date px-1 d-flex justify-content-around"
+              id="post-upload-date"
+            >
               <div>
                 <p className="">Đã đăng vào {value.Upload_date}</p>
               </div>
@@ -143,7 +155,8 @@ class Paging extends Component {
           </div>
         </div>
       )
-    ) : <p>Không có dữ liệu</p>
+
+    ) : <p>Không có dữ liệu</p>;
     return (
       <div className="Content">
         <div className="container-fluid sub-Content px-0">
@@ -151,16 +164,24 @@ class Paging extends Component {
             <div className="sub-advertisement">
               <Carousel effect="fade">
                 <div className="carousel1">
-                  <div style={contentStyle}><h1 style={{ color: "white" }}>𝓦𝓮𝓵𝓬𝓸𝓶𝓮 𝓽𝓸 𝓸𝓾𝓻 𝓹𝓻𝓸𝓳𝓮𝓬𝓽</h1></div>
+                  <div style={contentStyle}>
+                    <h1 style={{ color: "white" }}>𝓦𝓮𝓵𝓬𝓸𝓶𝓮 𝓽𝓸 𝓸𝓾𝓻 𝓹𝓻𝓸𝓳𝓮𝓬𝓽</h1>
+                  </div>
                 </div>
                 <div className="carousel2">
-                  <div style={contentStyle}><h1 style={{ color: "white" }}>𝓦𝓮𝓵𝓬𝓸𝓶𝓮 𝓽𝓸 𝓸𝓾𝓻 𝓹𝓻𝓸𝓳𝓮𝓬𝓽</h1></div>
+                  <div style={contentStyle}>
+                    <h1 style={{ color: "white" }}>𝓦𝓮𝓵𝓬𝓸𝓶𝓮 𝓽𝓸 𝓸𝓾𝓻 𝓹𝓻𝓸𝓳𝓮𝓬𝓽</h1>
+                  </div>
                 </div>
                 <div className="carousel3">
-                  <div style={contentStyle}><h1 style={{ color: "white" }}>𝓦𝓮𝓵𝓬𝓸𝓶𝓮 𝓽𝓸 𝓸𝓾𝓻 𝓹𝓻𝓸𝓳𝓮𝓬𝓽</h1></div>
+                  <div style={contentStyle}>
+                    <h1 style={{ color: "white" }}>𝓦𝓮𝓵𝓬𝓸𝓶𝓮 𝓽𝓸 𝓸𝓾𝓻 𝓹𝓻𝓸𝓳𝓮𝓬𝓽</h1>
+                  </div>
                 </div>
                 <div className="carousel4">
-                  <div style={contentStyle}><h1 style={{ color: "white" }}>𝓦𝓮𝓵𝓬𝓸𝓶𝓮 𝓽𝓸 𝓸𝓾𝓻 𝓹𝓻𝓸𝓳𝓮𝓬𝓽</h1></div>
+                  <div style={contentStyle}>
+                    <h1 style={{ color: "white" }}>𝓦𝓮𝓵𝓬𝓸𝓶𝓮 𝓽𝓸 𝓸𝓾𝓻 𝓹𝓻𝓸𝓳𝓮𝓬𝓽</h1>
+                  </div>
                 </div>
               </Carousel>
             </div>
@@ -190,8 +211,7 @@ class Paging extends Component {
                         <div class="water"></div>
                       </div>
                       <div id="switch" onClick={this.clickSwitch}>
-                        <div id="circle">
-                        </div>
+                        <div id="circle"></div>
                       </div>
                       {data}
                     </div>
@@ -199,24 +219,20 @@ class Paging extends Component {
                 </div>
               </div>
               <div className="col-4 fixed pt-3">
-                <div className="image-fixed">
-                </div>
+                <div className="image-fixed"></div>
               </div>
             </div>
           </div>
         </div>
         <div
-          ref={loadingRef => (this.loadingRef = loadingRef)}
+          ref={(loadingRef) => (this.loadingRef = loadingRef)}
           style={loadingCSS}
         >
-          <span style={loadingTextCSS} >Loading...</span>
+          <span style={loadingTextCSS}>Loading...</span>
           <span style={endingCSS}>Hết bài rồi bạn ơi!</span>
         </div>
       </div>
-
-
-
     );
   }
 }
-export default withRouter(Paging)
+export default withRouter(Paging);

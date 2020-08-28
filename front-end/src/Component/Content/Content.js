@@ -60,11 +60,9 @@ export default class Content extends Component {
     return "";
   }
 
-  showResult(){
-    console.log(this.props.searchData);
-  }
+  
   render = () => {
-    { console.log("Search data at content: " + this.props.searchData); }
+   
     return (
       <div>
         <button onClick={this.showResult}>

@@ -1,57 +1,56 @@
 import React, { Component } from "react";
 import axios from "axios";
 import './Login.css';
+import {notification} from 'antd';
 import { Link } from "react-router-dom";
 export default class Registration extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       username: "",
       email: "",
-      password: "",
-      password_confirmation: ""
+      password: ""
     };
-
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
-
   setCookie(cname, cvalue, exdays) {
     var d = new Date();
     d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
     var expires = "expires=" + d.toUTCString();
     document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
   }
-
   handleChange(event) {
     this.setState({
       [event.target.name]: event.target.value
     });
   }
-
   handleSubmit(event) {
-    const { email, password, username, password_confirmation } = this.state;
+    const { email, password, username} = this.state;
     axios.post(
       "http://localhost:2020/auth/local/register",
       {
         username: username,
         email: email,
-        password: password,
-        password_confirmation: password_confirmation
-      }).then(data => {
-      console.log(data);
-      //if response have jwt => login success
-      if (data.data.jwt) {
-        console.log("You are register");
-        this.setCookie("token", data.data.user.id, 0.5);
-        //move to home page
-        window.location.href = "/Home/"+ this.getCookie("token");
-      } else alert("Register Error: " + data.data.data[0].message[0].message);
-    })
+        password: password
+      }).then(response => {
+        console.log(response);
+        //if response have jwt => login success
+        if (response.data.jwt) {
+          notification["success"]({
+            message: 'Success',
+            description:
+              'You register successful',
+          });
+          this.setCookie("token", response.data.jwt, 0.5);
+          //move to home page
+          window.location.href = "/";
+        }
+      }).catch(error => {
+        alert("Register Error: " + error.response.data.message[0].messages[0].message);
+      })
     event.preventDefault();
   }
-
   render() {
     return (
       <div className="login_form">

@@ -109,7 +109,7 @@ class Paging extends Component {
         const loadingTextCSS = { display: this.state.canLoad ? "block" : "none" };
         const endingCSS = { display: this.state.canLoad ? "none" : "block" };
 
-            const contentStyle = {
+              const contentStyle = {
                 textAlign: 'center',
                 height:"245px",
                 background: "radial-gradient(circle, rgba(0,0,0,0.30575980392156865) 0%, rgba(0,0,0,0.30575980392156865) 100%, rgba(255,255,255,1) 100%, rgba(255,0,9,1) 100%, rgba(254,4,4,1) 100%)"
@@ -121,10 +121,10 @@ class Paging extends Component {
                       <img src={value.Image.url} style={{height:"100%", width:"100%"}} alt="Không load được ảnh"/>
                     </div>
                     <div className="post-body px-3 d-block">
-                      <div className="post-title" id="post-title">
+                      <div className="post-title d-flex justify-content-start" id="post-title">
                         <h5 style={{fontFamily: "Helvetica, sans-serif"}}><Link to={"/Post/"+ value._id}>{value.Title}</Link></h5>
                       </div>
-                      <div className="post-content">
+                      <div className="post-content d-flex justify-content-start">
                         <p style={{fontSize:"15px"}} className="font-italic font-weight-bold">{value.Content}</p>
                       </div>
                       <div className="post-upload-date px-1 d-flex justify-content-around" id="post-upload-date">
@@ -200,12 +200,9 @@ class Paging extends Component {
                       </div>
                     </div>
                   </div>
-                  <div
-                    ref={loadingRef => (this.loadingRef = loadingRef)}
-                    style={loadingCSS}
-                  >
-                    <span style={loadingTextCSS} >Loading...</span>
-                    <span style={endingCSS}>Hết bài rồi bạn ơi!</span>
+                  <div ref={loadingRef => (this.loadingRef = loadingRef)} style={loadingCSS}>
+                    <div style={{fontSize: "30px", fontFamily: "'Dancing Script', cursive", color:"black"}}><span style={loadingTextCSS}>Loading...</span></div>
+                    <div style={{fontSize: "30px", fontFamily: "'Dancing Script', cursive", color:"black"}}><span style={endingCSS}>Hết bài rồi bạn ơi!</span></div>
                   </div>
                 </div>
 

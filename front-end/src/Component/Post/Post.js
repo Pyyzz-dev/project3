@@ -23,7 +23,7 @@ export default class Detail extends Component{
         var id = this.props.match.params.id;
         axios({
             method:"GET",
-            url:"http://localhost:2020/posts/"+id+"/comment"
+            url:process.env.DOMAIN +" posts/"+id+"/comment"
           }).then(function(data){
             that.setState({data: data.data.data, dataComment: data.data.data[0].comments})
             // console.log(data.data.data[0].comments[0].user.username);
@@ -101,7 +101,7 @@ export default class Detail extends Component{
       var idPost = this.props.match.params.id;
       axios({
         method:"POST",
-        url:"http://localhost:2020/"+idPost+"/comment",
+        url:process.env.DOMAIN +" "+idPost+"/comment",
         data: {
           Content: inputComment,
           user: idUser

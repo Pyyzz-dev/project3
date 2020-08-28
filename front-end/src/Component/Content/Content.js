@@ -19,7 +19,7 @@ export default class Content extends Component {
     let that = this; 
     axios({
       method: "GET",
-      url:"http://localhost:2020/posts"
+      url:process.env.DOMAIN +"posts"
     }).then(function(data){
       that.setState({data: data.data})
     })
@@ -54,7 +54,7 @@ export default class Content extends Component {
   render(){
     return(
       <div>
-        <Paging api ={"http://localhost:2020/infinity-load?"} idUser = {this.props.idUser} />
+        <Paging api ={process.env.DOMAIN +"infinity-load?"} idUser = {this.props.idUser} />
       </div>
     )
   }

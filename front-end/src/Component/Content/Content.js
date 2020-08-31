@@ -60,17 +60,13 @@ export default class Content extends Component {
     return "";
   }
 
-  showResult(){
-    console.log(this.props.searchData);
-  }
+
   render = () => {
     { console.log("Search data at content: " + this.props.searchData); }
     return (
       <div>
-        <button onClick={this.showResult}>
-          check Search
-        </button>
-        <Paging api={"http://localhost:2020" + "/infinity-load?"} idUser={this.props.idUser} searchData={this.props.searchData} />
+        <Paging api={"http://localhost:2020" + "/infinity-load?"}
+                idUser={this.props.idUser} searchData={this.props.searchData} />
       </div>
 
     )

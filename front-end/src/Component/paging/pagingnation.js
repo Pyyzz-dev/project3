@@ -30,7 +30,7 @@ class Paging extends Component {
       this.setState({ posts: [...this.state.posts, ...res.data.data] });
       this.setState({ page: res.data.nextPage });
       this.setState({ canLoad: res.data.canLoad });
-    });
+    })
   }
   getCookie(cname) {
     var name = cname + "=";
@@ -47,9 +47,6 @@ class Paging extends Component {
     }
     return "";
   }
-
-
-
   componentDidMount() {
     let that = this;
     axios({
@@ -88,7 +85,7 @@ class Paging extends Component {
       if (this.state.canLoad && this.state.prevY > y)
         this.getPosts(this.state.page);
       this.setState({ prevY: y });
-    }, 100);
+    }, 1000);
   }
   clickSwitch = () => {
     var fullpage = document.getElementById("fullpage");
@@ -118,8 +115,7 @@ class Paging extends Component {
       height: "245px",
       background: "radial-gradient(circle, rgba(0,0,0,0.30575980392156865) 0%, rgba(0,0,0,0.30575980392156865) 100%, rgba(255,255,255,1) 100%, rgba(255,0,9,1) 100%, rgba(254,4,4,1) 100%)"
     };
-    console.log("Search data at Pagging:"+this.props.searchData);
-    var data =this.props.searchData ? this.props.searchData.map((value, index) =>
+      var data =this.props.searchData.length ? this.props.searchData.map((value, index) =>
       (
         <div className="container px-3 py-3 post d-flex" id="post">
           <div className="post-avatar">
